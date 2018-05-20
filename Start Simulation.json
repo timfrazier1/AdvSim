@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "943c5d92aef786971243440ce921b9765295d105",
+            "hash": "c0a0ea4e734230e961f1df5fff924e34a1cb3f11",
             "joint": {
                 "cells": [
                     {
@@ -47,11 +47,11 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def on_start(container):\n    phantom.debug('on_start() called')\n    \n    # call 'post_data_1' block\n    post_data_1(container=container)\n\n    return",
+                        "block_code": "def on_start(container):\n    phantom.debug('on_start() called')\n    \n    # call 'run_script_1' block\n    run_script_1(container=container)\n\n    return",
                         "callback_code": "# read-only block view not available",
                         "callback_start": 1,
                         "callsback": false,
-                        "connected_to_start": true,
+                        "connected_to_start": false,
                         "connection_name": "",
                         "connection_type": "",
                         "custom_callback": "",
@@ -144,7 +144,7 @@
                         "title": "START",
                         "type": "coa.StartEnd",
                         "warn": false,
-                        "z": 1
+                        "z": 15
                     },
                     {
                         "0": "E",
@@ -202,8 +202,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 73,
-                        "line_start": 60,
+                        "line_end": 59,
+                        "line_start": 46,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -276,48 +276,7 @@
                         "title": "END",
                         "type": "coa.StartEnd",
                         "warn": false,
-                        "z": 2
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#6C7A89",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#6a6c8a",
-                                "stroke": "#6a6c8a"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
-                        "id": "736cd6f9-d9c4-4672-8b9b-9d3a1a1ff7cc",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "47d49bee-c837-43a6-9ff3-d7e80e1bffcf",
-                            "port": null,
-                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "e0b31ebd-8fcf-4f00-9071-3f419b9fdfcd",
-                            "port": null,
-                            "selector": "g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "type": "link",
-                        "z": 6
+                        "z": 18
                     },
                     {
                         "action": "run script",
@@ -586,14 +545,14 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def run_script_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('run_script_1() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'run_script_1' call\n\n    parameters = []\n    \n    # build parameters list for 'run_script_1' call\n    parameters.append({\n        'ip_hostname': \"172.31.76.156\",\n        'script_file': \"\",\n        'script_str': \"eventcreate /id 999 /D \\\"started\\\" /T INFORMATION /L application\",\n        'parser': \"\",\n        'async': \"\",\n        'command_id': \"\",\n        'shell_id': \"\",\n    })\n\n    phantom.act(\"run script\", parameters=parameters, app={ \"name\": 'Windows Remote Management' }, name=\"run_script_1\", parent_action=action)\n\n    return",
+                        "block_code": "def run_script_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('run_script_1() called')\n\n    # collect data for 'run_script_1' call\n\n    parameters = []\n    \n    # build parameters list for 'run_script_1' call\n    parameters.append({\n        'ip_hostname': \"172.31.76.156\",\n        'script_file': \"\",\n        'script_str': \"eventcreate /id 999 /D \\\"started\\\" /T INFORMATION /L application\",\n        'parser': \"\",\n        'async': \"\",\n        'command_id': \"\",\n        'shell_id': \"\",\n    })\n\n    phantom.act(\"run script\", parameters=parameters, app={ \"name\": 'Windows Remote Management' }, callback=playbook_local_Atomic_Registry_Run_Keys_1, name=\"run_script_1\", parent_action=action)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
                         "color": "",
                         "connected_to_start": true,
-                        "connection_name": "post data",
-                        "connection_type": "action",
+                        "connection_name": "",
+                        "connection_type": "",
                         "custom_callback": "",
                         "custom_code": "",
                         "custom_join": "",
@@ -611,7 +570,7 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 40,
+                        "line_end": 38,
                         "line_start": 16,
                         "message": "Configuring now",
                         "name": "run script",
@@ -673,7 +632,7 @@
                             }
                         },
                         "position": {
-                            "x": 700,
+                            "x": 360,
                             "y": 80
                         },
                         "previous_function": "",
@@ -692,7 +651,7 @@
                         "title": "Generic",
                         "type": "coa.Action",
                         "warn": "",
-                        "z": 7
+                        "z": 28
                     },
                     {
                         "attrs": {
@@ -715,7 +674,7 @@
                         "endDirections": [
                             "left"
                         ],
-                        "id": "cbd68ba9-37be-42d8-a0b3-5fe4dafca586",
+                        "id": "71b0f749-36e6-4237-a144-fe4d081f68b5",
                         "router": {
                             "name": "metro"
                         },
@@ -728,11 +687,12 @@
                             "right"
                         ],
                         "target": {
-                            "id": "0649a1ac-3aec-4896-a7d7-793df7aed34b",
-                            "selector": ".port-body[type=\"input\"]"
+                            "id": "47d49bee-c837-43a6-9ff3-d7e80e1bffcf",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
                         },
                         "type": "link",
-                        "z": 8
+                        "z": 29
                     },
                     {
                         "attrs": {
@@ -755,12 +715,12 @@
                         "endDirections": [
                             "left"
                         ],
-                        "id": "6edfef66-cd8e-4760-96bf-f5ef20f5556e",
+                        "id": "4fa486fe-85fe-49ed-9c52-219e1baa81cc",
                         "router": {
                             "name": "metro"
                         },
                         "source": {
-                            "id": "0649a1ac-3aec-4896-a7d7-793df7aed34b",
+                            "id": "47d49bee-c837-43a6-9ff3-d7e80e1bffcf",
                             "port": null,
                             "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
                         },
@@ -768,137 +728,16 @@
                             "right"
                         ],
                         "target": {
-                            "id": "47d49bee-c837-43a6-9ff3-d7e80e1bffcf",
-                            "port": null,
-                            "selector": "g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                            "id": "7c6a9efa-01e6-4cf6-9ee6-862b66f92ee1",
+                            "selector": ".port-body[type=\"input\"]"
                         },
                         "type": "link",
-                        "z": 10
+                        "z": 30
                     },
                     {
-                        "action": "post data",
-                        "action_type": "generic",
                         "active": false,
-                        "active_keys": {},
-                        "active_values": {
-                            "data": "started",
-                            "host": "172.31.25.78",
-                            "index": "main",
-                            "source": "Phantom",
-                            "source_type": "Automation/Orchestration Platform"
-                        },
                         "angle": 0,
-                        "app": "Splunk",
-                        "approver": "",
-                        "assets": [
-                            {
-                                "action": "post data",
-                                "active": true,
-                                "app_name": "Splunk",
-                                "app_version": "1.3.19",
-                                "config_type": "app",
-                                "fields": {
-                                    "data": "started",
-                                    "host": "172.31.25.78",
-                                    "index": "main",
-                                    "source": "Phantom",
-                                    "source_type": "Automation/Orchestration Platform"
-                                },
-                                "has_app": true,
-                                "id": 7,
-                                "loaded": false,
-                                "missing": false,
-                                "name": "Splunk",
-                                "output": [
-                                    {
-                                        "data_path": "action_result.status",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.message",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.data",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.host",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.index",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.source",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.source_type",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects",
-                                        "data_type": "numeric"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects_successful",
-                                        "data_type": "numeric"
-                                    }
-                                ],
-                                "parameters": {
-                                    "data": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Data to post",
-                                        "key": "data",
-                                        "order": 0,
-                                        "primary": true,
-                                        "required": true
-                                    },
-                                    "host": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Host for event",
-                                        "key": "host",
-                                        "order": 1,
-                                        "required": false
-                                    },
-                                    "index": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Index to send event to",
-                                        "key": "index",
-                                        "order": 4,
-                                        "required": false
-                                    },
-                                    "source": {
-                                        "data_type": "string",
-                                        "default": "Phantom",
-                                        "description": "Source for event",
-                                        "key": "source",
-                                        "order": 2,
-                                        "required": false
-                                    },
-                                    "source_type": {
-                                        "data_type": "string",
-                                        "default": "Automation/Orchestration Platform",
-                                        "description": "Type of source for event",
-                                        "key": "source_type",
-                                        "order": 3,
-                                        "required": false
-                                    }
-                                },
-                                "product_name": "Splunk Enterprise",
-                                "product_vendor": "Splunk Inc.",
-                                "type": ""
-                            }
-                        ],
                         "attrs": {
-                            ".action": {
-                                "text": "post data"
-                            },
                             ".inPorts>.port-in": {
                                 "ref": ".background",
                                 "ref-x": 0.5
@@ -923,8 +762,11 @@
                                     "type": "out"
                                 }
                             },
+                            ".playbook": {
+                                "text": "local/Atomic - Registry R..."
+                            },
                             ".title": {
-                                "text": "Generic"
+                                "text": "Playbook"
                             },
                             "g.delete": {
                                 "display": "none"
@@ -932,47 +774,43 @@
                             "g.error": {
                                 "opacity": 0
                             },
-                            "g.icon image": {
-                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
-                            },
                             "g.notes": {
                                 "display": "block"
                             }
                         },
-                        "block_code": "def post_data_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_1() called')\n\n    # collect data for 'post_data_1' call\n\n    parameters = []\n    \n    # build parameters list for 'post_data_1' call\n    parameters.append({\n        'data': \"started\",\n        'host': \"172.31.25.78\",\n        'source': \"Phantom\",\n        'source_type': \"Automation/Orchestration Platform\",\n        'index': \"main\",\n    })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, callback=run_script_1, name=\"post_data_1\")\n\n    return",
+                        "block_code": "def playbook_local_Atomic_Registry_Run_Keys_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('playbook_local_Atomic_Registry_Run_Keys_1() called')\n    \n    # call playbook \"local/Atomic - Registry Run Keys\", returns the playbook_run_id\n    playbook_run_id = phantom.playbook(\"local/Atomic - Registry Run Keys\", container)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
-                        "callsback": true,
-                        "color": "",
+                        "callsback": false,
                         "connected_to_start": true,
-                        "connection_name": "",
-                        "connection_type": "",
+                        "connection_name": "run script",
+                        "connection_type": "action",
                         "custom_callback": "",
                         "custom_code": "",
                         "custom_join": "",
                         "custom_name": "",
-                        "delay": 0,
                         "description": "",
                         "has_custom": false,
                         "has_custom_block": false,
                         "has_custom_callback": false,
                         "has_custom_join": false,
-                        "id": "0649a1ac-3aec-4896-a7d7-793df7aed34b",
+                        "id": "7c6a9efa-01e6-4cf6-9ee6-862b66f92ee1",
                         "inPorts": [
                             "in"
                         ],
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 60,
-                        "line_start": 40,
+                        "line_end": 46,
+                        "line_start": 38,
                         "message": "Configuring now",
-                        "name": "post data",
+                        "name": "local/Atomic - Registry Run Keys",
                         "notes": "",
                         "number": 1,
                         "outPorts": [
                             "out"
                         ],
+                        "playbook": "local/Atomic - Registry Run Keys",
                         "ports": {
                             "groups": {
                                 "in": {
@@ -1026,26 +864,63 @@
                             }
                         },
                         "position": {
-                            "x": 340,
+                            "x": 580,
                             "y": 80
                         },
                         "previous_function": "",
-                        "previous_name": "post_data_1",
-                        "required_params": {
-                            "data": true
-                        },
-                        "reviewer": "",
+                        "previous_name": "playbook_local_Atomic_Registry_Run_Keys_1",
                         "show_number": false,
                         "size": {
                             "height": 100,
                             "width": 180
                         },
-                        "state": "app_action_config",
+                        "state": "callplaybook",
                         "status": "",
-                        "title": "Generic",
-                        "type": "coa.Action",
-                        "warn": "",
-                        "z": 12
+                        "title": "Playbook",
+                        "type": "coa.CallPlaybook",
+                        "warn": false,
+                        "z": 31
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#6C7A89",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#6a6c8a",
+                                "stroke": "#6a6c8a"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "a208235b-2657-4721-80e5-1edf6cbba352",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "7c6a9efa-01e6-4cf6-9ee6-862b66f92ee1",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "e0b31ebd-8fcf-4f00-9071-3f419b9fdfcd",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "type": "link",
+                        "z": 32
                     }
                 ]
             },
@@ -1054,7 +929,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-05-20T03:47:57.139858+00:00",
+    "create_time": "2018-05-20T04:12:53.714298+00:00",
     "draft_mode": false,
     "labels": [
         "*"
