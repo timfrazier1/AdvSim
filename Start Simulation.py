@@ -41,6 +41,32 @@ def playbook_local_Atomic_Registry_Run_Keys_1(action=None, success=None, contain
     # call playbook "local/Atomic - Registry Run Keys", returns the playbook_run_id
     playbook_run_id = phantom.playbook("local/Atomic - Registry Run Keys", container)
 
+    run_script_2(container=container)
+
+    return
+
+def run_script_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('run_script_2() called')
+    
+    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+    
+    # collect data for 'run_script_2' call
+
+    parameters = []
+    
+    # build parameters list for 'run_script_2' call
+    parameters.append({
+        'ip_hostname': "172.31.76.156",
+        'script_file': "",
+        'script_str': "eventcreate /id 999 /D \"ended\" /T INFORMATION /L application",
+        'parser': "",
+        'async': "",
+        'command_id': "",
+        'shell_id': "",
+    })
+
+    phantom.act("run script", parameters=parameters, app={ "name": 'Windows Remote Management' }, name="run_script_2")
+
     return
 
 def on_finish(container, summary):
