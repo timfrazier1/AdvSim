@@ -8,14 +8,16 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
     
-    # call 'run_script_1' block
-    run_script_1(container=container)
+    # call 'post_data_1' block
+    post_data_1(container=container)
 
     return
 
 def run_script_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('run_script_1() called')
-
+    
+    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+    
     # collect data for 'run_script_1' call
 
     parameters = []
@@ -31,7 +33,27 @@ def run_script_1(action=None, success=None, container=None, results=None, handle
         'shell_id': "",
     })
 
-    phantom.act("run script", parameters=parameters, app={ "name": 'Windows Remote Management' }, name="run_script_1")
+    phantom.act("run script", parameters=parameters, app={ "name": 'Windows Remote Management' }, name="run_script_1", parent_action=action)
+
+    return
+
+def post_data_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('post_data_1() called')
+
+    # collect data for 'post_data_1' call
+
+    parameters = []
+    
+    # build parameters list for 'post_data_1' call
+    parameters.append({
+        'data': "started",
+        'host': "172.31.25.78",
+        'source': "Phantom",
+        'source_type': "Automation/Orchestration Platform",
+        'index': "main",
+    })
+
+    phantom.act("post data", parameters=parameters, app={ "name": 'Splunk' }, callback=run_script_1, name="post_data_1")
 
     return
 
