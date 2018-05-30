@@ -173,14 +173,10 @@ def join_format_2(action=None, success=None, container=None, results=None, handl
     if phantom.get_run_data(key='join_format_2_called'):
         return
 
-    # check if all connected incoming actions are done i.e. have succeeded or failed
-    if phantom.actions_done([ 'run_supplied_command' ]):
-        
-        # save the state that the joined function has now been called
-        phantom.save_run_data(key='join_format_2_called', value='format_2')
-        
-        # call connected block "format_2"
-        format_2(container=container, handle=handle)
+    # no callbacks to check, call connected block "format_2"
+    phantom.save_run_data(key='join_format_2_called', value='format_2', auto=True)
+
+    format_2(container=container, handle=handle)
     
     return
 
