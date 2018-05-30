@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "998422262bd23e09b9ab2ae8e0c77115ad36e503",
+            "hash": "fce2ee67b7065ce8c6f17aab4cec029155acb875",
             "joint": {
                 "cells": [
                     {
@@ -2968,7 +2968,7 @@
                         "connection_name": "write started event",
                         "connection_type": "action",
                         "custom_callback": "",
-                        "custom_code": "def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('decision_1() called')\n\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.test_id', 'artifact:*.id'])\n    phantom.debug(container_data)\n    tests_to_run = []\n    for each_item in container_data:\n        success, message, test_rows = phantom.get_list(list_name='Test Matrix', values=each_item[0])\n        phantom.debug(\n            'phantom.get_list results: success: {}, message: {}, execs: {}'.format(success, message, test_rows))\n        tests_to_run.append([x for x in test_rows['matches']])\n    phantom.debug(tests_to_run)\n    \"\"\"\n    # call connected blocks if condition 1 matched\n    if matched_artifacts_1 or matched_results_1:\n        powershell_test(action=action, success=success, container=container, results=results, handle=handle)\n        return\n\n    # check for 'elif' condition 2\n    matched_artifacts_2, matched_results_2 = phantom.condition(\n        container=container,\n        action_results=results,\n        conditions=[\n            [\"artifact:*.cef.test_id\", \"in\", \"custom_list:Test Matrix\"],\n        ])\n\n    # call connected blocks if condition 2 matched\n    if matched_artifacts_2 or matched_results_2:\n        cmd_test(action=action, success=success, container=container, results=results, handle=handle)\n        return\n\n    # call connected blocks for 'else' condition 3\n    run_supplied_command(action=action, success=success, container=container, results=results, handle=handle)\n    \"\"\"\n    return",
+                        "custom_code": "def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('decision_1() called')\n\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.test_id', 'artifact:*.id'])\n    phantom.debug(container_data)\n    tests_to_run = []\n    for each_item in container_data:\n        success, message, test_rows = phantom.get_list(list_name='Test Matrix', values=each_item[0])\n        phantom.debug(\n            'phantom.get_list results: success: {}, message: {}, execs: {}'.format(success, message, test_rows))\n        tests_to_run.append(test_rows['matches'])\n    phantom.debug(tests_to_run)\n    \"\"\"\n    # call connected blocks if condition 1 matched\n    if matched_artifacts_1 or matched_results_1:\n        powershell_test(action=action, success=success, container=container, results=results, handle=handle)\n        return\n\n    # check for 'elif' condition 2\n    matched_artifacts_2, matched_results_2 = phantom.condition(\n        container=container,\n        action_results=results,\n        conditions=[\n            [\"artifact:*.cef.test_id\", \"in\", \"custom_list:Test Matrix\"],\n        ])\n\n    # call connected blocks if condition 2 matched\n    if matched_artifacts_2 or matched_results_2:\n        cmd_test(action=action, success=success, container=container, results=results, handle=handle)\n        return\n\n    # call connected blocks for 'else' condition 3\n    run_supplied_command(action=action, success=success, container=container, results=results, handle=handle)\n    \"\"\"\n    return",
                         "custom_join": "",
                         "custom_name": "",
                         "description": "",
@@ -3102,7 +3102,7 @@
                         "status": "",
                         "type": "coa.Decision",
                         "warn": false,
-                        "z": 57
+                        "z": 58
                     }
                 ]
             },
@@ -3111,7 +3111,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-05-30T20:20:55.211905+00:00",
+    "create_time": "2018-05-30T20:21:56.292186+00:00",
     "draft_mode": false,
     "labels": [
         "*"

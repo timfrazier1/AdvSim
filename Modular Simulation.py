@@ -23,7 +23,7 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
         success, message, test_rows = phantom.get_list(list_name='Test Matrix', values=each_item[0])
         phantom.debug(
             'phantom.get_list results: success: {}, message: {}, execs: {}'.format(success, message, test_rows))
-        tests_to_run.append([x for x in test_rows['matches']])
+        tests_to_run.append(test_rows['matches'])
     phantom.debug(tests_to_run)
     """
     # call connected blocks if condition 1 matched
