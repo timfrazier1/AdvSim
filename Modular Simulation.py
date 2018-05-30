@@ -187,6 +187,7 @@ def write_ended_event(action=None, success=None, container=None, results=None, h
     
     # collect data for 'write_ended_event' call
     results_data_1 = phantom.collect2(container=container, datapath=['write_started_event:action_result.parameter.ip_hostname', 'write_started_event:action_result.parameter.context.artifact_id'], action_results=results)
+    formatted_data_1 = phantom.get_format_data(name='format_2')
 
     parameters = []
     
@@ -196,7 +197,7 @@ def write_ended_event(action=None, success=None, container=None, results=None, h
             parameters.append({
                 'ip_hostname': results_item_1[0],
                 'script_file': "",
-                'script_str': "",
+                'script_str': formatted_data_1,
                 'parser': "",
                 'async': "",
                 'command_id': "",
