@@ -26,14 +26,16 @@ def add_list_1(action=None, success=None, container=None, results=None, handle=N
 def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('decision_1() called')
 
-    # check for 'if' condition 1
-    matched_artifacts_1, matched_results_1 = phantom.condition(
-        container=container,
-        action_results=results,
-        conditions=[
-            ["artifact:*.cef.test_id", "in", "custom_list:Test Matrix"],
-        ])
-
+    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.test_id', 'artifact:*.id'])
+    phantom.debug(container_data)
+    tests_to_run = []
+    for each_item in container_data:
+        success, message, test_rows = phantom.get_list(list_name='Test Matrix', values=each_item[0])
+        phantom.debug(
+            'phantom.get_list results: success: {}, message: {}, execs: {}'.format(success, message, test_rows))
+        tests_to_run.append(test_rows)
+    phantom.debug(tests_to_run)
+    """
     # call connected blocks if condition 1 matched
     if matched_artifacts_1 or matched_results_1:
         powershell_test(action=action, success=success, container=container, results=results, handle=handle)
@@ -54,7 +56,7 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks for 'else' condition 3
     run_supplied_command(action=action, success=success, container=container, results=results, handle=handle)
-
+    """
     return
 
 def powershell_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
