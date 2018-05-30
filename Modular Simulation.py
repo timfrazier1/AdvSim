@@ -26,32 +26,29 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
         for match in test_rows['matches']:
             tests_to_run.append(match['value'])
     phantom.debug(tests_to_run)
-    """
-    # call connected blocks if condition 1 matched
-    if matched_artifacts_1 or matched_results_1:
-        powershell_test(action=action, success=success, container=container, results=results, handle=handle)
-        return
+    
+    if tests_to_run != []:
+        for each_test in tests_to_run:
+            # call connected blocks if condition 1 matched
+            handle = each_test[1]
+            if each_test[2] == 'powershell':
+                powershell_test(action=action, success=success, container=container, results=results, handle=handle)
+                return
 
-    # check for 'elif' condition 2
-    matched_artifacts_2, matched_results_2 = phantom.condition(
-        container=container,
-        action_results=results,
-        conditions=[
-            ["artifact:*.cef.test_id", "in", "custom_list:Test Matrix"],
-        ])
+            # check for 'elif' condition 2
+            elif each_test[2] == 'cmd': 
+                cmd_test(action=action, success=success, container=container, results=results, handle=handle)
+                return
 
-    # call connected blocks if condition 2 matched
-    if matched_artifacts_2 or matched_results_2:
-        cmd_test(action=action, success=success, container=container, results=results, handle=handle)
-        return
-
-    # call connected blocks for 'else' condition 3
-    run_supplied_command(action=action, success=success, container=container, results=results, handle=handle)
-    """
+    else:
+        # call connected blocks for 'else' condition 3
+        run_supplied_command(action=action, success=success, container=container, results=results, handle=handle)
+    
     return
 
 def powershell_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('powershell_test() called')
+    phantom.debug(handle)
     
     #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
     
@@ -66,7 +63,7 @@ def powershell_test(action=None, success=None, container=None, results=None, han
             parameters.append({
                 'ip_hostname': results_item_1[0],
                 'script_file': "",
-                'script_str': "",
+                'script_str': handle,
                 'parser': "",
                 'async': "",
                 'command_id': "",
@@ -81,6 +78,7 @@ def powershell_test(action=None, success=None, container=None, results=None, han
 
 def cmd_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('cmd_test() called')
+    phantom.debug(handle)
     
     #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
     
@@ -94,8 +92,8 @@ def cmd_test(action=None, success=None, container=None, results=None, handle=Non
         if container_item[0]:
             parameters.append({
                 'ip_hostname': container_item[0],
-                'command': "",
-                'arguments': "",
+                'command': handle.split(' ', 1)[0],
+                'arguments': handle.split(' ', 1)[1],
                 'parser': "",
                 'async': "",
                 'command_id': "",

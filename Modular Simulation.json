@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "3c87e1cc7b9bb91dba63210187d6037a3e07d98c",
+            "hash": "29e1c631736759e173686c66dfcf54276e12fc46",
             "joint": {
                 "cells": [
                     {
@@ -202,8 +202,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 262,
-                        "line_start": 249,
+                        "line_end": 260,
+                        "line_start": 247,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -808,8 +808,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 155,
-                        "line_start": 127,
+                        "line_end": 153,
+                        "line_start": 125,
                         "message": "Configuring now",
                         "name": "run script",
                         "notes": "",
@@ -959,8 +959,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 127,
-                        "line_start": 111,
+                        "line_end": 125,
+                        "line_start": 109,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -1085,381 +1085,6 @@
                         },
                         "type": "link",
                         "z": 41
-                    },
-                    {
-                        "action": "run script",
-                        "action_type": "generic",
-                        "active": false,
-                        "active_keys": {},
-                        "active_values": {
-                            "async": "",
-                            "command_id": "",
-                            "ip_hostname": "write_started_event:action_result.parameter.ip_hostname",
-                            "parser": "",
-                            "script_file": "",
-                            "script_str": "",
-                            "shell_id": ""
-                        },
-                        "angle": 0,
-                        "app": "Windows Remote Management",
-                        "approver": "",
-                        "assets": [
-                            {
-                                "action": "run script",
-                                "active": true,
-                                "app_name": "Windows Remote Management",
-                                "app_version": "1.0.12",
-                                "config_type": "app",
-                                "fields": {
-                                    "async": "",
-                                    "command_id": "",
-                                    "ip_hostname": "write_started_event:action_result.parameter.ip_hostname",
-                                    "parser": "",
-                                    "script_file": "",
-                                    "script_str": "",
-                                    "shell_id": ""
-                                },
-                                "has_app": true,
-                                "id": 128,
-                                "loaded": false,
-                                "missing": false,
-                                "name": "Windows Remote Management",
-                                "output": [
-                                    {
-                                        "data_path": "action_result.status",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.async",
-                                        "data_type": "boolean"
-                                    },
-                                    {
-                                        "contains": [
-                                            "winrm command id"
-                                        ],
-                                        "data_path": "action_result.parameter.command_id",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "ip",
-                                            "host name"
-                                        ],
-                                        "data_path": "action_result.parameter.ip_hostname",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "vault id"
-                                        ],
-                                        "data_path": "action_result.parameter.parser",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "vault id"
-                                        ],
-                                        "data_path": "action_result.parameter.script_file",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.script_str",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "winrm shell id"
-                                        ],
-                                        "data_path": "action_result.parameter.shell_id",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.status_code",
-                                        "data_type": "numeric",
-                                        "example_values": [
-                                            0
-                                        ]
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.std_err",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "Error message"
-                                        ]
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.std_out",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "Successful output"
-                                        ]
-                                    },
-                                    {
-                                        "contains": [
-                                            "winrm command id"
-                                        ],
-                                        "data_path": "action_result.summary.command_id",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "winrm shell id"
-                                        ],
-                                        "data_path": "action_result.summary.shell_id",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "column_name": "Message",
-                                        "column_order": 0,
-                                        "data_path": "action_result.message",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects",
-                                        "data_type": "numeric"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects_successful",
-                                        "data_type": "numeric"
-                                    }
-                                ],
-                                "parameters": {
-                                    "async": {
-                                        "data_type": "boolean",
-                                        "default": false,
-                                        "description": "Start the command, but don't wait for output",
-                                        "key": "async",
-                                        "order": 4,
-                                        "required": false
-                                    },
-                                    "command_id": {
-                                        "contains": [
-                                            "winrm command id"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Command ID of async command (Provide with shell_id)",
-                                        "key": "command_id",
-                                        "order": 5,
-                                        "primary": true,
-                                        "required": false
-                                    },
-                                    "ip_hostname": {
-                                        "contains": [
-                                            "ip",
-                                            "host name"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "IP/Hostname",
-                                        "key": "ip_hostname",
-                                        "order": 0,
-                                        "required": true
-                                    },
-                                    "parser": {
-                                        "contains": [
-                                            "vault id"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "The vault ID of a custom parser to use for output",
-                                        "key": "parser",
-                                        "order": 3,
-                                        "primary": true,
-                                        "required": false
-                                    },
-                                    "script_file": {
-                                        "contains": [
-                                            "vault id"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "The vault ID of a PowerShell script to run",
-                                        "key": "script_file",
-                                        "order": 1,
-                                        "primary": true,
-                                        "required": false
-                                    },
-                                    "script_str": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "A PowerShell script to run",
-                                        "key": "script_str",
-                                        "order": 2,
-                                        "primary": true,
-                                        "required": false
-                                    },
-                                    "shell_id": {
-                                        "contains": [
-                                            "winrm shell id"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Shell ID of async command (Provide with command_id)",
-                                        "key": "shell_id",
-                                        "order": 6,
-                                        "required": false
-                                    }
-                                },
-                                "product_name": "Windows Remote Management",
-                                "product_vendor": "Microsoft",
-                                "type": ""
-                            }
-                        ],
-                        "attrs": {
-                            ".action": {
-                                "text": "powershell test"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "Generic"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.icon image": {
-                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def powershell_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('powershell_test() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'powershell_test' call\n    results_data_1 = phantom.collect2(container=container, datapath=['write_started_event:action_result.parameter.ip_hostname', 'write_started_event:action_result.parameter.context.artifact_id'], action_results=results)\n\n    parameters = []\n    \n    # build parameters list for 'powershell_test' call\n    for results_item_1 in results_data_1:\n        if results_item_1[0]:\n            parameters.append({\n                'ip_hostname': results_item_1[0],\n                'script_file': \"\",\n                'script_str': \"\",\n                'parser': \"\",\n                'async': \"\",\n                'command_id': \"\",\n                'shell_id': \"\",\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': results_item_1[1]},\n            })\n\n    phantom.act(\"run script\", parameters=parameters, app={ \"name\": 'Windows Remote Management' }, callback=join_format_2, name=\"powershell_test\")\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": true,
-                        "color": "",
-                        "connected_to_start": true,
-                        "connection_name": "write started event",
-                        "connection_type": "action",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "powershell test",
-                        "delay": 0,
-                        "description": "",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "8891b45a-715a-40e7-863f-8dc1be3ef024",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 82,
-                        "line_start": 53,
-                        "message": "Configuring now",
-                        "name": "run script",
-                        "notes": "",
-                        "number": 1,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 880,
-                            "y": 120
-                        },
-                        "previous_function": "",
-                        "previous_name": "powershell_test",
-                        "required_params": {
-                            "ip_hostname": true
-                        },
-                        "reviewer": "",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "app_action_config",
-                        "status": "",
-                        "title": "Generic",
-                        "type": "coa.Action",
-                        "warn": "",
-                        "z": 43
                     },
                     {
                         "attrs": {
@@ -1791,8 +1416,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 218,
-                        "line_start": 189,
+                        "line_end": 216,
+                        "line_start": 187,
                         "message": "Configuring now",
                         "name": "run script",
                         "notes": "",
@@ -1956,373 +1581,6 @@
                         "z": 47
                     },
                     {
-                        "action": "run command",
-                        "action_type": "generic",
-                        "active": false,
-                        "active_keys": {},
-                        "active_values": {
-                            "arguments": "",
-                            "async": "",
-                            "command": "",
-                            "command_id": "",
-                            "ip_hostname": "artifact:*.cef.destinationAddress",
-                            "parser": "",
-                            "shell_id": ""
-                        },
-                        "angle": 0,
-                        "app": "Windows Remote Management",
-                        "approver": "",
-                        "assets": [
-                            {
-                                "action": "run command",
-                                "active": true,
-                                "app_name": "Windows Remote Management",
-                                "app_version": "1.0.12",
-                                "config_type": "app",
-                                "fields": {
-                                    "arguments": "",
-                                    "async": "",
-                                    "command": "",
-                                    "command_id": "",
-                                    "ip_hostname": "artifact:*.cef.destinationAddress",
-                                    "parser": "",
-                                    "shell_id": ""
-                                },
-                                "has_app": true,
-                                "id": 128,
-                                "loaded": false,
-                                "missing": false,
-                                "name": "Windows Remote Management",
-                                "output": [
-                                    {
-                                        "data_path": "action_result.status",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.arguments",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.async",
-                                        "data_type": "boolean"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.command",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "winrm command id"
-                                        ],
-                                        "data_path": "action_result.parameter.command_id",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "ip",
-                                            "host name"
-                                        ],
-                                        "data_path": "action_result.parameter.ip_hostname",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "vault id"
-                                        ],
-                                        "data_path": "action_result.parameter.parser",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "winrm shell id"
-                                        ],
-                                        "data_path": "action_result.parameter.shell_id",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.status_code",
-                                        "data_type": "numeric",
-                                        "example_values": [
-                                            0
-                                        ]
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.std_err",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "Error message"
-                                        ]
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.std_out",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "Successful output"
-                                        ]
-                                    },
-                                    {
-                                        "contains": [
-                                            "winrm command id"
-                                        ],
-                                        "data_path": "action_result.summary.command_id",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "winrm shell id"
-                                        ],
-                                        "data_path": "action_result.summary.shell_id",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "column_name": "Message",
-                                        "column_order": 0,
-                                        "data_path": "action_result.message",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects",
-                                        "data_type": "numeric"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects_successful",
-                                        "data_type": "numeric"
-                                    }
-                                ],
-                                "parameters": {
-                                    "arguments": {
-                                        "data_type": "string",
-                                        "default": "",
-                                        "description": "The arguments for the command",
-                                        "key": "arguments",
-                                        "order": 2,
-                                        "required": false
-                                    },
-                                    "async": {
-                                        "data_type": "boolean",
-                                        "default": false,
-                                        "description": "Start the command, but don't wait for output",
-                                        "key": "async",
-                                        "order": 4,
-                                        "required": false
-                                    },
-                                    "command": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "The command to be run",
-                                        "key": "command",
-                                        "order": 1,
-                                        "required": false
-                                    },
-                                    "command_id": {
-                                        "contains": [
-                                            "winrm command id"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Command ID of async command (Provide with shell_id)",
-                                        "key": "command_id",
-                                        "order": 5,
-                                        "primary": true,
-                                        "required": false
-                                    },
-                                    "ip_hostname": {
-                                        "contains": [
-                                            "ip",
-                                            "host name"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "IP/Hostname",
-                                        "key": "ip_hostname",
-                                        "order": 0,
-                                        "required": true
-                                    },
-                                    "parser": {
-                                        "contains": [
-                                            "vault id"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "The vault ID of a custom parser to use for output",
-                                        "key": "parser",
-                                        "order": 3,
-                                        "primary": true,
-                                        "required": false
-                                    },
-                                    "shell_id": {
-                                        "contains": [
-                                            "winrm shell id"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Shell ID of async command (Provide with command_id)",
-                                        "key": "shell_id",
-                                        "order": 6,
-                                        "required": false
-                                    }
-                                },
-                                "product_name": "Windows Remote Management",
-                                "product_vendor": "Microsoft",
-                                "type": ""
-                            }
-                        ],
-                        "attrs": {
-                            ".action": {
-                                "text": "cmd test"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "Generic"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.icon image": {
-                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def cmd_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('cmd_test() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'cmd_test' call\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.destinationAddress', 'artifact:*.id'])\n\n    parameters = []\n    \n    # build parameters list for 'cmd_test' call\n    for container_item in container_data:\n        if container_item[0]:\n            parameters.append({\n                'ip_hostname': container_item[0],\n                'command': \"\",\n                'arguments': \"\",\n                'parser': \"\",\n                'async': \"\",\n                'command_id': \"\",\n                'shell_id': \"\",\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': container_item[1]},\n            })\n\n    phantom.act(\"run command\", parameters=parameters, app={ \"name\": 'Windows Remote Management' }, callback=join_format_2, name=\"cmd_test\")\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": true,
-                        "color": "",
-                        "connected_to_start": true,
-                        "connection_name": "write started event",
-                        "connection_type": "action",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "cmd test",
-                        "delay": 0,
-                        "description": "",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "93fa5b71-e7df-4e5a-a5ee-9d97082b2c39",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 111,
-                        "line_start": 82,
-                        "message": "Configuring now",
-                        "name": "run command",
-                        "notes": "",
-                        "number": 1,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 880,
-                            "y": 240
-                        },
-                        "previous_function": "",
-                        "previous_name": "cmd_test",
-                        "required_params": {
-                            "ip_hostname": true
-                        },
-                        "reviewer": "",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "app_action_config",
-                        "status": "",
-                        "title": "Generic",
-                        "type": "coa.Action",
-                        "warn": "",
-                        "z": 49
-                    },
-                    {
                         "attrs": {
                             ".connection": {
                                 "stroke": "#6C7A89",
@@ -2437,9 +1695,9 @@
                             "cmd_test",
                             "run_command_2"
                         ],
-                        "join_start": 171,
-                        "line_end": 189,
-                        "line_start": 155,
+                        "join_start": 169,
+                        "line_end": 187,
+                        "line_start": 153,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -2806,8 +2064,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 249,
-                        "line_start": 218,
+                        "line_end": 247,
+                        "line_start": 216,
                         "message": "Configuring now",
                         "name": "run command",
                         "notes": "",
@@ -2968,7 +2226,7 @@
                         "connection_name": "write started event",
                         "connection_type": "action",
                         "custom_callback": "",
-                        "custom_code": "def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('decision_1() called')\n\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.test_id', 'artifact:*.id'])\n    phantom.debug(container_data)\n    tests_to_run = []\n    for each_item in container_data:\n        success, message, test_rows = phantom.get_list(list_name='Test Matrix', values=each_item[0])\n        phantom.debug(\n            'phantom.get_list results: success: {}, message: {}, execs: {}'.format(success, message, test_rows))\n        for match in test_rows['matches']:\n            tests_to_run.append(match['value'])\n    phantom.debug(tests_to_run)\n    \"\"\"\n    # call connected blocks if condition 1 matched\n    if matched_artifacts_1 or matched_results_1:\n        powershell_test(action=action, success=success, container=container, results=results, handle=handle)\n        return\n\n    # check for 'elif' condition 2\n    matched_artifacts_2, matched_results_2 = phantom.condition(\n        container=container,\n        action_results=results,\n        conditions=[\n            [\"artifact:*.cef.test_id\", \"in\", \"custom_list:Test Matrix\"],\n        ])\n\n    # call connected blocks if condition 2 matched\n    if matched_artifacts_2 or matched_results_2:\n        cmd_test(action=action, success=success, container=container, results=results, handle=handle)\n        return\n\n    # call connected blocks for 'else' condition 3\n    run_supplied_command(action=action, success=success, container=container, results=results, handle=handle)\n    \"\"\"\n    return",
+                        "custom_code": "def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('decision_1() called')\n\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.test_id', 'artifact:*.id'])\n    phantom.debug(container_data)\n    tests_to_run = []\n    for each_item in container_data:\n        success, message, test_rows = phantom.get_list(list_name='Test Matrix', values=each_item[0])\n        phantom.debug(\n            'phantom.get_list results: success: {}, message: {}, execs: {}'.format(success, message, test_rows))\n        for match in test_rows['matches']:\n            tests_to_run.append(match['value'])\n    phantom.debug(tests_to_run)\n    \n    if tests_to_run != []:\n        for each_test in tests_to_run:\n            # call connected blocks if condition 1 matched\n            handle = each_test[1]\n            if each_test[2] == 'powershell':\n                powershell_test(action=action, success=success, container=container, results=results, handle=handle)\n                return\n\n            # check for 'elif' condition 2\n            elif each_test[2] == 'cmd': \n                cmd_test(action=action, success=success, container=container, results=results, handle=handle)\n                return\n\n    else:\n        # call connected blocks for 'else' condition 3\n        run_supplied_command(action=action, success=success, container=container, results=results, handle=handle)\n    \n    return",
                         "custom_join": "",
                         "custom_name": "",
                         "description": "",
@@ -2984,7 +2242,7 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 53,
+                        "line_end": 49,
                         "line_start": 16,
                         "name": "decision",
                         "notes": "",
@@ -3102,7 +2360,755 @@
                         "status": "",
                         "type": "coa.Decision",
                         "warn": false,
-                        "z": 59
+                        "z": 60
+                    },
+                    {
+                        "action": "run script",
+                        "action_type": "generic",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {
+                            "async": "",
+                            "command_id": "",
+                            "ip_hostname": "write_started_event:action_result.parameter.ip_hostname",
+                            "parser": "",
+                            "script_file": "",
+                            "script_str": "",
+                            "shell_id": ""
+                        },
+                        "angle": 0,
+                        "app": "Windows Remote Management",
+                        "approver": "",
+                        "assets": [
+                            {
+                                "action": "run script",
+                                "active": true,
+                                "app_name": "Windows Remote Management",
+                                "app_version": "1.0.12",
+                                "config_type": "app",
+                                "fields": {
+                                    "async": "",
+                                    "command_id": "",
+                                    "ip_hostname": "write_started_event:action_result.parameter.ip_hostname",
+                                    "parser": "",
+                                    "script_file": "",
+                                    "script_str": "",
+                                    "shell_id": ""
+                                },
+                                "has_app": true,
+                                "id": 128,
+                                "loaded": false,
+                                "missing": false,
+                                "name": "Windows Remote Management",
+                                "output": [
+                                    {
+                                        "data_path": "action_result.status",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.async",
+                                        "data_type": "boolean"
+                                    },
+                                    {
+                                        "contains": [
+                                            "winrm command id"
+                                        ],
+                                        "data_path": "action_result.parameter.command_id",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "ip",
+                                            "host name"
+                                        ],
+                                        "data_path": "action_result.parameter.ip_hostname",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "vault id"
+                                        ],
+                                        "data_path": "action_result.parameter.parser",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "vault id"
+                                        ],
+                                        "data_path": "action_result.parameter.script_file",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.script_str",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "winrm shell id"
+                                        ],
+                                        "data_path": "action_result.parameter.shell_id",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.data.*.status_code",
+                                        "data_type": "numeric",
+                                        "example_values": [
+                                            0
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "action_result.data.*.std_err",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "Error message"
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "action_result.data.*.std_out",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "Successful output"
+                                        ]
+                                    },
+                                    {
+                                        "contains": [
+                                            "winrm command id"
+                                        ],
+                                        "data_path": "action_result.summary.command_id",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "winrm shell id"
+                                        ],
+                                        "data_path": "action_result.summary.shell_id",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "column_name": "Message",
+                                        "column_order": 0,
+                                        "data_path": "action_result.message",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects",
+                                        "data_type": "numeric"
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects_successful",
+                                        "data_type": "numeric"
+                                    }
+                                ],
+                                "parameters": {
+                                    "async": {
+                                        "data_type": "boolean",
+                                        "default": false,
+                                        "description": "Start the command, but don't wait for output",
+                                        "key": "async",
+                                        "order": 4,
+                                        "required": false
+                                    },
+                                    "command_id": {
+                                        "contains": [
+                                            "winrm command id"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Command ID of async command (Provide with shell_id)",
+                                        "key": "command_id",
+                                        "order": 5,
+                                        "primary": true,
+                                        "required": false
+                                    },
+                                    "ip_hostname": {
+                                        "contains": [
+                                            "ip",
+                                            "host name"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "IP/Hostname",
+                                        "key": "ip_hostname",
+                                        "order": 0,
+                                        "required": true
+                                    },
+                                    "parser": {
+                                        "contains": [
+                                            "vault id"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "The vault ID of a custom parser to use for output",
+                                        "key": "parser",
+                                        "order": 3,
+                                        "primary": true,
+                                        "required": false
+                                    },
+                                    "script_file": {
+                                        "contains": [
+                                            "vault id"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "The vault ID of a PowerShell script to run",
+                                        "key": "script_file",
+                                        "order": 1,
+                                        "primary": true,
+                                        "required": false
+                                    },
+                                    "script_str": {
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "A PowerShell script to run",
+                                        "key": "script_str",
+                                        "order": 2,
+                                        "primary": true,
+                                        "required": false
+                                    },
+                                    "shell_id": {
+                                        "contains": [
+                                            "winrm shell id"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Shell ID of async command (Provide with command_id)",
+                                        "key": "shell_id",
+                                        "order": 6,
+                                        "required": false
+                                    }
+                                },
+                                "product_name": "Windows Remote Management",
+                                "product_vendor": "Microsoft",
+                                "type": ""
+                            }
+                        ],
+                        "attrs": {
+                            ".action": {
+                                "text": "powershell test"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "Generic"
+                            },
+                            "g.code image": {
+                                "xlink:href": "/inc/coa/img/block_icon_code_on.svg"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.icon image": {
+                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def powershell_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('powershell_test() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'powershell_test' call\n    results_data_1 = phantom.collect2(container=container, datapath=['write_started_event:action_result.parameter.ip_hostname', 'write_started_event:action_result.parameter.context.artifact_id'], action_results=results)\n\n    parameters = []\n    \n    # build parameters list for 'powershell_test' call\n    for results_item_1 in results_data_1:\n        if results_item_1[0]:\n            parameters.append({\n                'ip_hostname': results_item_1[0],\n                'script_file': \"\",\n                'script_str': \"\",\n                'parser': \"\",\n                'async': \"\",\n                'command_id': \"\",\n                'shell_id': \"\",\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': results_item_1[1]},\n            })\n\n    phantom.act(\"run script\", parameters=parameters, app={ \"name\": 'Windows Remote Management' }, callback=join_format_2, name=\"powershell_test\")\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": true,
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "write started event",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "def powershell_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('powershell_test() called')\n    phantom.debug(handle)\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'powershell_test' call\n    results_data_1 = phantom.collect2(container=container, datapath=['write_started_event:action_result.parameter.ip_hostname', 'write_started_event:action_result.parameter.context.artifact_id'], action_results=results)\n\n    parameters = []\n    \n    # build parameters list for 'powershell_test' call\n    for results_item_1 in results_data_1:\n        if results_item_1[0]:\n            parameters.append({\n                'ip_hostname': results_item_1[0],\n                'script_file': \"\",\n                'script_str': handle,\n                'parser': \"\",\n                'async': \"\",\n                'command_id': \"\",\n                'shell_id': \"\",\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': results_item_1[1]},\n            })\n\n    phantom.act(\"run script\", parameters=parameters, app={ \"name\": 'Windows Remote Management' }, callback=join_format_2, name=\"powershell_test\")\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "powershell test",
+                        "delay": 0,
+                        "description": "",
+                        "has_custom": false,
+                        "has_custom_block": true,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "8891b45a-715a-40e7-863f-8dc1be3ef024",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 79,
+                        "line_start": 49,
+                        "message": "Configuring now",
+                        "name": "run script",
+                        "notes": "",
+                        "number": 1,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 880,
+                            "y": 120
+                        },
+                        "previous_function": "",
+                        "previous_name": "powershell_test",
+                        "required_params": {
+                            "ip_hostname": true
+                        },
+                        "reviewer": "",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "app_action_config",
+                        "status": "",
+                        "title": "Generic",
+                        "type": "coa.Action",
+                        "warn": false,
+                        "z": 61
+                    },
+                    {
+                        "action": "run command",
+                        "action_type": "generic",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {
+                            "arguments": "",
+                            "async": "",
+                            "command": "",
+                            "command_id": "",
+                            "ip_hostname": "artifact:*.cef.destinationAddress",
+                            "parser": "",
+                            "shell_id": ""
+                        },
+                        "angle": 0,
+                        "app": "Windows Remote Management",
+                        "approver": "",
+                        "assets": [
+                            {
+                                "action": "run command",
+                                "active": true,
+                                "app_name": "Windows Remote Management",
+                                "app_version": "1.0.12",
+                                "config_type": "app",
+                                "fields": {
+                                    "arguments": "",
+                                    "async": "",
+                                    "command": "",
+                                    "command_id": "",
+                                    "ip_hostname": "artifact:*.cef.destinationAddress",
+                                    "parser": "",
+                                    "shell_id": ""
+                                },
+                                "has_app": true,
+                                "id": 128,
+                                "loaded": false,
+                                "missing": false,
+                                "name": "Windows Remote Management",
+                                "output": [
+                                    {
+                                        "data_path": "action_result.status",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.arguments",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.async",
+                                        "data_type": "boolean"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.command",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "winrm command id"
+                                        ],
+                                        "data_path": "action_result.parameter.command_id",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "ip",
+                                            "host name"
+                                        ],
+                                        "data_path": "action_result.parameter.ip_hostname",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "vault id"
+                                        ],
+                                        "data_path": "action_result.parameter.parser",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "winrm shell id"
+                                        ],
+                                        "data_path": "action_result.parameter.shell_id",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.data.*.status_code",
+                                        "data_type": "numeric",
+                                        "example_values": [
+                                            0
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "action_result.data.*.std_err",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "Error message"
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "action_result.data.*.std_out",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "Successful output"
+                                        ]
+                                    },
+                                    {
+                                        "contains": [
+                                            "winrm command id"
+                                        ],
+                                        "data_path": "action_result.summary.command_id",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "winrm shell id"
+                                        ],
+                                        "data_path": "action_result.summary.shell_id",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "column_name": "Message",
+                                        "column_order": 0,
+                                        "data_path": "action_result.message",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects",
+                                        "data_type": "numeric"
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects_successful",
+                                        "data_type": "numeric"
+                                    }
+                                ],
+                                "parameters": {
+                                    "arguments": {
+                                        "data_type": "string",
+                                        "default": "",
+                                        "description": "The arguments for the command",
+                                        "key": "arguments",
+                                        "order": 2,
+                                        "required": false
+                                    },
+                                    "async": {
+                                        "data_type": "boolean",
+                                        "default": false,
+                                        "description": "Start the command, but don't wait for output",
+                                        "key": "async",
+                                        "order": 4,
+                                        "required": false
+                                    },
+                                    "command": {
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "The command to be run",
+                                        "key": "command",
+                                        "order": 1,
+                                        "required": false
+                                    },
+                                    "command_id": {
+                                        "contains": [
+                                            "winrm command id"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Command ID of async command (Provide with shell_id)",
+                                        "key": "command_id",
+                                        "order": 5,
+                                        "primary": true,
+                                        "required": false
+                                    },
+                                    "ip_hostname": {
+                                        "contains": [
+                                            "ip",
+                                            "host name"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "IP/Hostname",
+                                        "key": "ip_hostname",
+                                        "order": 0,
+                                        "required": true
+                                    },
+                                    "parser": {
+                                        "contains": [
+                                            "vault id"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "The vault ID of a custom parser to use for output",
+                                        "key": "parser",
+                                        "order": 3,
+                                        "primary": true,
+                                        "required": false
+                                    },
+                                    "shell_id": {
+                                        "contains": [
+                                            "winrm shell id"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Shell ID of async command (Provide with command_id)",
+                                        "key": "shell_id",
+                                        "order": 6,
+                                        "required": false
+                                    }
+                                },
+                                "product_name": "Windows Remote Management",
+                                "product_vendor": "Microsoft",
+                                "type": ""
+                            }
+                        ],
+                        "attrs": {
+                            ".action": {
+                                "text": "cmd test"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "Generic"
+                            },
+                            "g.code image": {
+                                "xlink:href": "/inc/coa/img/block_icon_code_on.svg"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.icon image": {
+                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def cmd_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('cmd_test() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'cmd_test' call\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.destinationAddress', 'artifact:*.id'])\n\n    parameters = []\n    \n    # build parameters list for 'cmd_test' call\n    for container_item in container_data:\n        if container_item[0]:\n            parameters.append({\n                'ip_hostname': container_item[0],\n                'command': \"\",\n                'arguments': \"\",\n                'parser': \"\",\n                'async': \"\",\n                'command_id': \"\",\n                'shell_id': \"\",\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': container_item[1]},\n            })\n\n    phantom.act(\"run command\", parameters=parameters, app={ \"name\": 'Windows Remote Management' }, callback=join_format_2, name=\"cmd_test\")\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": true,
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "write started event",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "def cmd_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('cmd_test() called')\n    phantom.debug(handle)\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'cmd_test' call\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.destinationAddress', 'artifact:*.id'])\n\n    parameters = []\n    \n    # build parameters list for 'cmd_test' call\n    for container_item in container_data:\n        if container_item[0]:\n            parameters.append({\n                'ip_hostname': container_item[0],\n                'command': handle.split(' ', 1)[0],\n                'arguments': handle.split(' ', 1)[1],\n                'parser': \"\",\n                'async': \"\",\n                'command_id': \"\",\n                'shell_id': \"\",\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': container_item[1]},\n            })\n\n    phantom.act(\"run command\", parameters=parameters, app={ \"name\": 'Windows Remote Management' }, callback=join_format_2, name=\"cmd_test\")\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "cmd test",
+                        "delay": 0,
+                        "description": "",
+                        "has_custom": false,
+                        "has_custom_block": true,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "93fa5b71-e7df-4e5a-a5ee-9d97082b2c39",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 109,
+                        "line_start": 79,
+                        "message": "Configuring now",
+                        "name": "run command",
+                        "notes": "",
+                        "number": 1,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 880,
+                            "y": 240
+                        },
+                        "previous_function": "",
+                        "previous_name": "cmd_test",
+                        "required_params": {
+                            "ip_hostname": true
+                        },
+                        "reviewer": "",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "app_action_config",
+                        "status": "",
+                        "title": "Generic",
+                        "type": "coa.Action",
+                        "warn": false,
+                        "z": 62
                     }
                 ]
             },
@@ -3111,7 +3117,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-05-30T20:23:09.718506+00:00",
+    "create_time": "2018-05-30T20:29:46.748923+00:00",
     "draft_mode": false,
     "labels": [
         "*"
