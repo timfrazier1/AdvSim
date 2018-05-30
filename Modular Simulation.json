@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "a5f6405595d0bcc62bbe23d85c788e05c3c87805",
+            "hash": "e9d93371757600e26c9052730f4064f37e43dd19",
             "joint": {
                 "cells": [
                     {
@@ -47,7 +47,7 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def on_start(container):\n    phantom.debug('on_start() called')\n    \n    # call 'add_list_1' block\n    add_list_1(container=container)\n\n    # call 'format_1' block\n    format_1(container=container)\n\n    return",
+                        "block_code": "def on_start(container):\n    phantom.debug('on_start() called')\n    \n    # call 'format_1' block\n    format_1(container=container)\n\n    return",
                         "callback_code": "# read-only block view not available",
                         "callback_start": 1,
                         "callsback": false,
@@ -68,7 +68,7 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 19,
+                        "line_end": 16,
                         "line_start": 8,
                         "name": "",
                         "notes": "",
@@ -202,8 +202,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 271,
-                        "line_start": 258,
+                        "line_end": 261,
+                        "line_start": 248,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -277,204 +277,6 @@
                         "type": "coa.StartEnd",
                         "warn": false,
                         "z": 2
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#6C7A89",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#6a6c8a",
-                                "stroke": "#6a6c8a"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
-                        "id": "75f34b95-da99-4018-b4de-59b0c76e27ac",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "90dd9150-5f28-4f6b-80fb-04a2a7ef641e",
-                            "port": null,
-                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "0c496e42-694e-4d10-91bd-361ccf15791a",
-                            "selector": ".port-body[type=\"input\"]"
-                        },
-                        "type": "link",
-                        "z": 3
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "api": "add list",
-                        "attrs": {
-                            ".api": {
-                                "text": "add list"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "API"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def add_list_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('add_list_1() called')\n\n    phantom.add_list(\"Test Matrix\", \"some value\")\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "color": "",
-                        "configured": [
-                            {
-                                "addListData": "some value",
-                                "addListList": "Test Matrix",
-                                "key": "add-list"
-                            }
-                        ],
-                        "connected_to_start": true,
-                        "connection_name": "",
-                        "connection_type": "",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "description": "",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "0c496e42-694e-4d10-91bd-361ccf15791a",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 26,
-                        "line_start": 19,
-                        "message": "Configuring now",
-                        "name": "add list",
-                        "notes": "",
-                        "number": 1,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 260,
-                            "y": 0
-                        },
-                        "previous_function": "",
-                        "previous_name": "add_list_1",
-                        "show_number": false,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "api",
-                        "status": "",
-                        "title": "API",
-                        "type": "coa.API",
-                        "warn": false,
-                        "z": 6
                     },
                     {
                         "attrs": {
@@ -1006,8 +808,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 164,
-                        "line_start": 136,
+                        "line_end": 154,
+                        "line_start": 126,
                         "message": "Configuring now",
                         "name": "run script",
                         "notes": "",
@@ -1157,8 +959,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 136,
-                        "line_start": 120,
+                        "line_end": 126,
+                        "line_start": 110,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -1576,8 +1378,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 91,
-                        "line_start": 62,
+                        "line_end": 81,
+                        "line_start": 52,
                         "message": "Configuring now",
                         "name": "run script",
                         "notes": "",
@@ -1989,8 +1791,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 227,
-                        "line_start": 198,
+                        "line_end": 217,
+                        "line_start": 188,
                         "message": "Configuring now",
                         "name": "run script",
                         "notes": "",
@@ -2437,8 +2239,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 120,
-                        "line_start": 91,
+                        "line_end": 110,
+                        "line_start": 81,
                         "message": "Configuring now",
                         "name": "run command",
                         "notes": "",
@@ -2635,9 +2437,9 @@
                             "cmd_test",
                             "run_command_2"
                         ],
-                        "join_start": 180,
-                        "line_end": 198,
-                        "line_start": 164,
+                        "join_start": 170,
+                        "line_end": 188,
+                        "line_start": 154,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -3004,8 +2806,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 258,
-                        "line_start": 227,
+                        "line_end": 248,
+                        "line_start": 217,
                         "message": "Configuring now",
                         "name": "run command",
                         "notes": "",
@@ -3182,8 +2984,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 62,
-                        "line_start": 26,
+                        "line_end": 52,
+                        "line_start": 16,
                         "name": "decision",
                         "notes": "",
                         "number": 1,
@@ -3309,7 +3111,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-05-30T20:18:50.539426+00:00",
+    "create_time": "2018-05-30T20:19:12.030960+00:00",
     "draft_mode": false,
     "labels": [
         "*"

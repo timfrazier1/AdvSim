@@ -8,18 +8,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
     
-    # call 'add_list_1' block
-    add_list_1(container=container)
-
     # call 'format_1' block
     format_1(container=container)
-
-    return
-
-def add_list_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('add_list_1() called')
-
-    phantom.add_list("Test Matrix", "some value")
 
     return
 
