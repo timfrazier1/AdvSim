@@ -13,6 +13,22 @@ def on_start(container):
 
     return
 
+def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('format_1() called')
+    
+    template = """eventcreate /id 999 /D \"started test for {0}\" /T INFORMATION /L application"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "artifact:*.cef.destinationAddress",
+    ]
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_1")
+
+    write_started_event(container=container)
+
+    return
+
 def run_supplied_command(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('run_supplied_command() called')
     
@@ -41,68 +57,6 @@ def run_supplied_command(action=None, success=None, container=None, results=None
                 })
 
     phantom.act("run command", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=join_format_2, name="run_supplied_command")
-
-    return
-
-def cmd_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('cmd_test() called')
-    
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'cmd_test' call
-    results_data_1 = phantom.collect2(container=container, datapath=['write_started_event:action_result.parameter.ip_hostname', 'write_started_event:action_result.parameter.context.artifact_id'], action_results=results)
-    filtered_results_data_1 = phantom.collect2(container=container, datapath=["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.command", "filtered-data:filter_1:condition_1:format_command_1:action_result.parameter.context.artifact_id"])
-
-    parameters = []
-    
-    # build parameters list for 'cmd_test' call
-    for results_item_1 in results_data_1:
-        for filtered_results_item_1 in filtered_results_data_1:
-            if results_item_1[0]:
-                parameters.append({
-                    'ip_hostname': results_item_1[0],
-                    'command': filtered_results_item_1[0].split(' ', 1)[0],
-                    'arguments': filtered_results_item_1[0].split(' ', 1)[1],
-                    'parser': "",
-                    'async': "",
-                    'command_id': "",
-                    'shell_id': "",
-                    # context (artifact id) is added to associate results with the artifact
-                    'context': {'artifact_id': results_item_1[1]},
-                })
-
-    phantom.act("run command", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=join_format_2, name="cmd_test")
-
-    return
-
-def powershell_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('powershell_test() called')
-    
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'powershell_test' call
-    results_data_1 = phantom.collect2(container=container, datapath=['write_started_event:action_result.parameter.ip_hostname', 'write_started_event:action_result.parameter.context.artifact_id'], action_results=results)
-    filtered_results_data_1 = phantom.collect2(container=container, datapath=["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.command", "filtered-data:filter_1:condition_1:format_command_1:action_result.parameter.context.artifact_id"])
-
-    parameters = []
-    
-    # build parameters list for 'powershell_test' call
-    for results_item_1 in results_data_1:
-        for filtered_results_item_1 in filtered_results_data_1:
-            if results_item_1[0]:
-                parameters.append({
-                    'ip_hostname': results_item_1[0],
-                    'script_file': "",
-                    'script_str': filtered_results_item_1[0],
-                    'parser': "",
-                    'async': "",
-                    'command_id': "",
-                    'shell_id': "",
-                    # context (artifact id) is added to associate results with the artifact
-                    'context': {'artifact_id': results_item_1[1]},
-                })
-
-    phantom.act("run script", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=join_format_2, name="powershell_test")
 
     return
 
@@ -136,37 +90,33 @@ def join_format_2(action=None, success=None, container=None, results=None, handl
     
     return
 
-def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('decision_1() called')
+def write_started_event(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('write_started_event() called')
+    
+    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+    
+    # collect data for 'write_started_event' call
+    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.destinationAddress', 'artifact:*.id'])
+    formatted_data_1 = phantom.get_format_data(name='format_1')
 
-    # check for 'if' condition 1
-    matched_artifacts_1, matched_results_1 = phantom.condition(
-        container=container,
-        action_results=results,
-        conditions=[
-            ["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.name", "==", "powershell"],
-        ])
+    parameters = []
+    
+    # build parameters list for 'write_started_event' call
+    for container_item in container_data:
+        if container_item[0]:
+            parameters.append({
+                'shell_id': "",
+                'parser': "",
+                'ip_hostname': container_item[0],
+                'async': "",
+                'script_str': formatted_data_1,
+                'script_file': "",
+                'command_id': "",
+                # context (artifact id) is added to associate results with the artifact
+                'context': {'artifact_id': container_item[1]},
+            })
 
-    # call connected blocks if condition 1 matched
-    if matched_artifacts_1 or matched_results_1:
-        powershell_test(action=action, success=success, container=container, results=results, handle=handle)
-        return
-
-    # check for 'elif' condition 2
-    matched_artifacts_2, matched_results_2 = phantom.condition(
-        container=container,
-        action_results=results,
-        conditions=[
-            ["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.name", "==", "command_prompt"],
-        ])
-
-    # call connected blocks if condition 2 matched
-    if matched_artifacts_2 or matched_results_2:
-        cmd_test(action=action, success=success, container=container, results=results, handle=handle)
-        return
-
-    # call connected blocks for 'else' condition 3
-    run_supplied_command(action=action, success=success, container=container, results=results, handle=handle)
+    phantom.act("run script", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=format_command_1, name="write_started_event")
 
     return
 
@@ -242,52 +192,6 @@ def decision_2(action=None, success=None, container=None, results=None, handle=N
 
     return
 
-def write_started_event(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('write_started_event() called')
-    
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'write_started_event' call
-    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.destinationAddress', 'artifact:*.id'])
-    formatted_data_1 = phantom.get_format_data(name='format_1')
-
-    parameters = []
-    
-    # build parameters list for 'write_started_event' call
-    for container_item in container_data:
-        if container_item[0]:
-            parameters.append({
-                'shell_id': "",
-                'parser': "",
-                'ip_hostname': container_item[0],
-                'async': "",
-                'script_str': formatted_data_1,
-                'script_file': "",
-                'command_id': "",
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': container_item[1]},
-            })
-
-    phantom.act("run script", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=format_command_1, name="write_started_event")
-
-    return
-
-def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('format_1() called')
-    
-    template = """eventcreate /id 999 /D \"started test for {0}\" /T INFORMATION /L application"""
-
-    # parameter list for template variable replacement
-    parameters = [
-        "artifact:*.cef.destinationAddress",
-    ]
-
-    phantom.format(container=container, template=template, parameters=parameters, name="format_1")
-
-    write_started_event(container=container)
-
-    return
-
 def format_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('format_3() called')
     
@@ -305,6 +209,120 @@ def format_3(action=None, success=None, container=None, results=None, handle=Non
 
     return
 
+def filter_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('filter_1() called')
+
+    # collect filtered artifact ids for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        action_results=results,
+        conditions=[
+            ["Url", "in", "format_command_1:action_result.data.*.executor.arg_types"],
+        ],
+        name="filter_1:condition_1")
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        decision_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+
+    return
+
+def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('decision_1() called')
+
+    # check for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        action_results=results,
+        conditions=[
+            ["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.name", "==", "powershell"],
+        ])
+
+    # call connected blocks if condition 1 matched
+    if matched_artifacts_1 or matched_results_1:
+        powershell_test(action=action, success=success, container=container, results=results, handle=handle)
+        return
+
+    # check for 'elif' condition 2
+    matched_artifacts_2, matched_results_2 = phantom.condition(
+        container=container,
+        action_results=results,
+        conditions=[
+            ["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.name", "==", "command_prompt"],
+        ])
+
+    # call connected blocks if condition 2 matched
+    if matched_artifacts_2 or matched_results_2:
+        cmd_test(action=action, success=success, container=container, results=results, handle=handle)
+        return
+
+    # call connected blocks for 'else' condition 3
+    run_supplied_command(action=action, success=success, container=container, results=results, handle=handle)
+
+    return
+
+def powershell_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('powershell_test() called')
+    
+    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+    
+    # collect data for 'powershell_test' call
+    results_data_1 = phantom.collect2(container=container, datapath=['write_started_event:action_result.parameter.ip_hostname', 'write_started_event:action_result.parameter.context.artifact_id'], action_results=results)
+    filtered_results_data_1 = phantom.collect2(container=container, datapath=["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.command", "filtered-data:filter_1:condition_1:format_command_1:action_result.parameter.context.artifact_id"])
+
+    parameters = []
+    
+    # build parameters list for 'powershell_test' call
+    for results_item_1 in results_data_1:
+        for filtered_results_item_1 in filtered_results_data_1:
+            if results_item_1[0]:
+                parameters.append({
+                    'shell_id': "",
+                    'parser': "",
+                    'ip_hostname': results_item_1[0],
+                    'async': "",
+                    'script_str': filtered_results_item_1[0],
+                    'script_file': "",
+                    'command_id': "",
+                    # context (artifact id) is added to associate results with the artifact
+                    'context': {'artifact_id': results_item_1[1]},
+                })
+
+    phantom.act("run script", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=join_format_2, name="powershell_test")
+
+    return
+
+def cmd_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('cmd_test() called')
+    
+    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+    
+    # collect data for 'cmd_test' call
+    results_data_1 = phantom.collect2(container=container, datapath=['write_started_event:action_result.parameter.ip_hostname', 'write_started_event:action_result.parameter.context.artifact_id'], action_results=results)
+    filtered_results_data_1 = phantom.collect2(container=container, datapath=["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.command", "filtered-data:filter_1:condition_1:format_command_1:action_result.parameter.context.artifact_id"])
+
+    parameters = []
+    
+    # build parameters list for 'cmd_test' call
+    for results_item_1 in results_data_1:
+        for filtered_results_item_1 in filtered_results_data_1:
+            if results_item_1[0]:
+                parameters.append({
+                    'ip_hostname': results_item_1[0],
+                    'command': filtered_results_item_1[0].split(' ', 1)[0],
+                    'arguments': filtered_results_item_1[0].split(' ', 1)[1],
+                    'parser': "",
+                    'async': "",
+                    'command_id': "",
+                    'shell_id': "",
+                    # context (artifact id) is added to associate results with the artifact
+                    'context': {'artifact_id': results_item_1[1]},
+                })
+
+    phantom.act("run command", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=join_format_2, name="cmd_test")
+
+    return
+
 def post_data_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('post_data_1() called')
 
@@ -315,11 +333,11 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
     
     # build parameters list for 'post_data_1' call
     parameters.append({
-        'data': formatted_data_1,
-        'host': "aws_phantom",
-        'source': "Phantom",
-        'source_type': "Automation/Orchestration Platform",
         'index': "",
+        'host': "aws_phantom",
+        'source_type': "Automation/Orchestration Platform",
+        'data': formatted_data_1,
+        'source': "Phantom",
     })
 
     phantom.act("post data", parameters=parameters, app={ "name": 'Splunk' }, callback=decision_2, name="post_data_1")
@@ -343,30 +361,11 @@ def format_command_1(action=None, success=None, container=None, results=None, ha
                 'attack_id': container_item[0],
                 'supported_os': container_item[1],
                 'input_arguments': container_item[2],
-                'use_arg_defaults': "true",
                 # context (artifact id) is added to associate results with the artifact
                 'context': {'artifact_id': container_item[3]},
             })
 
     phantom.act("format command", parameters=parameters, app={ "name": 'Atomic Red Team' }, callback=filter_1, name="format_command_1", parent_action=action)
-
-    return
-
-def filter_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('filter_1() called')
-
-    # collect filtered artifact ids for 'if' condition 1
-    matched_artifacts_1, matched_results_1 = phantom.condition(
-        container=container,
-        action_results=results,
-        conditions=[
-            ["Url", "in", "format_command_1:action_result.data.*.executor.arg_types"],
-        ],
-        name="filter_1:condition_1")
-
-    # call connected blocks if filtered artifacts or results
-    if matched_artifacts_1 or matched_results_1:
-        decision_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
