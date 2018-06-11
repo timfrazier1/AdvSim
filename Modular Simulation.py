@@ -50,25 +50,25 @@ def cmd_test(action=None, success=None, container=None, results=None, handle=Non
     #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
     
     # collect data for 'cmd_test' call
-    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.destinationAddress', 'artifact:*.id'])
-    results_data_1 = phantom.collect2(container=container, datapath=['format_command_1:action_result.data.*.executor.command', 'format_command_1:action_result.parameter.context.artifact_id'], action_results=results)
+    results_data_1 = phantom.collect2(container=container, datapath=['write_started_event:action_result.parameter.ip_hostname', 'write_started_event:action_result.parameter.context.artifact_id'], action_results=results)
+    filtered_results_data_1 = phantom.collect2(container=container, datapath=["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.command", "filtered-data:filter_1:condition_1:format_command_1:action_result.parameter.context.artifact_id"])
 
     parameters = []
     
     # build parameters list for 'cmd_test' call
-    for container_item in container_data:
-        for results_item_1 in results_data_1:
-            if container_item[0]:
+    for results_item_1 in results_data_1:
+        for filtered_results_item_1 in filtered_results_data_1:
+            if results_item_1[0]:
                 parameters.append({
-                    'ip_hostname': container_item[0],
-                    'command': results_item_1[0].split(' ', 1)[0],
-                    'arguments': results_item_1[0].split(' ', 1)[1],
+                    'ip_hostname': results_item_1[0],
+                    'command': filtered_results_item_1[0].split(' ', 1)[0],
+                    'arguments': filtered_results_item_1[0].split(' ', 1)[1],
                     'parser': "",
                     'async': "",
                     'command_id': "",
                     'shell_id': "",
                     # context (artifact id) is added to associate results with the artifact
-                    'context': {'artifact_id': container_item[1]},
+                    'context': {'artifact_id': results_item_1[1]},
                 })
 
     phantom.act("run command", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=join_format_2, name="cmd_test")
@@ -82,18 +82,18 @@ def powershell_test(action=None, success=None, container=None, results=None, han
     
     # collect data for 'powershell_test' call
     results_data_1 = phantom.collect2(container=container, datapath=['write_started_event:action_result.parameter.ip_hostname', 'write_started_event:action_result.parameter.context.artifact_id'], action_results=results)
-    results_data_2 = phantom.collect2(container=container, datapath=['format_command_1:action_result.data.*.executor.command', 'format_command_1:action_result.parameter.context.artifact_id'], action_results=results)
+    filtered_results_data_1 = phantom.collect2(container=container, datapath=["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.command", "filtered-data:filter_1:condition_1:format_command_1:action_result.parameter.context.artifact_id"])
 
     parameters = []
     
     # build parameters list for 'powershell_test' call
     for results_item_1 in results_data_1:
-        for results_item_2 in results_data_2:
+        for filtered_results_item_1 in filtered_results_data_1:
             if results_item_1[0]:
                 parameters.append({
                     'ip_hostname': results_item_1[0],
                     'script_file': "",
-                    'script_str': results_item_2[0],
+                    'script_str': filtered_results_item_1[0],
                     'parser': "",
                     'async': "",
                     'command_id': "",
@@ -162,8 +162,7 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 2 matched
     if matched_artifacts_2 or matched_results_2:
-        phantom.debug(matched_results_2)
-        #cmd_test(action=action, success=success, container=container, results=results, handle=handle)
+        cmd_test(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     # call connected blocks for 'else' condition 3
