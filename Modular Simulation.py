@@ -217,7 +217,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
         container=container,
         action_results=results,
         conditions=[
-            ["Url", "in", "format_command_1:action_result.data.*.executor.arg_types"],
+            ["Path", "not in", "format_command_1:action_result.data.*.executor.arg_types"],
         ],
         name="filter_1:condition_1")
 
