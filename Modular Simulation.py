@@ -144,7 +144,7 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
         container=container,
         action_results=results,
         conditions=[
-            ["format_command_1:action_result.data.*.executor.name", "==", "powershell"],
+            ["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.name", "==", "powershell"],
         ])
 
     # call connected blocks if condition 1 matched
@@ -157,7 +157,7 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
         container=container,
         action_results=results,
         conditions=[
-            ["format_command_1:action_result.data.*.executor.name", "==", "command_prompt"],
+            ["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.name", "==", "command_prompt"],
         ])
 
     # call connected blocks if condition 2 matched
@@ -348,7 +348,25 @@ def format_command_1(action=None, success=None, container=None, results=None, ha
                 'context': {'artifact_id': container_item[3]},
             })
 
-    phantom.act("format command", parameters=parameters, app={ "name": 'Atomic Red Team' }, callback=decision_1, name="format_command_1", parent_action=action)
+    phantom.act("format command", parameters=parameters, app={ "name": 'Atomic Red Team' }, callback=filter_1, name="format_command_1", parent_action=action)
+
+    return
+
+def filter_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('filter_1() called')
+
+    # collect filtered artifact ids for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        action_results=results,
+        conditions=[
+            ["Url", "in", "format_command_1:action_result.data.*.executor.arg_types"],
+        ],
+        name="filter_1:condition_1")
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        decision_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
