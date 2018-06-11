@@ -319,7 +319,7 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
         'host': "aws_phantom",
         'source': "Phantom",
         'source_type': "Automation/Orchestration Platform",
-        'index': "adv_sim",
+        'index': "",
     })
 
     phantom.act("post data", parameters=parameters, app={ "name": 'Splunk' }, callback=decision_2, name="post_data_1")
