@@ -146,7 +146,7 @@ def write_ended_event(action=None, success=None, container=None, results=None, h
                 'context': {'artifact_id': results_item_1[1]},
             })
 
-    phantom.act("run script", parameters=parameters, app={ "name": 'Windows Remote Management' }, name="write_ended_event")
+    phantom.act("run script", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=format_4, name="write_ended_event")
 
     return
 
@@ -366,6 +366,50 @@ def format_command_1(action=None, success=None, container=None, results=None, ha
             })
 
     phantom.act("format command", parameters=parameters, app={ "name": 'Atomic Red Team' }, callback=filter_1, name="format_command_1", parent_action=action)
+
+    return
+
+def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('format_4() called')
+    
+    template = """Finished red team test: {0}  on machine with IP address: {1}"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "artifact:*.cef.test_id",
+        "artifact:*.cef.destinationAddress",
+    ]
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_4")
+
+    post_data_2(container=container)
+
+    return
+
+def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('post_data_2() called')
+    
+    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+    
+    # collect data for 'post_data_2' call
+    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.context.artifact_id'], action_results=results)
+    formatted_data_1 = phantom.get_format_data(name='format_4')
+
+    parameters = []
+    
+    # build parameters list for 'post_data_2' call
+    for results_item_1 in results_data_1:
+        parameters.append({
+            'data': formatted_data_1,
+            'host': results_item_1[0],
+            'source': results_item_1[1],
+            'source_type': results_item_1[2],
+            'index': "",
+            # context (artifact id) is added to associate results with the artifact
+            'context': {'artifact_id': results_item_1[3]},
+        })
+
+    phantom.act("post data", parameters=parameters, app={ "name": 'Splunk' }, name="post_data_2")
 
     return
 
