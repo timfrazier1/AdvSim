@@ -312,7 +312,7 @@ def cmd_test(action=None, success=None, container=None, results=None, handle=Non
                     'command': filtered_results_item_1[0].split(' ', 1)[0],
                     'arguments': filtered_results_item_1[0].split(' ', 1)[1],
                     'parser': "",
-                    'async': "",
+                    'async': True,
                     'command_id': "",
                     'shell_id': "",
                     # context (artifact id) is added to associate results with the artifact
