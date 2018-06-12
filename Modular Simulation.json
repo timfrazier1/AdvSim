@@ -7,7 +7,6 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "52151b8e4f258ad86fd32616580fa71c0f4f63ca",
             "joint": {
                 "cells": [
                     {
@@ -2432,7 +2431,7 @@
                                 }
                             },
                             "g.delete": {
-                                "display": "none"
+                                "display": "block"
                             },
                             "g.error": {
                                 "opacity": 0
@@ -3800,7 +3799,7 @@
                         },
                         "position": {
                             "x": 1060,
-                            "y": 120
+                            "y": 260
                         },
                         "previous_function": "",
                         "previous_name": "filter_1",
@@ -4845,7 +4844,7 @@
                                 "text": "format"
                             },
                             "g.delete": {
-                                "display": "none"
+                                "display": "block"
                             },
                             "g.error": {
                                 "opacity": 0
