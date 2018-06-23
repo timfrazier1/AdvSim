@@ -7,6 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
+            "hash": "ad8ad97a685657227f3bee9aabef91be9e766c9c",
             "joint": {
                 "cells": [
                     {
@@ -1618,8 +1619,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 123,
-                        "line_start": 93,
+                        "line_end": 93,
+                        "line_start": 63,
                         "message": "Configuring now",
                         "name": "run script",
                         "notes": "",
@@ -1993,8 +1994,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 153,
-                        "line_start": 123,
+                        "line_end": 123,
+                        "line_start": 93,
                         "message": "Configuring now",
                         "name": "run script",
                         "notes": "",
@@ -2171,8 +2172,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 195,
-                        "line_start": 153,
+                        "line_end": 165,
+                        "line_start": 123,
                         "name": "decision",
                         "notes": "",
                         "number": 2,
@@ -2431,7 +2432,7 @@
                                 }
                             },
                             "g.delete": {
-                                "display": "block"
+                                "display": "none"
                             },
                             "g.error": {
                                 "opacity": 0
@@ -2467,8 +2468,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 124,
-                        "line_end": 264,
-                        "line_start": 230,
+                        "line_end": 199,
+                        "line_start": 165,
                         "name": "decision",
                         "notes": "",
                         "number": 1,
@@ -2879,8 +2880,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 295,
-                        "line_start": 264,
+                        "line_end": 230,
+                        "line_start": 199,
                         "message": "Configuring now",
                         "name": "run script",
                         "notes": "",
@@ -3180,7 +3181,7 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def format_command_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_command_1() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'format_command_1' call\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.test_id', 'artifact:*.cef.os', 'artifact:*.cef.input_arguments', 'artifact:*.id'])\n\n    parameters = []\n    \n    # build parameters list for 'format_command_1' call\n    for container_item in container_data:\n        if container_item[0] and container_item[1]:\n            parameters.append({\n                'attack_id': container_item[0],\n                'supported_os': container_item[1],\n                'input_arguments': container_item[2],\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': container_item[3]},\n            })\n\n    phantom.act(\"format command\", parameters=parameters, app={ \"name\": 'Atomic Red Team' }, callback=filter_1, name=\"format_command_1\", parent_action=action)\n\n    return",
+                        "block_code": "def format_command_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_command_1() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'format_command_1' call\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.os', 'artifact:*.cef.test_id', 'artifact:*.cef.input_arguments', 'artifact:*.id'])\n\n    parameters = []\n    \n    # build parameters list for 'format_command_1' call\n    for container_item in container_data:\n        if container_item[0] and container_item[1]:\n            parameters.append({\n                'supported_os': container_item[0],\n                'attack_id': container_item[1],\n                'input_arguments': container_item[2],\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': container_item[3]},\n            })\n\n    phantom.act(\"format command\", parameters=parameters, app={ \"name\": 'Atomic Red Team' }, callback=filter_1, name=\"format_command_1\", parent_action=action)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
@@ -3205,8 +3206,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 372,
-                        "line_start": 347,
+                        "line_end": 255,
+                        "line_start": 230,
                         "message": "Configuring now",
                         "name": "format command",
                         "notes": "",
@@ -3286,7 +3287,7 @@
                         "status": "",
                         "title": "Generic",
                         "type": "coa.Action",
-                        "warn": "",
+                        "warn": false,
                         "z": 134
                     },
                     {
@@ -3576,8 +3577,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 326,
-                        "line_start": 295,
+                        "line_end": 286,
+                        "line_start": 255,
                         "message": "Configuring now",
                         "name": "run command",
                         "notes": "",
@@ -3722,8 +3723,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 230,
-                        "line_start": 212,
+                        "line_end": 304,
+                        "line_start": 286,
                         "name": "filter",
                         "notes": "",
                         "number": 1,
@@ -3811,7 +3812,7 @@
                         "state": "filter",
                         "status": "",
                         "type": "coa.Filter",
-                        "warn": "",
+                        "warn": false,
                         "z": 139
                     },
                     {
@@ -3885,8 +3886,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 212,
-                        "line_start": 195,
+                        "line_end": 321,
+                        "line_start": 304,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -4048,8 +4049,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 389,
-                        "line_start": 372,
+                        "line_end": 338,
+                        "line_start": 321,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -4385,7 +4386,7 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_2() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'post_data_2' call\n    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.context.artifact_id'], action_results=results)\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    \n    # build parameters list for 'post_data_2' call\n    for results_item_1 in results_data_1:\n        parameters.append({\n            'data': formatted_data_1,\n            'host': results_item_1[0],\n            'source': results_item_1[1],\n            'source_type': results_item_1[2],\n            'index': \"\",\n            # context (artifact id) is added to associate results with the artifact\n            'context': {'artifact_id': results_item_1[3]},\n        })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, name=\"post_data_2\")\n\n    return",
+                        "block_code": "def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_2() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'post_data_2' call\n    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.context.artifact_id'], action_results=results)\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    \n    # build parameters list for 'post_data_2' call\n    for results_item_1 in results_data_1:\n        parameters.append({\n            'index': \"\",\n            'host': results_item_1[0],\n            'source_type': results_item_1[1],\n            'data': formatted_data_1,\n            'source': results_item_1[2],\n            # context (artifact id) is added to associate results with the artifact\n            'context': {'artifact_id': results_item_1[3]},\n        })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, name=\"post_data_2\")\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
@@ -4410,8 +4411,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 416,
-                        "line_start": 389,
+                        "line_end": 365,
+                        "line_start": 338,
                         "message": "Configuring now",
                         "name": "post data",
                         "notes": "",
@@ -4490,7 +4491,7 @@
                         "status": "",
                         "title": "Generic",
                         "type": "coa.Action",
-                        "warn": "",
+                        "warn": false,
                         "z": 149
                     },
                     {
@@ -4685,8 +4686,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 347,
-                        "line_start": 326,
+                        "line_end": 386,
+                        "line_start": 365,
                         "message": "Configuring now",
                         "name": "post data",
                         "notes": "",
@@ -4844,7 +4845,7 @@
                                 "text": "format"
                             },
                             "g.delete": {
-                                "display": "block"
+                                "display": "none"
                             },
                             "g.error": {
                                 "opacity": 0
@@ -4883,9 +4884,9 @@
                             "cmd_test",
                             "run_supplied_command"
                         ],
-                        "join_start": 79,
-                        "line_end": 93,
-                        "line_start": 63,
+                        "join_start": 402,
+                        "line_end": 416,
+                        "line_start": 386,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -4978,7 +4979,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-06-12T14:58:45.469417+00:00",
+    "create_time": "2018-06-23T22:27:45.708699+00:00",
     "draft_mode": false,
     "labels": [
         "*"
