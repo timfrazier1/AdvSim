@@ -304,7 +304,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
 def format_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('format_3() called')
     
-    template = """Kicking off red team test: {0}  on machine with IP address: {1}"""
+    template = """Started red team test: {0}  on machine with IP address: {1}"""
 
     # parameter list for template variable replacement
     parameters = [
