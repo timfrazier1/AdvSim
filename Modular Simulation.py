@@ -370,10 +370,12 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
 
     parameters = []
     
+    splunk_status_source_type = phantom.collect(container, "artifact:*.cef.splunk_status_source_type")
+    
     # build parameters list for 'post_data_1' call
     parameters.append({
         'index': "",
-        'host': "aws_phantom",
+        'host': splunk_status_source_type,
         'source_type': "advsim:atr",
         'data': formatted_data_1,
         'source': "Phantom",
