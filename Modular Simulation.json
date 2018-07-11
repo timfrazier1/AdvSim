@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "312c5eee35b025a70f80ffed0380be2e532ac0a1",
+            "hash": "70ecc64b9bba5a305606a3ebc6d6cb256d6c8dac",
             "joint": {
                 "cells": [
                     {
@@ -201,8 +201,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 452,
-                        "line_start": 439,
+                        "line_end": 456,
+                        "line_start": 443,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -2682,7 +2682,7 @@
                                 "text": "Generic"
                             },
                             "g.delete": {
-                                "display": "none"
+                                "display": "block"
                             },
                             "g.error": {
                                 "opacity": 0
@@ -3853,9 +3853,9 @@
                             "cmd_test",
                             "run_supplied_command"
                         ],
-                        "join_start": 425,
-                        "line_end": 439,
-                        "line_start": 409,
+                        "join_start": 429,
+                        "line_end": 443,
+                        "line_start": 413,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -4263,278 +4263,6 @@
                         "z": 165
                     },
                     {
-                        "action": "post data",
-                        "action_type": "generic",
-                        "active": false,
-                        "active_keys": {},
-                        "active_values": {
-                            "data": "format_4:formatted_data",
-                            "host": "post_data_1:action_result.parameter.host",
-                            "index": "",
-                            "source": "post_data_1:action_result.parameter.source",
-                            "source_type": "post_data_1:action_result.parameter.source_type"
-                        },
-                        "angle": 0,
-                        "app": "Splunk",
-                        "approver": "",
-                        "assets": [
-                            {
-                                "action": "post data",
-                                "active": true,
-                                "app_name": "Splunk",
-                                "app_version": "1.3.19",
-                                "config_type": "app",
-                                "fields": {
-                                    "data": "format_4:formatted_data",
-                                    "host": "post_data_1:action_result.parameter.host",
-                                    "index": "",
-                                    "source": "post_data_1:action_result.parameter.source",
-                                    "source_type": "post_data_1:action_result.parameter.source_type"
-                                },
-                                "has_app": true,
-                                "id": 7,
-                                "loaded": false,
-                                "missing": false,
-                                "name": "Splunk",
-                                "output": [
-                                    {
-                                        "data_path": "action_result.status",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.message",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.data",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.host",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.index",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.source",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.source_type",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects",
-                                        "data_type": "numeric"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects_successful",
-                                        "data_type": "numeric"
-                                    }
-                                ],
-                                "parameters": {
-                                    "data": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Data to post",
-                                        "key": "data",
-                                        "order": 0,
-                                        "primary": true,
-                                        "required": true
-                                    },
-                                    "host": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Host for event",
-                                        "key": "host",
-                                        "order": 1,
-                                        "required": false
-                                    },
-                                    "index": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Index to send event to",
-                                        "key": "index",
-                                        "order": 4,
-                                        "required": false
-                                    },
-                                    "source": {
-                                        "data_type": "string",
-                                        "default": "Phantom",
-                                        "description": "Source for event",
-                                        "key": "source",
-                                        "order": 2,
-                                        "required": false
-                                    },
-                                    "source_type": {
-                                        "data_type": "string",
-                                        "default": "Automation/Orchestration Platform",
-                                        "description": "Type of source for event",
-                                        "key": "source_type",
-                                        "order": 3,
-                                        "required": false
-                                    }
-                                },
-                                "product_name": "Splunk Enterprise",
-                                "product_vendor": "Splunk Inc.",
-                                "type": ""
-                            }
-                        ],
-                        "attrs": {
-                            ".action": {
-                                "text": "post data 2"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "Generic"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.icon image": {
-                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_2() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'post_data_2' call\n    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.context.artifact_id'], action_results=results)\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    \n    # build parameters list for 'post_data_2' call\n    for results_item_1 in results_data_1:\n        parameters.append({\n            'index': \"\",\n            'host': results_item_1[0],\n            'source_type': results_item_1[1],\n            'data': formatted_data_1,\n            'source': results_item_1[2],\n            # context (artifact id) is added to associate results with the artifact\n            'context': {'artifact_id': results_item_1[3]},\n        })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, name=\"post_data_2\")\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": true,
-                        "color": "",
-                        "connected_to_start": true,
-                        "connection_name": "write ended event",
-                        "connection_type": "action",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "delay": 0,
-                        "description": "",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "7aca6b7c-11e5-491c-a302-0ae45b6fcc5e",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 365,
-                        "line_start": 338,
-                        "message": "Configuring now",
-                        "name": "post data",
-                        "notes": "",
-                        "number": 2,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 1840,
-                            "y": 140
-                        },
-                        "previous_function": "",
-                        "previous_name": "post_data_2",
-                        "required_params": {
-                            "data": true
-                        },
-                        "reviewer": "",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "app_action_config",
-                        "status": "",
-                        "title": "Generic",
-                        "type": "coa.Action",
-                        "warn": false,
-                        "z": 168
-                    },
-                    {
                         "active": false,
                         "angle": 0,
                         "attrs": {
@@ -4892,8 +4620,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 409,
-                        "line_start": 365,
+                        "line_end": 413,
+                        "line_start": 369,
                         "message": "Configuring now",
                         "name": "post data",
                         "notes": "",
@@ -4973,7 +4701,282 @@
                         "title": "Generic",
                         "type": "coa.Action",
                         "warn": false,
-                        "z": 172
+                        "z": 173
+                    },
+                    {
+                        "action": "post data",
+                        "action_type": "generic",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {
+                            "data": "format_4:formatted_data",
+                            "host": "post_data_1:action_result.parameter.host",
+                            "index": "",
+                            "source": "post_data_1:action_result.parameter.source",
+                            "source_type": "post_data_1:action_result.parameter.source_type"
+                        },
+                        "angle": 0,
+                        "app": "Splunk",
+                        "approver": "",
+                        "assets": [
+                            {
+                                "action": "post data",
+                                "active": true,
+                                "app_name": "Splunk",
+                                "app_version": "1.3.19",
+                                "config_type": "app",
+                                "fields": {
+                                    "data": "format_4:formatted_data",
+                                    "host": "post_data_1:action_result.parameter.host",
+                                    "index": "",
+                                    "source": "post_data_1:action_result.parameter.source",
+                                    "source_type": "post_data_1:action_result.parameter.source_type"
+                                },
+                                "has_app": true,
+                                "id": 7,
+                                "loaded": false,
+                                "missing": false,
+                                "name": "Splunk",
+                                "output": [
+                                    {
+                                        "data_path": "action_result.status",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.message",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.data",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.host",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.index",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.source",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.source_type",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects",
+                                        "data_type": "numeric"
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects_successful",
+                                        "data_type": "numeric"
+                                    }
+                                ],
+                                "parameters": {
+                                    "data": {
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Data to post",
+                                        "key": "data",
+                                        "order": 0,
+                                        "primary": true,
+                                        "required": true
+                                    },
+                                    "host": {
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Host for event",
+                                        "key": "host",
+                                        "order": 1,
+                                        "required": false
+                                    },
+                                    "index": {
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Index to send event to",
+                                        "key": "index",
+                                        "order": 4,
+                                        "required": false
+                                    },
+                                    "source": {
+                                        "data_type": "string",
+                                        "default": "Phantom",
+                                        "description": "Source for event",
+                                        "key": "source",
+                                        "order": 2,
+                                        "required": false
+                                    },
+                                    "source_type": {
+                                        "data_type": "string",
+                                        "default": "Automation/Orchestration Platform",
+                                        "description": "Type of source for event",
+                                        "key": "source_type",
+                                        "order": 3,
+                                        "required": false
+                                    }
+                                },
+                                "product_name": "Splunk Enterprise",
+                                "product_vendor": "Splunk Inc.",
+                                "type": ""
+                            }
+                        ],
+                        "attrs": {
+                            ".action": {
+                                "text": "post data 2"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "Generic"
+                            },
+                            "g.code image": {
+                                "xlink:href": "/inc/coa/img/block_icon_code_on.svg"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.icon image": {
+                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_2() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'post_data_2' call\n    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.context.artifact_id'], action_results=results)\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    \n    # build parameters list for 'post_data_2' call\n    for results_item_1 in results_data_1:\n        parameters.append({\n            'index': \"\",\n            'host': results_item_1[0],\n            'source_type': results_item_1[1],\n            'data': formatted_data_1,\n            'source': results_item_1[2],\n            # context (artifact id) is added to associate results with the artifact\n            'context': {'artifact_id': results_item_1[3]},\n        })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, name=\"post_data_2\")\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": true,
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "write ended event",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_2() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'post_data_2' call\n    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.context.artifact_id', 'post_data_1:action_result.parameter.data', 'post_data_1:action_result.parameter.index'], action_results=results)\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    \n    # build parameters list for 'post_data_2' call\n    for results_item_1 in results_data_1:\n        data_json = results_item_1[4]\n        data = json.loads(data_json)\n        data['msg'] = formatted_data_1\n        data_json = json.dumps(data)\n        parameters.append({\n            'index': results_item_1[5],\n            'host': results_item_1[0],\n            'source_type': results_item_1[1],\n            'data': data,\n            'source': results_item_1[2],\n            # context (artifact id) is added to associate results with the artifact\n            'context': {'artifact_id': results_item_1[3]},\n        })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, name=\"post_data_2\")\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "has_custom": false,
+                        "has_custom_block": true,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "7aca6b7c-11e5-491c-a302-0ae45b6fcc5e",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 369,
+                        "line_start": 338,
+                        "message": "Configuring now",
+                        "name": "post data",
+                        "notes": "",
+                        "number": 2,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1840,
+                            "y": 140
+                        },
+                        "previous_function": "",
+                        "previous_name": "post_data_2",
+                        "required_params": {
+                            "data": true
+                        },
+                        "reviewer": "",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "app_action_config",
+                        "status": "",
+                        "title": "Generic",
+                        "type": "coa.Action",
+                        "warn": false,
+                        "z": 174
                     }
                 ]
             },
@@ -4982,7 +4985,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-07-11T04:13:00.688463+00:00",
+    "create_time": "2018-07-11T04:24:50.900536+00:00",
     "draft_mode": false,
     "labels": [
         "*"

@@ -341,18 +341,22 @@ def post_data_2(action=None, success=None, container=None, results=None, handle=
     #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
     
     # collect data for 'post_data_2' call
-    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.context.artifact_id'], action_results=results)
+    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.context.artifact_id', 'post_data_1:action_result.parameter.data', 'post_data_1:action_result.parameter.index'], action_results=results)
     formatted_data_1 = phantom.get_format_data(name='format_4')
 
     parameters = []
     
     # build parameters list for 'post_data_2' call
     for results_item_1 in results_data_1:
+        data_json = results_item_1[4]
+        data = json.loads(data_json)
+        data['msg'] = formatted_data_1
+        data_json = json.dumps(data)
         parameters.append({
-            'index': "",
+            'index': results_item_1[5],
             'host': results_item_1[0],
             'source_type': results_item_1[1],
-            'data': formatted_data_1,
+            'data': data,
             'source': results_item_1[2],
             # context (artifact id) is added to associate results with the artifact
             'context': {'artifact_id': results_item_1[3]},
