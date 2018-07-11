@@ -374,7 +374,7 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
     parameters.append({
         'index': "",
         'host': "aws_phantom",
-        'source_type': "Automation/Orchestration Platform",
+        'source_type': "advsim:atr",
         'data': formatted_data_1,
         'source': "Phantom",
     })
