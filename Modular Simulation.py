@@ -17,7 +17,7 @@ def format_1(action=None, success=None, container=None, results=None, handle=Non
     phantom.debug('format_1() called')
     
     playbook_info = phantom.get_playbook_info()
-    guid = phantom.get_data(playbook_info[0]['id'])
+    guid = phantom.get_data(playbook_info[0]['id'], clear_data=False)
     
     template = "eventcreate /id 999 /D \"started test on {0} guid=%s\" /T INFORMATION /L application" % guid
 
@@ -418,7 +418,7 @@ def format_2(action=None, success=None, container=None, results=None, handle=Non
     phantom.debug('format_2() called')
     
     playbook_info = phantom.get_playbook_info()
-    guid = phantom.get_data(playbook_info[0]['id'])
+    guid = phantom.get_data(playbook_info[0]['id'], clear_data=False)
     phantom.debug(guid)
         
     template = "eventcreate /id 999 /D \"ended test for {0} guid=%s\" /T INFORMATION /L application" % guid

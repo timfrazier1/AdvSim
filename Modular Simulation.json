@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "b17e050e055783145fd2bebbb9d359f8ce4e1a1c",
+            "hash": "23e0e253f2c83f3ce78d86f257d2574dd9a2bde8",
             "joint": {
                 "cells": [
                     {
@@ -1603,7 +1603,7 @@
                                 }
                             },
                             "g.delete": {
-                                "display": "none"
+                                "display": "block"
                             },
                             "g.error": {
                                 "opacity": 0
@@ -1899,7 +1899,7 @@
                                 }
                             },
                             "g.delete": {
-                                "display": "block"
+                                "display": "none"
                             },
                             "g.error": {
                                 "opacity": 0
@@ -4716,7 +4716,7 @@
                         "connection_name": "post data 1",
                         "connection_type": "action",
                         "custom_callback": "",
-                        "custom_code": "def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_1() called')\n    \n    playbook_info = phantom.get_playbook_info()\n    guid = phantom.get_data(playbook_info[0]['id'])\n    \n    template = \"eventcreate /id 999 /D \\\"started test on {0} guid=%s\\\" /T INFORMATION /L application\" % guid\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.destinationAddress\"\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_1\")\n\n    write_started_event(container=container)\n\n    return",
+                        "custom_code": "def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_1() called')\n    \n    playbook_info = phantom.get_playbook_info()\n    guid = phantom.get_data(playbook_info[0]['id'], clear_data=False)\n    \n    template = \"eventcreate /id 999 /D \\\"started test on {0} guid=%s\\\" /T INFORMATION /L application\" % guid\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.destinationAddress\"\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_1\")\n\n    write_started_event(container=container)\n\n    return",
                         "custom_join": "",
                         "custom_name": "",
                         "description": "",
@@ -4817,7 +4817,7 @@
                         "title": "format",
                         "type": "coa.Format",
                         "warn": false,
-                        "z": 204
+                        "z": 207
                     },
                     {
                         "active": false,
@@ -4877,7 +4877,7 @@
                         "connection_name": "powershell test, cmd test, run supplied command",
                         "connection_type": "action",
                         "custom_callback": "",
-                        "custom_code": "def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_2() called')\n    \n    playbook_info = phantom.get_playbook_info()\n    guid = phantom.get_data(playbook_info[0]['id'])\n    phantom.debug(guid)\n        \n    template = \"eventcreate /id 999 /D \\\"ended test for {0} guid=%s\\\" /T INFORMATION /L application\" % guid\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"write_started_event:action_result.parameter.ip_hostname\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_2\")\n\n    write_ended_event(container=container)\n\n    return",
+                        "custom_code": "def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_2() called')\n    \n    playbook_info = phantom.get_playbook_info()\n    guid = phantom.get_data(playbook_info[0]['id'], clear_data=False)\n    phantom.debug(guid)\n        \n    template = \"eventcreate /id 999 /D \\\"ended test for {0} guid=%s\\\" /T INFORMATION /L application\" % guid\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"write_started_event:action_result.parameter.ip_hostname\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_2\")\n\n    write_ended_event(container=container)\n\n    return",
                         "custom_join": "",
                         "custom_name": "",
                         "description": "",
@@ -4982,7 +4982,7 @@
                         "title": "format",
                         "type": "coa.Format",
                         "warn": false,
-                        "z": 206
+                        "z": 208
                     }
                 ]
             },
@@ -4991,7 +4991,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-07-11T05:29:13.659772+00:00",
+    "create_time": "2018-07-11T05:31:41.327836+00:00",
     "draft_mode": false,
     "labels": [
         "*"
