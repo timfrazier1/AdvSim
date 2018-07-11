@@ -19,12 +19,11 @@ def format_1(action=None, success=None, container=None, results=None, handle=Non
     playbook_info = phantom.get_playbook_info()
     guid = phantom.get_data(playbook_info[0]['id'])
     
-    template = """eventcreate /id 999 /D \"started test on {0} guid=\" /T INFORMATION /L application"""
+    template = """eventcreate /id 999 /D \"started test on \{0\} guid={0}\" /T INFORMATION /L application""".format(guid)
 
     # parameter list for template variable replacement
     parameters = [
-        "artifact:*.cef.destinationAddress",
-        guid
+        "artifact:*.cef.destinationAddress"
     ]
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_1")
