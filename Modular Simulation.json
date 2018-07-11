@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "04bb0a7701f3ad187298b5f67ed83f88015055b5",
+            "hash": "fc33ff7d7f70889b14a921359732b5a710a12724",
             "joint": {
                 "cells": [
                     {
@@ -201,8 +201,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 431,
-                        "line_start": 418,
+                        "line_end": 435,
+                        "line_start": 422,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -4288,9 +4288,9 @@
                             "cmd_test",
                             "run_supplied_command"
                         ],
-                        "join_start": 404,
-                        "line_end": 418,
-                        "line_start": 388,
+                        "join_start": 408,
+                        "line_end": 422,
+                        "line_start": 392,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -4858,7 +4858,7 @@
                                 "opacity": 0
                             },
                             "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                                "xlink:href": "/inc/coa/img/block_icon_error.svg"
                             },
                             "g.icon image": {
                                 "xlink:href": "/inc/coa/img/block_icon_generic.svg"
@@ -4876,7 +4876,7 @@
                         "connection_name": "",
                         "connection_type": "",
                         "custom_callback": "",
-                        "custom_code": "def post_data_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_1() called')\n\n    # collect data for 'post_data_1' call\n    formatted_data_1 = phantom.get_format_data(name='format_3')\n\n    parameters = []\n    \n    splunk_status_source_type = phantom.collect(container, \"artifact:*.cef.splunk_status_source_type\")\n    \n    # build parameters list for 'post_data_1' call\n    parameters.append({\n        'index': \"\",\n        'host': splunk_status_source_type,\n        'source_type': \"advsim:atr\",\n        'data': formatted_data_1,\n        'source': \"Phantom\",\n    })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, callback=decision_2, name=\"post_data_1\")\n\n    return",
+                        "custom_code": "def post_data_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_1() called')\n\n    # collect data for 'post_data_1' call\n    formatted_data_1 = phantom.get_format_data(name='format_3')\n\n    parameters = []\n    \n    splunk_status_source_type_list = phantom.collect(container, \"artifact:*.cef.splunk_status_source_type\")\n    if len(splunk_status_source_type_list) > 0:\n        splunk_status_source_type = splunk_status_source_type_list[0]\n    else:\n        splunk_status_source_type = \"advsim:atr\"\n\n    # build parameters list for 'post_data_1' call\n    parameters.append({\n        'index': \"\",\n        'host': \"host\",\n        'source_type': splunk_status_source_type,\n        'data': formatted_data_1,\n        'source': \"Phantom\",\n    })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, callback=decision_2, name=\"post_data_1\")\n\n    return",
                         "custom_join": "",
                         "custom_name": "",
                         "delay": 0,
@@ -4892,7 +4892,7 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 388,
+                        "line_end": 392,
                         "line_start": 365,
                         "message": "Configuring now",
                         "name": "post data",
@@ -4973,7 +4973,7 @@
                         "title": "Generic",
                         "type": "coa.Action",
                         "warn": false,
-                        "z": 160
+                        "z": 161
                     }
                 ]
             },
@@ -4982,7 +4982,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-07-11T03:02:20.985645+00:00",
+    "create_time": "2018-07-11T03:11:41.877725+00:00",
     "draft_mode": false,
     "labels": [
         "*"
