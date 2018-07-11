@@ -419,8 +419,9 @@ def format_2(action=None, success=None, container=None, results=None, handle=Non
     
     playbook_info = phantom.get_playbook_info()
     guid = phantom.get_data(playbook_info[0]['id'])
+    phantom.debug(guid)
         
-    template = """eventcreate /id 999 /D \"ended test for {0} guid=%s\" /T INFORMATION /L application""" % guid
+    template = "eventcreate /id 999 /D \"ended test for {0} guid=%s\" /T INFORMATION /L application" % guid
 
     # parameter list for template variable replacement
     parameters = [
