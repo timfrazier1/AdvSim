@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "70ecc64b9bba5a305606a3ebc6d6cb256d6c8dac",
+            "hash": "3655ba9dcc9b371f65ace5d29049cb367886c011",
             "joint": {
                 "cells": [
                     {
@@ -2682,7 +2682,7 @@
                                 "text": "Generic"
                             },
                             "g.delete": {
-                                "display": "block"
+                                "display": "none"
                             },
                             "g.error": {
                                 "opacity": 0
@@ -4879,7 +4879,7 @@
                         "connection_name": "write ended event",
                         "connection_type": "action",
                         "custom_callback": "",
-                        "custom_code": "def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_2() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'post_data_2' call\n    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.context.artifact_id', 'post_data_1:action_result.parameter.data', 'post_data_1:action_result.parameter.index'], action_results=results)\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    \n    # build parameters list for 'post_data_2' call\n    for results_item_1 in results_data_1:\n        data_json = results_item_1[4]\n        data = json.loads(data_json)\n        data['msg'] = formatted_data_1\n        data_json = json.dumps(data)\n        parameters.append({\n            'index': results_item_1[5],\n            'host': results_item_1[0],\n            'source_type': results_item_1[1],\n            'data': data,\n            'source': results_item_1[2],\n            # context (artifact id) is added to associate results with the artifact\n            'context': {'artifact_id': results_item_1[3]},\n        })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, name=\"post_data_2\")\n\n    return",
+                        "custom_code": "def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_2() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'post_data_2' call\n    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.context.artifact_id', 'post_data_1:action_result.parameter.data', 'post_data_1:action_result.parameter.index'], action_results=results)\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    \n    # build parameters list for 'post_data_2' call\n    for results_item_1 in results_data_1:\n        data_json = results_item_1[4]\n        data = json.loads(data_json)\n        data['msg'] = formatted_data_1\n        data_json = json.dumps(data)\n        parameters.append({\n            'index': results_item_1[5],\n            'host': results_item_1[0],\n            'source_type': results_item_1[1],\n            'data': data_json,\n            'source': results_item_1[2],\n            # context (artifact id) is added to associate results with the artifact\n            'context': {'artifact_id': results_item_1[3]},\n        })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, name=\"post_data_2\")\n\n    return",
                         "custom_join": "",
                         "custom_name": "",
                         "delay": 0,
@@ -4976,7 +4976,7 @@
                         "title": "Generic",
                         "type": "coa.Action",
                         "warn": false,
-                        "z": 174
+                        "z": 175
                     }
                 ]
             },
@@ -4985,7 +4985,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-07-11T04:24:50.900536+00:00",
+    "create_time": "2018-07-11T04:26:22.834174+00:00",
     "draft_mode": false,
     "labels": [
         "*"

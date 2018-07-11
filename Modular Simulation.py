@@ -356,7 +356,7 @@ def post_data_2(action=None, success=None, container=None, results=None, handle=
             'index': results_item_1[5],
             'host': results_item_1[0],
             'source_type': results_item_1[1],
-            'data': data,
+            'data': data_json,
             'source': results_item_1[2],
             # context (artifact id) is added to associate results with the artifact
             'context': {'artifact_id': results_item_1[3]},
