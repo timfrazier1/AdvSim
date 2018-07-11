@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "23e0e253f2c83f3ce78d86f257d2574dd9a2bde8",
+            "hash": "f179247a8cb13777373143e875e0f73b02c2b700",
             "joint": {
                 "cells": [
                     {
@@ -2431,333 +2431,6 @@
                         "z": 129
                     },
                     {
-                        "action": "format command",
-                        "action_type": "generic",
-                        "active": false,
-                        "active_keys": {},
-                        "active_values": {
-                            "attack_id": "artifact:*.cef.test_id",
-                            "input_arguments": "artifact:*.cef.input_arguments",
-                            "supported_os": "artifact:*.cef.os",
-                            "use_arg_defaults": true
-                        },
-                        "angle": 0,
-                        "app": "Atomic Red Team",
-                        "approver": "",
-                        "assets": [
-                            {
-                                "action": "format command",
-                                "active": true,
-                                "app_name": "Atomic Red Team",
-                                "app_version": "1.0.0",
-                                "config_type": "app",
-                                "fields": {
-                                    "attack_id": "artifact:*.cef.test_id",
-                                    "input_arguments": "artifact:*.cef.input_arguments",
-                                    "supported_os": "artifact:*.cef.os"
-                                },
-                                "has_app": true,
-                                "id": 155,
-                                "loaded": false,
-                                "missing": false,
-                                "name": "Atomic Red Team",
-                                "output": [
-                                    {
-                                        "data_path": "action_result.status",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "success"
-                                        ]
-                                    },
-                                    {
-                                        "column_name": "Formatted Command",
-                                        "column_order": 3,
-                                        "contains": [
-                                            "file name"
-                                        ],
-                                        "data_path": "action_result.data.*.executor.command",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "cmd.exe /c \"net use \\\\Target\\C$ P@ssw0rd1 /u:DOMAIN\\Administrator\"\n",
-                                            "regsvr32.exe /s /u /i:Regsvr32.sct scrobj.dll\n"
-                                        ]
-                                    },
-                                    {
-                                        "column_name": "Shell Type",
-                                        "column_order": 2,
-                                        "data_path": "action_result.data.*.executor.name",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "command_prompt"
-                                        ]
-                                    },
-                                    {
-                                        "column_name": "Attack ID",
-                                        "column_order": 0,
-                                        "contains": [
-                                            "mitre attack id"
-                                        ],
-                                        "data_path": "action_result.data.*.attack_technique",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "T1077",
-                                            "T1117"
-                                        ]
-                                    },
-                                    {
-                                        "data_path": "action_result.message",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "Total tests: 1",
-                                            "Total tests: 3"
-                                        ]
-                                    },
-                                    {
-                                        "column_name": "Supported OS",
-                                        "column_order": 1,
-                                        "data_path": "action_result.parameter.supported_os",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "windows"
-                                        ]
-                                    },
-                                    {
-                                        "contains": [
-                                            "mitre attack id"
-                                        ],
-                                        "data_path": "action_result.parameter.attack_id",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "T1077",
-                                            "T1117"
-                                        ]
-                                    },
-                                    {
-                                        "data_path": "action_result.summary.total tests",
-                                        "data_type": "numeric",
-                                        "example_values": [
-                                            1,
-                                            3
-                                        ]
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects",
-                                        "data_type": "numeric",
-                                        "example_values": [
-                                            1
-                                        ]
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects_successful",
-                                        "data_type": "numeric",
-                                        "example_values": [
-                                            1
-                                        ]
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.executor.arg_types",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "Path"
-                                        ]
-                                    }
-                                ],
-                                "parameters": {
-                                    "attack_id": {
-                                        "contains": [
-                                            "mitre attack id"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "MITRE ATT@CK ID for technique (e.g. T1033)",
-                                        "key": "attack_id",
-                                        "order": 0,
-                                        "primary": true,
-                                        "required": true
-                                    },
-                                    "input_arguments": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "JSON of input arguments",
-                                        "key": "input_arguments",
-                                        "order": 2,
-                                        "primary": false,
-                                        "required": false
-                                    },
-                                    "supported_os": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "OS to format command for",
-                                        "key": "supported_os",
-                                        "order": 1,
-                                        "primary": false,
-                                        "required": true,
-                                        "value_list": [
-                                            "windows",
-                                            "macos",
-                                            "linux"
-                                        ]
-                                    }
-                                },
-                                "product_name": "Atomic Red Team",
-                                "product_vendor": "Red Canary",
-                                "type": ""
-                            }
-                        ],
-                        "attrs": {
-                            ".action": {
-                                "text": "format command"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "Generic"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.icon image": {
-                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def format_command_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_command_1() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'format_command_1' call\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.os', 'artifact:*.cef.test_id', 'artifact:*.cef.input_arguments', 'artifact:*.id'])\n\n    parameters = []\n    \n    # build parameters list for 'format_command_1' call\n    for container_item in container_data:\n        if container_item[0] and container_item[1]:\n            parameters.append({\n                'supported_os': container_item[0],\n                'attack_id': container_item[1],\n                'input_arguments': container_item[2],\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': container_item[3]},\n            })\n\n    phantom.act(\"format command\", parameters=parameters, app={ \"name\": 'Atomic Red Team' }, callback=filter_1, name=\"format_command_1\", parent_action=action)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": true,
-                        "color": "",
-                        "connected_to_start": true,
-                        "connection_name": "write started event",
-                        "connection_type": "action",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "delay": 0,
-                        "description": "",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "e29675fd-9f55-44ff-9301-8429275e8bcf",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 258,
-                        "line_start": 233,
-                        "message": "Configuring now",
-                        "name": "format command",
-                        "notes": "",
-                        "number": 1,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 800,
-                            "y": 260
-                        },
-                        "previous_function": "",
-                        "previous_name": "format_command_1",
-                        "required_params": {
-                            "attack_id": true,
-                            "supported_os": true
-                        },
-                        "reviewer": "",
-                        "show_number": false,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "app_action_config",
-                        "status": "",
-                        "title": "Generic",
-                        "type": "coa.Action",
-                        "warn": false,
-                        "z": 134
-                    },
-                    {
                         "action": "run command",
                         "action_type": "generic",
                         "active": false,
@@ -3405,607 +3078,6 @@
                         "z": 151
                     },
                     {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".format": {
-                                "text": "format 4"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out-1": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out-1>.port-body": {
-                                "port": {
-                                    "id": "out-1",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "format"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_4() called')\n    \n    template = \"\"\"Finished red team test: {0}  on machine with IP address: {1}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.test_id\",\n        \"artifact:*.cef.destinationAddress\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_4\")\n\n    post_data_2(container=container)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "write ended event",
-                        "connection_type": "action",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "description": "",
-                        "format": "format",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "84d8cf57-de36-483e-bb67-6631cfc4eef9",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 341,
-                        "line_start": 324,
-                        "message": "Configuring now",
-                        "name": "format",
-                        "notes": "",
-                        "number": 4,
-                        "outPorts": [
-                            "out-1"
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": "artifact:*.cef.test_id"
-                            },
-                            {
-                                "position": 1,
-                                "type": "",
-                                "value": "artifact:*.cef.destinationAddress"
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 1600,
-                            "y": 140
-                        },
-                        "previous_function": "",
-                        "previous_name": "format_4",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "format",
-                        "status": "",
-                        "template": "Finished red team test: {0}  on machine with IP address: {1}",
-                        "title": "format",
-                        "type": "coa.Format",
-                        "warn": false,
-                        "z": 165
-                    },
-                    {
-                        "action": "post data",
-                        "action_type": "generic",
-                        "active": false,
-                        "active_keys": {},
-                        "active_values": {
-                            "data": "format_4:formatted_data",
-                            "host": "post_data_1:action_result.parameter.host",
-                            "index": "",
-                            "source": "post_data_1:action_result.parameter.source",
-                            "source_type": "post_data_1:action_result.parameter.source_type"
-                        },
-                        "angle": 0,
-                        "app": "Splunk",
-                        "approver": "",
-                        "assets": [
-                            {
-                                "action": "post data",
-                                "active": true,
-                                "app_name": "Splunk",
-                                "app_version": "1.3.19",
-                                "config_type": "app",
-                                "fields": {
-                                    "data": "format_4:formatted_data",
-                                    "host": "post_data_1:action_result.parameter.host",
-                                    "index": "",
-                                    "source": "post_data_1:action_result.parameter.source",
-                                    "source_type": "post_data_1:action_result.parameter.source_type"
-                                },
-                                "has_app": true,
-                                "id": 7,
-                                "loaded": false,
-                                "missing": false,
-                                "name": "Splunk",
-                                "output": [
-                                    {
-                                        "data_path": "action_result.status",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.message",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.data",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.host",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.index",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.source",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.source_type",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects",
-                                        "data_type": "numeric"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects_successful",
-                                        "data_type": "numeric"
-                                    }
-                                ],
-                                "parameters": {
-                                    "data": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Data to post",
-                                        "key": "data",
-                                        "order": 0,
-                                        "primary": true,
-                                        "required": true
-                                    },
-                                    "host": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Host for event",
-                                        "key": "host",
-                                        "order": 1,
-                                        "required": false
-                                    },
-                                    "index": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Index to send event to",
-                                        "key": "index",
-                                        "order": 4,
-                                        "required": false
-                                    },
-                                    "source": {
-                                        "data_type": "string",
-                                        "default": "Phantom",
-                                        "description": "Source for event",
-                                        "key": "source",
-                                        "order": 2,
-                                        "required": false
-                                    },
-                                    "source_type": {
-                                        "data_type": "string",
-                                        "default": "Automation/Orchestration Platform",
-                                        "description": "Type of source for event",
-                                        "key": "source_type",
-                                        "order": 3,
-                                        "required": false
-                                    }
-                                },
-                                "product_name": "Splunk Enterprise",
-                                "product_vendor": "Splunk Inc.",
-                                "type": ""
-                            }
-                        ],
-                        "attrs": {
-                            ".action": {
-                                "text": "post data 2"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "Generic"
-                            },
-                            "g.code image": {
-                                "xlink:href": "/inc/coa/img/block_icon_code_on.svg"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.icon image": {
-                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_2() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'post_data_2' call\n    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.context.artifact_id'], action_results=results)\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    \n    # build parameters list for 'post_data_2' call\n    for results_item_1 in results_data_1:\n        parameters.append({\n            'index': \"\",\n            'host': results_item_1[0],\n            'source_type': results_item_1[1],\n            'data': formatted_data_1,\n            'source': results_item_1[2],\n            # context (artifact id) is added to associate results with the artifact\n            'context': {'artifact_id': results_item_1[3]},\n        })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, name=\"post_data_2\")\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": true,
-                        "color": "",
-                        "connected_to_start": true,
-                        "connection_name": "write ended event",
-                        "connection_type": "action",
-                        "custom_callback": "",
-                        "custom_code": "def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_2() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'post_data_2' call\n    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.context.artifact_id', 'post_data_1:action_result.parameter.data', 'post_data_1:action_result.parameter.index'], action_results=results)\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    \n    # build parameters list for 'post_data_2' call\n    for results_item_1 in results_data_1:\n        data_json = results_item_1[4]\n        data = json.loads(data_json)\n        data['msg'] = formatted_data_1\n        data_json = json.dumps(data)\n        parameters.append({\n            'index': results_item_1[5],\n            'host': results_item_1[0],\n            'source_type': results_item_1[1],\n            'data': data_json,\n            'source': results_item_1[2],\n            # context (artifact id) is added to associate results with the artifact\n            'context': {'artifact_id': results_item_1[3]},\n        })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, name=\"post_data_2\")\n\n    return",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "delay": 0,
-                        "description": "",
-                        "has_custom": false,
-                        "has_custom_block": true,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "7aca6b7c-11e5-491c-a302-0ae45b6fcc5e",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 372,
-                        "line_start": 341,
-                        "message": "Configuring now",
-                        "name": "post data",
-                        "notes": "",
-                        "number": 2,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 1840,
-                            "y": 140
-                        },
-                        "previous_function": "",
-                        "previous_name": "post_data_2",
-                        "required_params": {
-                            "data": true
-                        },
-                        "reviewer": "",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "app_action_config",
-                        "status": "",
-                        "title": "Generic",
-                        "type": "coa.Action",
-                        "warn": false,
-                        "z": 179
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".format": {
-                                "text": "format 3"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out-1": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out-1>.port-body": {
-                                "port": {
-                                    "id": "out-1",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "format"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def format_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_3() called')\n    \n    template = \"\"\"Started red team test: {0}  on machine with IP address: {1}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.test_id\",\n        \"artifact:*.cef.destinationAddress\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_3\")\n\n    post_data_1(container=container)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "",
-                        "connection_type": "",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "description": "",
-                        "format": "format",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "014b0f8c-bdce-4253-8f41-ffcbc91801c7",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 324,
-                        "line_start": 307,
-                        "message": "Configuring now",
-                        "name": "format",
-                        "notes": "",
-                        "number": 3,
-                        "outPorts": [
-                            "out-1"
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": "artifact:*.cef.test_id"
-                            },
-                            {
-                                "position": 1,
-                                "type": "",
-                                "value": "artifact:*.cef.destinationAddress"
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 420,
-                            "y": 120
-                        },
-                        "previous_function": "",
-                        "previous_name": "format_3",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "format",
-                        "status": "",
-                        "template": "Started red team test: {0}  on machine with IP address: {1}",
-                        "title": "format",
-                        "type": "coa.Format",
-                        "warn": false,
-                        "z": 190
-                    },
-                    {
                         "action": "post data",
                         "action_type": "generic",
                         "active": false,
@@ -4282,6 +3354,171 @@
                         "type": "coa.Action",
                         "warn": false,
                         "z": 191
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".format": {
+                                "text": "format 2"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out-1": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out-1>.port-body": {
+                                "port": {
+                                    "id": "out-1",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "format"
+                            },
+                            "g.code image": {
+                                "xlink:href": "/inc/coa/img/block_icon_code_on.svg"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_2() called')\n    \n    template = \"\"\"eventcreate /id 999 /D \\\"ended test for {0}\\\" /T INFORMATION /L application\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"write_started_event:action_result.parameter.ip_hostname\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_2\")\n\n    write_ended_event(container=container)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "powershell test, cmd test, run supplied command",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_2() called')\n    \n    playbook_info = phantom.get_playbook_info()\n    guid = phantom.get_data(playbook_info[0]['id'], clear_data=False)\n    phantom.debug(guid)\n        \n    template = \"eventcreate /id 999 /D \\\"ended test for {0} guid=%s\\\" /T INFORMATION /L application\" % guid\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"write_started_event:action_result.parameter.ip_hostname\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_2\")\n\n    write_ended_event(container=container)\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "description": "",
+                        "format": "format",
+                        "has_custom": false,
+                        "has_custom_block": true,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "4607ee03-c437-4903-9d01-cbff02ae611d",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "def join_format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('join_format_2() called')\n    \n    # if the joined function has already been called, do nothing\n    if phantom.get_run_data(key='join_format_2_called'):\n        return\n\n    # no callbacks to check, call connected block \"format_2\"\n    phantom.save_run_data(key='join_format_2_called', value='format_2', auto=True)\n\n    format_2(container=container, handle=handle)\n    \n    return",
+                        "join_optional": [
+                            "powershell_test",
+                            "cmd_test",
+                            "run_supplied_command"
+                        ],
+                        "join_start": 437,
+                        "line_end": 451,
+                        "line_start": 417,
+                        "message": "Configuring now",
+                        "name": "format",
+                        "notes": "",
+                        "number": 2,
+                        "outPorts": [
+                            "out-1"
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "write_started_event:action_result.parameter.ip_hostname"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1580,
+                            "y": 0
+                        },
+                        "previous_function": "",
+                        "previous_name": "format_2",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "format",
+                        "status": "",
+                        "template": "eventcreate /id 999 /D \"ended test for {0}\" /T INFORMATION /L application",
+                        "title": "format",
+                        "type": "coa.Format",
+                        "warn": false,
+                        "z": 208
                     },
                     {
                         "action": "run script",
@@ -4656,7 +3893,334 @@
                         "title": "Generic",
                         "type": "coa.Action",
                         "warn": false,
-                        "z": 200
+                        "z": 212
+                    },
+                    {
+                        "action": "format command",
+                        "action_type": "generic",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {
+                            "attack_id": "artifact:*.cef.test_id",
+                            "input_arguments": "artifact:*.cef.input_arguments",
+                            "supported_os": "artifact:*.cef.os",
+                            "use_arg_defaults": true
+                        },
+                        "angle": 0,
+                        "app": "Atomic Red Team",
+                        "approver": "",
+                        "assets": [
+                            {
+                                "action": "format command",
+                                "active": true,
+                                "app_name": "Atomic Red Team",
+                                "app_version": "1.0.0",
+                                "config_type": "app",
+                                "fields": {
+                                    "attack_id": "artifact:*.cef.test_id",
+                                    "input_arguments": "artifact:*.cef.input_arguments",
+                                    "supported_os": "artifact:*.cef.os"
+                                },
+                                "has_app": true,
+                                "id": 155,
+                                "loaded": false,
+                                "missing": false,
+                                "name": "Atomic Red Team",
+                                "output": [
+                                    {
+                                        "data_path": "action_result.status",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "success"
+                                        ]
+                                    },
+                                    {
+                                        "column_name": "Formatted Command",
+                                        "column_order": 3,
+                                        "contains": [
+                                            "file name"
+                                        ],
+                                        "data_path": "action_result.data.*.executor.command",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "cmd.exe /c \"net use \\\\Target\\C$ P@ssw0rd1 /u:DOMAIN\\Administrator\"\n",
+                                            "regsvr32.exe /s /u /i:Regsvr32.sct scrobj.dll\n"
+                                        ]
+                                    },
+                                    {
+                                        "column_name": "Shell Type",
+                                        "column_order": 2,
+                                        "data_path": "action_result.data.*.executor.name",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "command_prompt"
+                                        ]
+                                    },
+                                    {
+                                        "column_name": "Attack ID",
+                                        "column_order": 0,
+                                        "contains": [
+                                            "mitre attack id"
+                                        ],
+                                        "data_path": "action_result.data.*.attack_technique",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "T1077",
+                                            "T1117"
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "action_result.message",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "Total tests: 1",
+                                            "Total tests: 3"
+                                        ]
+                                    },
+                                    {
+                                        "column_name": "Supported OS",
+                                        "column_order": 1,
+                                        "data_path": "action_result.parameter.supported_os",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "windows"
+                                        ]
+                                    },
+                                    {
+                                        "contains": [
+                                            "mitre attack id"
+                                        ],
+                                        "data_path": "action_result.parameter.attack_id",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "T1077",
+                                            "T1117"
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "action_result.summary.total tests",
+                                        "data_type": "numeric",
+                                        "example_values": [
+                                            1,
+                                            3
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects",
+                                        "data_type": "numeric",
+                                        "example_values": [
+                                            1
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects_successful",
+                                        "data_type": "numeric",
+                                        "example_values": [
+                                            1
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "action_result.data.*.executor.arg_types",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "Path"
+                                        ]
+                                    }
+                                ],
+                                "parameters": {
+                                    "attack_id": {
+                                        "contains": [
+                                            "mitre attack id"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "MITRE ATT@CK ID for technique (e.g. T1033)",
+                                        "key": "attack_id",
+                                        "order": 0,
+                                        "primary": true,
+                                        "required": true
+                                    },
+                                    "input_arguments": {
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "JSON of input arguments",
+                                        "key": "input_arguments",
+                                        "order": 2,
+                                        "primary": false,
+                                        "required": false
+                                    },
+                                    "supported_os": {
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "OS to format command for",
+                                        "key": "supported_os",
+                                        "order": 1,
+                                        "primary": false,
+                                        "required": true,
+                                        "value_list": [
+                                            "windows",
+                                            "macos",
+                                            "linux"
+                                        ]
+                                    }
+                                },
+                                "product_name": "Atomic Red Team",
+                                "product_vendor": "Red Canary",
+                                "type": ""
+                            }
+                        ],
+                        "attrs": {
+                            ".action": {
+                                "text": "format command"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "Generic"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.icon image": {
+                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def format_command_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_command_1() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'format_command_1' call\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.os', 'artifact:*.cef.test_id', 'artifact:*.cef.input_arguments', 'artifact:*.id'])\n\n    parameters = []\n    \n    # build parameters list for 'format_command_1' call\n    for container_item in container_data:\n        if container_item[0] and container_item[1]:\n            parameters.append({\n                'supported_os': container_item[0],\n                'attack_id': container_item[1],\n                'input_arguments': container_item[2],\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': container_item[3]},\n            })\n\n    phantom.act(\"format command\", parameters=parameters, app={ \"name\": 'Atomic Red Team' }, callback=filter_1, name=\"format_command_1\", parent_action=action)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": true,
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "write started event",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "e29675fd-9f55-44ff-9301-8429275e8bcf",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 258,
+                        "line_start": 233,
+                        "message": "Configuring now",
+                        "name": "format command",
+                        "notes": "",
+                        "number": 1,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 800,
+                            "y": 260
+                        },
+                        "previous_function": "",
+                        "previous_name": "format_command_1",
+                        "required_params": {
+                            "attack_id": true,
+                            "supported_os": true
+                        },
+                        "reviewer": "",
+                        "show_number": false,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "app_action_config",
+                        "status": "",
+                        "title": "Generic",
+                        "type": "coa.Action",
+                        "warn": false,
+                        "z": 213
                     },
                     {
                         "active": false,
@@ -4817,14 +4381,14 @@
                         "title": "format",
                         "type": "coa.Format",
                         "warn": false,
-                        "z": 207
+                        "z": 214
                     },
                     {
                         "active": false,
                         "angle": 0,
                         "attrs": {
                             ".format": {
-                                "text": "format 2"
+                                "text": "format 3"
                             },
                             ".inPorts>.port-in": {
                                 "ref": ".background",
@@ -4869,15 +4433,15 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_2() called')\n    \n    template = \"\"\"eventcreate /id 999 /D \\\"ended test for {0}\\\" /T INFORMATION /L application\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"write_started_event:action_result.parameter.ip_hostname\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_2\")\n\n    write_ended_event(container=container)\n\n    return",
+                        "block_code": "def format_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_3() called')\n    \n    template = \"\"\"Started red team test: {0}  on machine with IP address: {1}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.test_id\",\n        \"artifact:*.cef.destinationAddress\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_3\")\n\n    post_data_1(container=container)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
                         "connected_to_start": true,
-                        "connection_name": "powershell test, cmd test, run supplied command",
-                        "connection_type": "action",
+                        "connection_name": "",
+                        "connection_type": "",
                         "custom_callback": "",
-                        "custom_code": "def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_2() called')\n    \n    playbook_info = phantom.get_playbook_info()\n    guid = phantom.get_data(playbook_info[0]['id'], clear_data=False)\n    phantom.debug(guid)\n        \n    template = \"eventcreate /id 999 /D \\\"ended test for {0} guid=%s\\\" /T INFORMATION /L application\" % guid\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"write_started_event:action_result.parameter.ip_hostname\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_2\")\n\n    write_ended_event(container=container)\n\n    return",
+                        "custom_code": "def format_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_3() called')\n    \n    template = \"\"\"Started red team test: {0} on machine with IP address: {1}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.test_id\",\n        \"artifact:*.cef.destinationAddress\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_3\")\n\n    post_data_1(container=container)\n\n    return",
                         "custom_join": "",
                         "custom_name": "",
                         "description": "",
@@ -4886,23 +4450,19 @@
                         "has_custom_block": true,
                         "has_custom_callback": false,
                         "has_custom_join": false,
-                        "id": "4607ee03-c437-4903-9d01-cbff02ae611d",
+                        "id": "014b0f8c-bdce-4253-8f41-ffcbc91801c7",
                         "inPorts": [
                             "in"
                         ],
-                        "join_code": "def join_format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('join_format_2() called')\n    \n    # if the joined function has already been called, do nothing\n    if phantom.get_run_data(key='join_format_2_called'):\n        return\n\n    # no callbacks to check, call connected block \"format_2\"\n    phantom.save_run_data(key='join_format_2_called', value='format_2', auto=True)\n\n    format_2(container=container, handle=handle)\n    \n    return",
-                        "join_optional": [
-                            "powershell_test",
-                            "cmd_test",
-                            "run_supplied_command"
-                        ],
-                        "join_start": 437,
-                        "line_end": 451,
-                        "line_start": 417,
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 324,
+                        "line_start": 307,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
-                        "number": 2,
+                        "number": 3,
                         "outPorts": [
                             "out-1"
                         ],
@@ -4910,7 +4470,12 @@
                             {
                                 "position": 0,
                                 "type": "",
-                                "value": "write_started_event:action_result.parameter.ip_hostname"
+                                "value": "artifact:*.cef.test_id"
+                            },
+                            {
+                                "position": 1,
+                                "type": "",
+                                "value": "artifact:*.cef.destinationAddress"
                             }
                         ],
                         "ports": {
@@ -4966,11 +4531,11 @@
                             }
                         },
                         "position": {
-                            "x": 1580,
-                            "y": 0
+                            "x": 420,
+                            "y": 120
                         },
                         "previous_function": "",
-                        "previous_name": "format_2",
+                        "previous_name": "format_3",
                         "show_number": true,
                         "size": {
                             "height": 100,
@@ -4978,11 +4543,452 @@
                         },
                         "state": "format",
                         "status": "",
-                        "template": "eventcreate /id 999 /D \"ended test for {0}\" /T INFORMATION /L application",
+                        "template": "Started red team test: {0}  on machine with IP address: {1}",
                         "title": "format",
                         "type": "coa.Format",
                         "warn": false,
-                        "z": 208
+                        "z": 216
+                    },
+                    {
+                        "action": "post data",
+                        "action_type": "generic",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {
+                            "data": "format_4:formatted_data",
+                            "host": "post_data_1:action_result.parameter.host",
+                            "index": "",
+                            "source": "post_data_1:action_result.parameter.source",
+                            "source_type": "post_data_1:action_result.parameter.source_type"
+                        },
+                        "angle": 0,
+                        "app": "Splunk",
+                        "approver": "",
+                        "assets": [
+                            {
+                                "action": "post data",
+                                "active": true,
+                                "app_name": "Splunk",
+                                "app_version": "1.3.19",
+                                "config_type": "app",
+                                "fields": {
+                                    "data": "format_4:formatted_data",
+                                    "host": "post_data_1:action_result.parameter.host",
+                                    "index": "",
+                                    "source": "post_data_1:action_result.parameter.source",
+                                    "source_type": "post_data_1:action_result.parameter.source_type"
+                                },
+                                "has_app": true,
+                                "id": 7,
+                                "loaded": false,
+                                "missing": false,
+                                "name": "Splunk",
+                                "output": [
+                                    {
+                                        "data_path": "action_result.status",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.message",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.data",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.host",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.index",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.source",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.source_type",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects",
+                                        "data_type": "numeric"
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects_successful",
+                                        "data_type": "numeric"
+                                    }
+                                ],
+                                "parameters": {
+                                    "data": {
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Data to post",
+                                        "key": "data",
+                                        "order": 0,
+                                        "primary": true,
+                                        "required": true
+                                    },
+                                    "host": {
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Host for event",
+                                        "key": "host",
+                                        "order": 1,
+                                        "required": false
+                                    },
+                                    "index": {
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Index to send event to",
+                                        "key": "index",
+                                        "order": 4,
+                                        "required": false
+                                    },
+                                    "source": {
+                                        "data_type": "string",
+                                        "default": "Phantom",
+                                        "description": "Source for event",
+                                        "key": "source",
+                                        "order": 2,
+                                        "required": false
+                                    },
+                                    "source_type": {
+                                        "data_type": "string",
+                                        "default": "Automation/Orchestration Platform",
+                                        "description": "Type of source for event",
+                                        "key": "source_type",
+                                        "order": 3,
+                                        "required": false
+                                    }
+                                },
+                                "product_name": "Splunk Enterprise",
+                                "product_vendor": "Splunk Inc.",
+                                "type": ""
+                            }
+                        ],
+                        "attrs": {
+                            ".action": {
+                                "text": "post data 2"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "Generic"
+                            },
+                            "g.code image": {
+                                "xlink:href": "/inc/coa/img/block_icon_code_on.svg"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.icon image": {
+                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_2() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'post_data_2' call\n    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.context.artifact_id'], action_results=results)\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    \n    # build parameters list for 'post_data_2' call\n    for results_item_1 in results_data_1:\n        parameters.append({\n            'index': \"\",\n            'host': results_item_1[0],\n            'source_type': results_item_1[1],\n            'data': formatted_data_1,\n            'source': results_item_1[2],\n            # context (artifact id) is added to associate results with the artifact\n            'context': {'artifact_id': results_item_1[3]},\n        })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, name=\"post_data_2\")\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": true,
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "write ended event",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_2() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'post_data_2' call\n    results_data_1 = phantom.collect2(container=container, datapath=['post_data_1:action_result.parameter.host', 'post_data_1:action_result.parameter.source_type', 'post_data_1:action_result.parameter.source', 'post_data_1:action_result.parameter.context.artifact_id', 'post_data_1:action_result.parameter.data', 'post_data_1:action_result.parameter.index'], action_results=results)\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    \n    # build parameters list for 'post_data_2' call\n    for results_item_1 in results_data_1:\n        data_json = results_item_1[4]\n        data = json.loads(data_json)\n        data['msg'] = formatted_data_1\n        data_json = json.dumps(data)\n        parameters.append({\n            'index': results_item_1[5],\n            'host': results_item_1[0],\n            'source_type': results_item_1[1],\n            'data': data_json,\n            'source': results_item_1[2],\n            # context (artifact id) is added to associate results with the artifact\n            'context': {'artifact_id': results_item_1[3]},\n        })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, name=\"post_data_2\")\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "has_custom": false,
+                        "has_custom_block": true,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "7aca6b7c-11e5-491c-a302-0ae45b6fcc5e",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 372,
+                        "line_start": 341,
+                        "message": "Configuring now",
+                        "name": "post data",
+                        "notes": "",
+                        "number": 2,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1840,
+                            "y": 140
+                        },
+                        "previous_function": "",
+                        "previous_name": "post_data_2",
+                        "required_params": {
+                            "data": true
+                        },
+                        "reviewer": "",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "app_action_config",
+                        "status": "",
+                        "title": "Generic",
+                        "type": "coa.Action",
+                        "warn": false,
+                        "z": 217
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".format": {
+                                "text": "format 4"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out-1": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out-1>.port-body": {
+                                "port": {
+                                    "id": "out-1",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "format"
+                            },
+                            "g.code image": {
+                                "xlink:href": "/inc/coa/img/block_icon_code_on.svg"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_4() called')\n    \n    template = \"\"\"Finished red team test: {0}  on machine with IP address: {1}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.test_id\",\n        \"artifact:*.cef.destinationAddress\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_4\")\n\n    post_data_2(container=container)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "write ended event",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_4() called')\n    \n    template = \"\"\"Finished red team test: {0} on machine with IP address: {1}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.test_id\",\n        \"artifact:*.cef.destinationAddress\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_4\")\n\n    post_data_2(container=container)\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "description": "",
+                        "format": "format",
+                        "has_custom": false,
+                        "has_custom_block": true,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "84d8cf57-de36-483e-bb67-6631cfc4eef9",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 341,
+                        "line_start": 324,
+                        "message": "Configuring now",
+                        "name": "format",
+                        "notes": "",
+                        "number": 4,
+                        "outPorts": [
+                            "out-1"
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "artifact:*.cef.test_id"
+                            },
+                            {
+                                "position": 1,
+                                "type": "",
+                                "value": "artifact:*.cef.destinationAddress"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1600,
+                            "y": 140
+                        },
+                        "previous_function": "",
+                        "previous_name": "format_4",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "format",
+                        "status": "",
+                        "template": "Finished red team test: {0}  on machine with IP address: {1}",
+                        "title": "format",
+                        "type": "coa.Format",
+                        "warn": false,
+                        "z": 218
                     }
                 ]
             },
@@ -4991,7 +4997,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-07-11T05:31:41.327836+00:00",
+    "create_time": "2018-07-11T05:37:46.857104+00:00",
     "draft_mode": false,
     "labels": [
         "*"
