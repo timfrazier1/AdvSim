@@ -16,11 +16,15 @@ def on_start(container):
 def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('format_1() called')
     
-    template = """eventcreate /id 999 /D \"started test for {0}\" /T INFORMATION /L application"""
+    template = """eventcreate /id 999 /D \"started test on {0} guid={1}\" /T INFORMATION /L application"""
+    
+    playbook_info = phantom.get_playbook_info()
+    guid = phantom.get_data(playbook_info['id'])
 
     # parameter list for template variable replacement
     parameters = [
         "artifact:*.cef.destinationAddress",
+        guid
     ]
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_1")
@@ -390,6 +394,7 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
     
     guid = uuid.uuid4().hex
     playbook_info = phantom.get_playbook_info()
+    phantom.save_data(guid, playbook_info['id'])
     source = playbook_info[0]['name']
     data = {}
     data['msg'] = formatted_data_1
