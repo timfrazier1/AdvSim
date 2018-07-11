@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "fc33ff7d7f70889b14a921359732b5a710a12724",
+            "hash": "d7b755d0e7cc500d3287a0c71c535197d95b2bac",
             "joint": {
                 "cells": [
                     {
@@ -4876,7 +4876,7 @@
                         "connection_name": "",
                         "connection_type": "",
                         "custom_callback": "",
-                        "custom_code": "def post_data_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_1() called')\n\n    # collect data for 'post_data_1' call\n    formatted_data_1 = phantom.get_format_data(name='format_3')\n\n    parameters = []\n    \n    splunk_status_source_type_list = phantom.collect(container, \"artifact:*.cef.splunk_status_source_type\")\n    if len(splunk_status_source_type_list) > 0:\n        splunk_status_source_type = splunk_status_source_type_list[0]\n    else:\n        splunk_status_source_type = \"advsim:atr\"\n\n    # build parameters list for 'post_data_1' call\n    parameters.append({\n        'index': \"\",\n        'host': \"host\",\n        'source_type': splunk_status_source_type,\n        'data': formatted_data_1,\n        'source': \"Phantom\",\n    })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, callback=decision_2, name=\"post_data_1\")\n\n    return",
+                        "custom_code": "def post_data_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('post_data_1() called')\n\n    # collect data for 'post_data_1' call\n    formatted_data_1 = phantom.get_format_data(name='format_3')\n\n    parameters = []\n    \n    splunk_status_source_type_list = phantom.collect(container, \"artifact:*.cef.splunk_status_source_type\")\n    if len(splunk_status_source_type_list) > 0:\n        splunk_status_source_type = str(splunk_status_source_type_list[0])\n    else:\n        splunk_status_source_type = \"advsim:atr\"\n\n    # build parameters list for 'post_data_1' call\n    parameters.append({\n        'index': \"\",\n        'host': \"host\",\n        'source_type': splunk_status_source_type,\n        'data': formatted_data_1,\n        'source': \"Phantom\",\n    })\n\n    phantom.act(\"post data\", parameters=parameters, app={ \"name\": 'Splunk' }, callback=decision_2, name=\"post_data_1\")\n\n    return",
                         "custom_join": "",
                         "custom_name": "",
                         "delay": 0,
@@ -4973,7 +4973,7 @@
                         "title": "Generic",
                         "type": "coa.Action",
                         "warn": false,
-                        "z": 161
+                        "z": 162
                     }
                 ]
             },
@@ -4982,7 +4982,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-07-11T03:11:41.877725+00:00",
+    "create_time": "2018-07-11T03:14:56.774359+00:00",
     "draft_mode": false,
     "labels": [
         "*"

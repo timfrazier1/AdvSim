@@ -372,7 +372,7 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
     
     splunk_status_source_type_list = phantom.collect(container, "artifact:*.cef.splunk_status_source_type")
     if len(splunk_status_source_type_list) > 0:
-        splunk_status_source_type = splunk_status_source_type_list[0]
+        splunk_status_source_type = str(splunk_status_source_type_list[0])
     else:
         splunk_status_source_type = "advsim:atr"
 
