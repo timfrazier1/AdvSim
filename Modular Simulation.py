@@ -382,6 +382,9 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
         splunk_status_source_type = str(splunk_status_source_type_list[0])
     else:
         splunk_status_source_type = "advsim:atr"
+        
+    playbook_info = phantom.get_playbook_info()
+    source = playbook_info[0]['name']
 
     # build parameters list for 'post_data_1' call
     parameters.append({
@@ -389,7 +392,7 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
         'host': platform.node(),
         'source_type': splunk_status_source_type,
         'data': formatted_data_1,
-        'source': "Phantom",
+        'source': source,
     })
 
     phantom.act("post data", parameters=parameters, app={ "name": 'Splunk' }, callback=decision_2, name="post_data_1")
