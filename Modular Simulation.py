@@ -394,7 +394,7 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
     
     guid = uuid.uuid4().hex
     playbook_info = phantom.get_playbook_info()
-    phantom.save_data(guid, playbook_info['id'])
+    phantom.save_data(guid, playbook_info[0]['id'])
     source = playbook_info[0]['name']
     data = {}
     data['msg'] = formatted_data_1
