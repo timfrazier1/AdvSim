@@ -16,10 +16,10 @@ def on_start(container):
 def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('format_1() called')
     
-    template = """eventcreate /id 999 /D \"started test on {0} guid={1}\" /T INFORMATION /L application"""
-    
     playbook_info = phantom.get_playbook_info()
     guid = phantom.get_data(playbook_info[0]['id'])
+    
+    template = """eventcreate /id 999 /D \"started test on {0} guid=\" /T INFORMATION /L application"""
 
     # parameter list for template variable replacement
     parameters = [

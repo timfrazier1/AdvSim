@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "4a05aa3b856f41a51e50c001331d0e113f688c60",
+            "hash": "d9f9ea21d1e1a85c09764d361622d66266048936",
             "joint": {
                 "cells": [
                     {
@@ -4818,7 +4818,7 @@
                         "title": "Generic",
                         "type": "coa.Action",
                         "warn": false,
-                        "z": 192
+                        "z": 198
                     },
                     {
                         "active": false,
@@ -4878,7 +4878,7 @@
                         "connection_name": "post data 1",
                         "connection_type": "action",
                         "custom_callback": "",
-                        "custom_code": "def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_1() called')\n    \n    template = \"\"\"eventcreate /id 999 /D \\\"started test on {0} guid={1}\\\" /T INFORMATION /L application\"\"\"\n    \n    playbook_info = phantom.get_playbook_info()\n    guid = phantom.get_data(playbook_info[0]['id'])\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.destinationAddress\",\n        guid\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_1\")\n\n    write_started_event(container=container)\n\n    return",
+                        "custom_code": "def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_1() called')\n    \n    playbook_info = phantom.get_playbook_info()\n    guid = phantom.get_data(playbook_info[0]['id'])\n    \n    template = \"\"\"eventcreate /id 999 /D \\\"started test on {0} guid=\\\" /T INFORMATION /L application\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.destinationAddress\",\n        guid\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_1\")\n\n    write_started_event(container=container)\n\n    return",
                         "custom_join": "",
                         "custom_name": "",
                         "description": "",
@@ -4979,7 +4979,7 @@
                         "title": "format",
                         "type": "coa.Format",
                         "warn": false,
-                        "z": 193
+                        "z": 199
                     }
                 ]
             },
@@ -4988,7 +4988,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-07-11T05:04:52.783257+00:00",
+    "create_time": "2018-07-11T05:13:54.490106+00:00",
     "draft_mode": false,
     "labels": [
         "*"
