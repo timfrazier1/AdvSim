@@ -365,6 +365,7 @@ def post_data_2(action=None, success=None, container=None, results=None, handle=
 def post_data_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('post_data_1() called')
     import platform
+    import uuid
 
     # collect data for 'post_data_1' call
     formatted_data_1 = phantom.get_format_data(name='format_3')
@@ -382,11 +383,13 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
         splunk_status_source_type = str(splunk_status_source_type_list[0])
     else:
         splunk_status_source_type = "advsim:atr"
-        
+    
+    guid = uuid.uuid4().hex
     playbook_info = phantom.get_playbook_info()
     source = playbook_info[0]['name']
     data = {}
     data['msg'] = formatted_data_1
+    data['guid'] = guid
     data['playbook_info'] = playbook_info[0]
     data_json = json.dumps(data)
 
