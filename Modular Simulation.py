@@ -364,6 +364,7 @@ def post_data_2(action=None, success=None, container=None, results=None, handle=
 
 def post_data_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('post_data_1() called')
+    import platform
 
     # collect data for 'post_data_1' call
     formatted_data_1 = phantom.get_format_data(name='format_3')
@@ -385,7 +386,7 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
     # build parameters list for 'post_data_1' call
     parameters.append({
         'index': splunk_status_index,
-        'host': "host",
+        'host': platform.node(),
         'source_type': splunk_status_source_type,
         'data': formatted_data_1,
         'source': "Phantom",
