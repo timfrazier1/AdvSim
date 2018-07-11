@@ -417,7 +417,10 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
 def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('format_2() called')
     
-    template = """eventcreate /id 999 /D \"ended test for {0}\" /T INFORMATION /L application"""
+    playbook_info = phantom.get_playbook_info()
+    guid = phantom.get_data(playbook_info[0]['id'])
+        
+    template = """eventcreate /id 999 /D \"ended test for {0} guid=%s\" /T INFORMATION /L application""" % guid
 
     # parameter list for template variable replacement
     parameters = [

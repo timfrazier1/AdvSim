@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "ca57f42497dd0c50c48acffd1b6bed038944a675",
+            "hash": "ef5233a4653bcf8292d00b0bc8a2d4478cadc3d4",
             "joint": {
                 "cells": [
                     {
@@ -201,8 +201,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 460,
-                        "line_start": 447,
+                        "line_end": 463,
+                        "line_start": 450,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -3409,168 +3409,6 @@
                         "angle": 0,
                         "attrs": {
                             ".format": {
-                                "text": "format 2"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out-1": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out-1>.port-body": {
-                                "port": {
-                                    "id": "out-1",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "format"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_2() called')\n    \n    template = \"\"\"eventcreate /id 999 /D \\\"ended test for {0}\\\" /T INFORMATION /L application\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"write_started_event:action_result.parameter.ip_hostname\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_2\")\n\n    write_ended_event(container=container)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "powershell test, cmd test, run supplied command",
-                        "connection_type": "action",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "description": "",
-                        "format": "format",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "4607ee03-c437-4903-9d01-cbff02ae611d",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "def join_format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('join_format_2() called')\n    \n    # if the joined function has already been called, do nothing\n    if phantom.get_run_data(key='join_format_2_called'):\n        return\n\n    # no callbacks to check, call connected block \"format_2\"\n    phantom.save_run_data(key='join_format_2_called', value='format_2', auto=True)\n\n    format_2(container=container, handle=handle)\n    \n    return",
-                        "join_optional": [
-                            "powershell_test",
-                            "cmd_test",
-                            "run_supplied_command"
-                        ],
-                        "join_start": 433,
-                        "line_end": 447,
-                        "line_start": 417,
-                        "message": "Configuring now",
-                        "name": "format",
-                        "notes": "",
-                        "number": 2,
-                        "outPorts": [
-                            "out-1"
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": "write_started_event:action_result.parameter.ip_hostname"
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 1580,
-                            "y": 0
-                        },
-                        "previous_function": "",
-                        "previous_name": "format_2",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "format",
-                        "status": "",
-                        "template": "eventcreate /id 999 /D \"ended test for {0}\" /T INFORMATION /L application",
-                        "title": "format",
-                        "type": "coa.Format",
-                        "warn": false,
-                        "z": 152
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".format": {
                                 "text": "format 4"
                             },
                             ".inPorts>.port-in": {
@@ -4979,7 +4817,172 @@
                         "title": "format",
                         "type": "coa.Format",
                         "warn": false,
-                        "z": 203
+                        "z": 204
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".format": {
+                                "text": "format 2"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out-1": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out-1>.port-body": {
+                                "port": {
+                                    "id": "out-1",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "format"
+                            },
+                            "g.code image": {
+                                "xlink:href": "/inc/coa/img/block_icon_code_on.svg"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_2() called')\n    \n    template = \"\"\"eventcreate /id 999 /D \\\"ended test for {0}\\\" /T INFORMATION /L application\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"write_started_event:action_result.parameter.ip_hostname\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_2\")\n\n    write_ended_event(container=container)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "powershell test, cmd test, run supplied command",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_2() called')\n    \n    playbook_info = phantom.get_playbook_info()\n    guid = phantom.get_data(playbook_info[0]['id'])\n        \n    template = \"\"\"eventcreate /id 999 /D \\\"ended test for {0} guid=%s\\\" /T INFORMATION /L application\"\"\" % guid\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"write_started_event:action_result.parameter.ip_hostname\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_2\")\n\n    write_ended_event(container=container)\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "description": "",
+                        "format": "format",
+                        "has_custom": false,
+                        "has_custom_block": true,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "4607ee03-c437-4903-9d01-cbff02ae611d",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "def join_format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('join_format_2() called')\n    \n    # if the joined function has already been called, do nothing\n    if phantom.get_run_data(key='join_format_2_called'):\n        return\n\n    # no callbacks to check, call connected block \"format_2\"\n    phantom.save_run_data(key='join_format_2_called', value='format_2', auto=True)\n\n    format_2(container=container, handle=handle)\n    \n    return",
+                        "join_optional": [
+                            "powershell_test",
+                            "cmd_test",
+                            "run_supplied_command"
+                        ],
+                        "join_start": 436,
+                        "line_end": 450,
+                        "line_start": 417,
+                        "message": "Configuring now",
+                        "name": "format",
+                        "notes": "",
+                        "number": 2,
+                        "outPorts": [
+                            "out-1"
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "write_started_event:action_result.parameter.ip_hostname"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1580,
+                            "y": 0
+                        },
+                        "previous_function": "",
+                        "previous_name": "format_2",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "format",
+                        "status": "",
+                        "template": "eventcreate /id 999 /D \"ended test for {0}\" /T INFORMATION /L application",
+                        "title": "format",
+                        "type": "coa.Format",
+                        "warn": false,
+                        "z": 205
                     }
                 ]
             },
@@ -4988,7 +4991,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-07-11T05:23:43.926004+00:00",
+    "create_time": "2018-07-11T05:27:07.732870+00:00",
     "draft_mode": false,
     "labels": [
         "*"
