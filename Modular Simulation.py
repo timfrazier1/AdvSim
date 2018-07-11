@@ -385,13 +385,17 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
         
     playbook_info = phantom.get_playbook_info()
     source = playbook_info[0]['name']
+    data = {}
+    data['msg'] = formatted_data_1
+    data['playbook_info'] = playbook_info[0]
+    data_json = json.dumps(data)
 
     # build parameters list for 'post_data_1' call
     parameters.append({
         'index': splunk_status_index,
         'host': platform.node(),
         'source_type': splunk_status_source_type,
-        'data': formatted_data_1,
+        'data': data_json,
         'source': source,
     })
 
