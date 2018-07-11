@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "db9926a4fdf066755a54a7f9e041c5b8ccb816a7",
+            "hash": "4a05aa3b856f41a51e50c001331d0e113f688c60",
             "joint": {
                 "cells": [
                     {
@@ -1899,7 +1899,7 @@
                                 }
                             },
                             "g.delete": {
-                                "display": "block"
+                                "display": "none"
                             },
                             "g.error": {
                                 "opacity": 0
@@ -4005,542 +4005,6 @@
                         "z": 179
                     },
                     {
-                        "action": "run script",
-                        "action_type": "generic",
-                        "active": false,
-                        "active_keys": {},
-                        "active_values": {
-                            "async": "",
-                            "command_id": "",
-                            "ip_hostname": "artifact:*.cef.destinationAddress",
-                            "parser": "",
-                            "script_file": "",
-                            "script_str": "format_1:formatted_data",
-                            "shell_id": ""
-                        },
-                        "angle": 0,
-                        "app": "Windows Remote Management",
-                        "approver": "",
-                        "assets": [
-                            {
-                                "action": "run script",
-                                "active": true,
-                                "app_name": "Windows Remote Management",
-                                "app_version": "1.0.12",
-                                "config_type": "app",
-                                "fields": {
-                                    "async": "",
-                                    "command_id": "",
-                                    "ip_hostname": "artifact:*.cef.destinationAddress",
-                                    "parser": "",
-                                    "script_file": "",
-                                    "script_str": "format_1:formatted_data",
-                                    "shell_id": ""
-                                },
-                                "has_app": true,
-                                "id": 128,
-                                "loaded": false,
-                                "missing": false,
-                                "name": "Windows Remote Management",
-                                "output": [
-                                    {
-                                        "data_path": "action_result.status",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.async",
-                                        "data_type": "boolean"
-                                    },
-                                    {
-                                        "contains": [
-                                            "winrm command id"
-                                        ],
-                                        "data_path": "action_result.parameter.command_id",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "ip",
-                                            "host name"
-                                        ],
-                                        "data_path": "action_result.parameter.ip_hostname",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "vault id"
-                                        ],
-                                        "data_path": "action_result.parameter.parser",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "vault id"
-                                        ],
-                                        "data_path": "action_result.parameter.script_file",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.script_str",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "winrm shell id"
-                                        ],
-                                        "data_path": "action_result.parameter.shell_id",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.status_code",
-                                        "data_type": "numeric",
-                                        "example_values": [
-                                            0
-                                        ]
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.std_err",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "Error message"
-                                        ]
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.std_out",
-                                        "data_type": "string",
-                                        "example_values": [
-                                            "Successful output"
-                                        ]
-                                    },
-                                    {
-                                        "contains": [
-                                            "winrm command id"
-                                        ],
-                                        "data_path": "action_result.summary.command_id",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "winrm shell id"
-                                        ],
-                                        "data_path": "action_result.summary.shell_id",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "column_name": "Message",
-                                        "column_order": 0,
-                                        "data_path": "action_result.message",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects",
-                                        "data_type": "numeric"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects_successful",
-                                        "data_type": "numeric"
-                                    }
-                                ],
-                                "parameters": {
-                                    "async": {
-                                        "data_type": "boolean",
-                                        "default": false,
-                                        "description": "Start the command, but don't wait for output",
-                                        "key": "async",
-                                        "order": 4,
-                                        "required": false
-                                    },
-                                    "command_id": {
-                                        "contains": [
-                                            "winrm command id"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Command ID of async command (Provide with shell_id)",
-                                        "key": "command_id",
-                                        "order": 5,
-                                        "primary": true,
-                                        "required": false
-                                    },
-                                    "ip_hostname": {
-                                        "contains": [
-                                            "ip",
-                                            "host name"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "IP/Hostname",
-                                        "key": "ip_hostname",
-                                        "order": 0,
-                                        "required": true
-                                    },
-                                    "parser": {
-                                        "contains": [
-                                            "vault id"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "The vault ID of a custom parser to use for output",
-                                        "key": "parser",
-                                        "order": 3,
-                                        "primary": true,
-                                        "required": false
-                                    },
-                                    "script_file": {
-                                        "contains": [
-                                            "vault id"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "The vault ID of a PowerShell script to run",
-                                        "key": "script_file",
-                                        "order": 1,
-                                        "primary": true,
-                                        "required": false
-                                    },
-                                    "script_str": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "A PowerShell script to run",
-                                        "key": "script_str",
-                                        "order": 2,
-                                        "primary": true,
-                                        "required": false
-                                    },
-                                    "shell_id": {
-                                        "contains": [
-                                            "winrm shell id"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Shell ID of async command (Provide with command_id)",
-                                        "key": "shell_id",
-                                        "order": 6,
-                                        "required": false
-                                    }
-                                },
-                                "product_name": "Windows Remote Management",
-                                "product_vendor": "Microsoft",
-                                "type": ""
-                            }
-                        ],
-                        "attrs": {
-                            ".action": {
-                                "text": "write started event"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "Generic"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.icon image": {
-                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def write_started_event(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('write_started_event() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'write_started_event' call\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.destinationAddress', 'artifact:*.id'])\n    formatted_data_1 = phantom.get_format_data(name='format_1')\n\n    parameters = []\n    \n    # build parameters list for 'write_started_event' call\n    for container_item in container_data:\n        if container_item[0]:\n            parameters.append({\n                'shell_id': \"\",\n                'parser': \"\",\n                'ip_hostname': container_item[0],\n                'async': \"\",\n                'script_str': formatted_data_1,\n                'script_file': \"\",\n                'command_id': \"\",\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': container_item[1]},\n            })\n\n    phantom.act(\"run script\", parameters=parameters, app={ \"name\": 'Windows Remote Management' }, callback=format_command_1, name=\"write_started_event\")\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": true,
-                        "color": "",
-                        "connected_to_start": true,
-                        "connection_name": "post data 1",
-                        "connection_type": "action",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "write started event",
-                        "delay": 0,
-                        "description": "",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "d10b425d-717c-478a-8fe3-c484a18ff770",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 97,
-                        "line_start": 67,
-                        "message": "Configuring now",
-                        "name": "run script",
-                        "notes": "",
-                        "number": 2,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 800,
-                            "y": 120
-                        },
-                        "previous_function": "",
-                        "previous_name": "write_started_event",
-                        "required_params": {
-                            "ip_hostname": true
-                        },
-                        "reviewer": "",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "app_action_config",
-                        "status": "",
-                        "title": "Generic",
-                        "type": "coa.Action",
-                        "warn": false,
-                        "z": 182
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".format": {
-                                "text": "format 1"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out-1": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out-1>.port-body": {
-                                "port": {
-                                    "id": "out-1",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "format"
-                            },
-                            "g.code image": {
-                                "xlink:href": "/inc/coa/img/block_icon_code_on.svg"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_1() called')\n    \n    template = \"\"\"eventcreate /id 999 /D \\\"started test on {0} guid=\\\" /T INFORMATION /L application\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.destinationAddress\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_1\")\n\n    write_started_event(container=container)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "post data 1",
-                        "connection_type": "action",
-                        "custom_callback": "",
-                        "custom_code": "def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_1() called')\n    \n    template = \"\"\"eventcreate /id 999 /D \\\"started test on {0} guid={1}\\\" /T INFORMATION /L application\"\"\"\n    \n    playbook_info = phantom.get_playbook_info()\n    guid = phantom.get_data(playbook_info['id'])\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.destinationAddress\",\n        guid\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_1\")\n\n    write_started_event(container=container)\n\n    return",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "description": "",
-                        "format": "format",
-                        "has_custom": false,
-                        "has_custom_block": true,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "d6141597-15a3-451a-ae6c-79bd83d15550",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 36,
-                        "line_start": 16,
-                        "message": "Configuring now",
-                        "name": "format",
-                        "notes": "",
-                        "number": 1,
-                        "outPorts": [
-                            "out-1"
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": "artifact:*.cef.destinationAddress"
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 800,
-                            "y": -20
-                        },
-                        "previous_function": "",
-                        "previous_name": "format_1",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "format",
-                        "status": "",
-                        "template": "eventcreate /id 999 /D \"started test on {0} guid=\" /T INFORMATION /L application",
-                        "title": "format",
-                        "type": "coa.Format",
-                        "warn": false,
-                        "z": 189
-                    },
-                    {
                         "active": false,
                         "angle": 0,
                         "attrs": {
@@ -4980,6 +4444,542 @@
                         "type": "coa.Action",
                         "warn": false,
                         "z": 191
+                    },
+                    {
+                        "action": "run script",
+                        "action_type": "generic",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {
+                            "async": "",
+                            "command_id": "",
+                            "ip_hostname": "artifact:*.cef.destinationAddress",
+                            "parser": "",
+                            "script_file": "",
+                            "script_str": "format_1:formatted_data",
+                            "shell_id": ""
+                        },
+                        "angle": 0,
+                        "app": "Windows Remote Management",
+                        "approver": "",
+                        "assets": [
+                            {
+                                "action": "run script",
+                                "active": true,
+                                "app_name": "Windows Remote Management",
+                                "app_version": "1.0.12",
+                                "config_type": "app",
+                                "fields": {
+                                    "async": "",
+                                    "command_id": "",
+                                    "ip_hostname": "artifact:*.cef.destinationAddress",
+                                    "parser": "",
+                                    "script_file": "",
+                                    "script_str": "format_1:formatted_data",
+                                    "shell_id": ""
+                                },
+                                "has_app": true,
+                                "id": 128,
+                                "loaded": false,
+                                "missing": false,
+                                "name": "Windows Remote Management",
+                                "output": [
+                                    {
+                                        "data_path": "action_result.status",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.async",
+                                        "data_type": "boolean"
+                                    },
+                                    {
+                                        "contains": [
+                                            "winrm command id"
+                                        ],
+                                        "data_path": "action_result.parameter.command_id",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "ip",
+                                            "host name"
+                                        ],
+                                        "data_path": "action_result.parameter.ip_hostname",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "vault id"
+                                        ],
+                                        "data_path": "action_result.parameter.parser",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "vault id"
+                                        ],
+                                        "data_path": "action_result.parameter.script_file",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.script_str",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "winrm shell id"
+                                        ],
+                                        "data_path": "action_result.parameter.shell_id",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "action_result.data.*.status_code",
+                                        "data_type": "numeric",
+                                        "example_values": [
+                                            0
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "action_result.data.*.std_err",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "Error message"
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "action_result.data.*.std_out",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "Successful output"
+                                        ]
+                                    },
+                                    {
+                                        "contains": [
+                                            "winrm command id"
+                                        ],
+                                        "data_path": "action_result.summary.command_id",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "winrm shell id"
+                                        ],
+                                        "data_path": "action_result.summary.shell_id",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "column_name": "Message",
+                                        "column_order": 0,
+                                        "data_path": "action_result.message",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects",
+                                        "data_type": "numeric"
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects_successful",
+                                        "data_type": "numeric"
+                                    }
+                                ],
+                                "parameters": {
+                                    "async": {
+                                        "data_type": "boolean",
+                                        "default": false,
+                                        "description": "Start the command, but don't wait for output",
+                                        "key": "async",
+                                        "order": 4,
+                                        "required": false
+                                    },
+                                    "command_id": {
+                                        "contains": [
+                                            "winrm command id"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Command ID of async command (Provide with shell_id)",
+                                        "key": "command_id",
+                                        "order": 5,
+                                        "primary": true,
+                                        "required": false
+                                    },
+                                    "ip_hostname": {
+                                        "contains": [
+                                            "ip",
+                                            "host name"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "IP/Hostname",
+                                        "key": "ip_hostname",
+                                        "order": 0,
+                                        "required": true
+                                    },
+                                    "parser": {
+                                        "contains": [
+                                            "vault id"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "The vault ID of a custom parser to use for output",
+                                        "key": "parser",
+                                        "order": 3,
+                                        "primary": true,
+                                        "required": false
+                                    },
+                                    "script_file": {
+                                        "contains": [
+                                            "vault id"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "The vault ID of a PowerShell script to run",
+                                        "key": "script_file",
+                                        "order": 1,
+                                        "primary": true,
+                                        "required": false
+                                    },
+                                    "script_str": {
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "A PowerShell script to run",
+                                        "key": "script_str",
+                                        "order": 2,
+                                        "primary": true,
+                                        "required": false
+                                    },
+                                    "shell_id": {
+                                        "contains": [
+                                            "winrm shell id"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Shell ID of async command (Provide with command_id)",
+                                        "key": "shell_id",
+                                        "order": 6,
+                                        "required": false
+                                    }
+                                },
+                                "product_name": "Windows Remote Management",
+                                "product_vendor": "Microsoft",
+                                "type": ""
+                            }
+                        ],
+                        "attrs": {
+                            ".action": {
+                                "text": "write started event"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "Generic"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.icon image": {
+                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def write_started_event(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('write_started_event() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'write_started_event' call\n    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.destinationAddress', 'artifact:*.id'])\n    formatted_data_1 = phantom.get_format_data(name='format_1')\n\n    parameters = []\n    \n    # build parameters list for 'write_started_event' call\n    for container_item in container_data:\n        if container_item[0]:\n            parameters.append({\n                'shell_id': \"\",\n                'parser': \"\",\n                'ip_hostname': container_item[0],\n                'async': \"\",\n                'script_str': formatted_data_1,\n                'script_file': \"\",\n                'command_id': \"\",\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': container_item[1]},\n            })\n\n    phantom.act(\"run script\", parameters=parameters, app={ \"name\": 'Windows Remote Management' }, callback=format_command_1, name=\"write_started_event\")\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": true,
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "post data 1",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "write started event",
+                        "delay": 0,
+                        "description": "",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "d10b425d-717c-478a-8fe3-c484a18ff770",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 97,
+                        "line_start": 67,
+                        "message": "Configuring now",
+                        "name": "run script",
+                        "notes": "",
+                        "number": 2,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 800,
+                            "y": 120
+                        },
+                        "previous_function": "",
+                        "previous_name": "write_started_event",
+                        "required_params": {
+                            "ip_hostname": true
+                        },
+                        "reviewer": "",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "app_action_config",
+                        "status": "",
+                        "title": "Generic",
+                        "type": "coa.Action",
+                        "warn": false,
+                        "z": 192
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".format": {
+                                "text": "format 1"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out-1": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out-1>.port-body": {
+                                "port": {
+                                    "id": "out-1",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "format"
+                            },
+                            "g.code image": {
+                                "xlink:href": "/inc/coa/img/block_icon_code_on.svg"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_1() called')\n    \n    template = \"\"\"eventcreate /id 999 /D \\\"started test on {0} guid=\\\" /T INFORMATION /L application\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.destinationAddress\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_1\")\n\n    write_started_event(container=container)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "post data 1",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('format_1() called')\n    \n    template = \"\"\"eventcreate /id 999 /D \\\"started test on {0} guid={1}\\\" /T INFORMATION /L application\"\"\"\n    \n    playbook_info = phantom.get_playbook_info()\n    guid = phantom.get_data(playbook_info[0]['id'])\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"artifact:*.cef.destinationAddress\",\n        guid\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_1\")\n\n    write_started_event(container=container)\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "description": "",
+                        "format": "format",
+                        "has_custom": false,
+                        "has_custom_block": true,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "d6141597-15a3-451a-ae6c-79bd83d15550",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 36,
+                        "line_start": 16,
+                        "message": "Configuring now",
+                        "name": "format",
+                        "notes": "",
+                        "number": 1,
+                        "outPorts": [
+                            "out-1"
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "artifact:*.cef.destinationAddress"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 800,
+                            "y": -20
+                        },
+                        "previous_function": "",
+                        "previous_name": "format_1",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "format",
+                        "status": "",
+                        "template": "eventcreate /id 999 /D \"started test on {0} guid=\" /T INFORMATION /L application",
+                        "title": "format",
+                        "type": "coa.Format",
+                        "warn": false,
+                        "z": 193
                     }
                 ]
             },
@@ -4988,7 +4988,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-07-11T05:03:42.419062+00:00",
+    "create_time": "2018-07-11T05:04:52.783257+00:00",
     "draft_mode": false,
     "labels": [
         "*"
