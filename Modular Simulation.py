@@ -230,51 +230,6 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
 
     return
 
-def post_data_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('post_data_1() called')
-    import platform
-    import uuid
-
-    # collect data for 'post_data_1' call
-    formatted_data_1 = phantom.get_format_data(name='format_3')
-
-    parameters = []
-    
-    splunk_status_index_list = phantom.collect(container, "artifact:*.cef.splunk_status_index")
-    if len(splunk_status_index_list) > 0:
-        splunk_status_index = str(splunk_status_index_list[0])
-    else:
-        splunk_status_index = "default"
-    
-    splunk_status_source_type_list = phantom.collect(container, "artifact:*.cef.splunk_status_source_type")
-    if len(splunk_status_source_type_list) > 0:
-        splunk_status_source_type = str(splunk_status_source_type_list[0])
-    else:
-        splunk_status_source_type = "advsim:atr"
-    
-    guid = uuid.uuid4().hex
-    playbook_info = phantom.get_playbook_info()
-    phantom.save_data(guid, playbook_info[0]['id'])
-    source = playbook_info[0]['name']
-    data = {}
-    data['msg'] = formatted_data_1
-    data['guid'] = guid
-    data['playbook_info'] = playbook_info[0]
-    data_json = json.dumps(data)
-
-    # build parameters list for 'post_data_1' call
-    parameters.append({
-        'index': splunk_status_index,
-        'host': platform.node(),
-        'source_type': splunk_status_source_type,
-        'data': data_json,
-        'source': source,
-    })
-
-    phantom.act("post data", parameters=parameters, app={ "name": 'Splunk' }, callback=decision_2, name="post_data_1")
-
-    return
-
 def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('format_2() called')
     
@@ -309,97 +264,6 @@ def join_format_2(action=None, success=None, container=None, results=None, handl
     
     return
 
-def write_started_event(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('write_started_event() called')
-    
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'write_started_event' call
-    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.destinationAddress', 'artifact:*.id'])
-    formatted_data_1 = phantom.get_format_data(name='format_1')
-
-    parameters = []
-    
-    # build parameters list for 'write_started_event' call
-    for container_item in container_data:
-        if container_item[0]:
-            parameters.append({
-                'shell_id': "",
-                'parser': "",
-                'ip_hostname': container_item[0],
-                'async': "",
-                'script_str': formatted_data_1,
-                'script_file': "",
-                'command_id': "",
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': container_item[1]},
-            })
-
-    phantom.act("run script", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=format_command_1, name="write_started_event")
-
-    return
-
-def format_command_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('format_command_1() called')
-    
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'format_command_1' call
-    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.act', 'artifact:*.cef.os', 'artifact:*.cef.input_arguments', 'artifact:*.id'])
-
-    parameters = []
-    
-    # build parameters list for 'format_command_1' call
-    for container_item in container_data:
-        if container_item[0] and container_item[1]:
-            parameters.append({
-                'attack_id': container_item[0],
-                'supported_os': container_item[1],
-                'input_arguments': container_item[2],
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': container_item[3]},
-            })
-
-    phantom.act("format command", parameters=parameters, app={ "name": 'Atomic Red Team' }, callback=filter_1, name="format_command_1", parent_action=action)
-
-    return
-
-def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('format_1() called')
-    
-    playbook_info = phantom.get_playbook_info()
-    guid = phantom.get_data(playbook_info[0]['id'], clear_data=False)
-    
-    template = "eventcreate /id 999 /D \"started test on {0} guid=%s\" /T INFORMATION /L application" % guid
-
-    # parameter list for template variable replacement
-    parameters = [
-        "artifact:*.cef.destinationAddress"
-    ]
-
-    phantom.format(container=container, template=template, parameters=parameters, name="format_1")
-
-    write_started_event(container=container)
-
-    return
-
-def format_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('format_3() called')
-    
-    template = """Started red team test: {0} on machine with IP address: {1}"""
-
-    # parameter list for template variable replacement
-    parameters = [
-        "artifact:*.cef.act",
-        "artifact:*.cef.destinationAddress",
-    ]
-
-    phantom.format(container=container, template=template, parameters=parameters, name="format_3")
-
-    post_data_1(container=container)
-
-    return
-
 def post_data_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('post_data_2() called')
     
@@ -431,6 +295,102 @@ def post_data_2(action=None, success=None, container=None, results=None, handle=
 
     return
 
+def post_data_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('post_data_1() called')
+    import platform
+    import uuid
+
+    # collect data for 'post_data_1' call
+    formatted_data_1 = phantom.get_format_data(name='format_3')
+
+    parameters = []
+    
+    splunk_status_index_list = phantom.collect(container, "artifact:*.cef.splunk_status_index")
+    if len(splunk_status_index_list) > 0:
+        splunk_status_index = str(splunk_status_index_list[0])
+    else:
+        splunk_status_index = "default"
+    
+    splunk_status_source_type_list = phantom.collect(container, "artifact:*.cef.splunk_status_source_type")
+    if len(splunk_status_source_type_list) > 0:
+        splunk_status_source_type = str(splunk_status_source_type_list[0])
+    else:
+        splunk_status_source_type = "advsim:atr"
+    
+    guid = phantom.collect(container, "artifact:*.cef.request")
+
+    #guid = uuid.uuid4().hex
+    playbook_info = phantom.get_playbook_info()
+    phantom.save_data(guid, playbook_info[0]['id'])
+    source = playbook_info[0]['name']
+    data = {}
+    data['msg'] = formatted_data_1
+    data['guid'] = guid
+    data['playbook_info'] = playbook_info[0]
+    data_json = json.dumps(data)
+
+    # build parameters list for 'post_data_1' call
+    parameters.append({
+        'index': splunk_status_index,
+        'host': platform.node(),
+        'source_type': splunk_status_source_type,
+        'data': data_json,
+        'source': source,
+    })
+
+    phantom.act("post data", parameters=parameters, app={ "name": 'Splunk' }, callback=decision_2, name="post_data_1")
+
+    return
+
+def write_started_event(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('write_started_event() called')
+    
+    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+    
+    # collect data for 'write_started_event' call
+    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.destinationAddress', 'artifact:*.id'])
+    formatted_data_1 = phantom.get_format_data(name='format_1')
+
+    parameters = []
+    
+    # build parameters list for 'write_started_event' call
+    for container_item in container_data:
+        if container_item[0]:
+            parameters.append({
+                'shell_id': "",
+                'parser': "",
+                'ip_hostname': container_item[0],
+                'async': "",
+                'script_str': formatted_data_1,
+                'script_file': "",
+                'command_id': "",
+                # context (artifact id) is added to associate results with the artifact
+                'context': {'artifact_id': container_item[1]},
+            })
+
+    phantom.act("run script", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=format_command_1, name="write_started_event")
+
+    return
+
+def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('format_1() called')
+    
+    playbook_info = phantom.get_playbook_info()
+    guid = phantom.get_data(playbook_info[0]['id'], clear_data=False)
+    
+    template = "eventcreate /id 999 /D \"started test on {0} guid=%s\" /T INFORMATION /L application" % guid
+
+    # parameter list for template variable replacement
+    parameters = [
+        "artifact:*.cef.destinationAddress"
+    ]
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_1")
+
+    write_started_event(container=container)
+
+    return
+
 def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('format_4() called')
     
@@ -445,6 +405,48 @@ def format_4(action=None, success=None, container=None, results=None, handle=Non
     phantom.format(container=container, template=template, parameters=parameters, name="format_4")
 
     post_data_2(container=container)
+
+    return
+
+def format_command_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('format_command_1() called')
+    
+    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+    
+    # collect data for 'format_command_1' call
+    container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.os', 'artifact:*.cef.act', 'artifact:*.cef.input_arguments', 'artifact:*.id'])
+
+    parameters = []
+    
+    # build parameters list for 'format_command_1' call
+    for container_item in container_data:
+        if container_item[0] and container_item[1]:
+            parameters.append({
+                'supported_os': container_item[0],
+                'attack_id': container_item[1],
+                'input_arguments': container_item[2],
+                # context (artifact id) is added to associate results with the artifact
+                'context': {'artifact_id': container_item[3]},
+            })
+
+    phantom.act("format command", parameters=parameters, app={ "name": 'Atomic Red Team' }, callback=filter_1, name="format_command_1", parent_action=action)
+
+    return
+
+def format_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('format_3() called')
+    
+    template = """Started red team test: {0} on machine with IP address: {1}"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "artifact:*.cef.act",
+        "artifact:*.cef.destinationAddress",
+    ]
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_3")
+
+    post_data_1(container=container)
 
     return
 
