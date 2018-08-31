@@ -417,10 +417,11 @@ def format_command_1(action=None, success=None, container=None, results=None, ha
     container_data = phantom.collect2(container=container, datapath=['artifact:*.cef.os', 'artifact:*.cef.act', 'artifact:*.cef.input_arguments', 'artifact:*.id'])
 
     parameters = []
-    
     # build parameters list for 'format_command_1' call
     for container_item in container_data:
         if container_item[0] and container_item[1]:
+            phantom.debug(container_item[1])
+
             parameters.append({
                 'supported_os': container_item[0],
                 'attack_id': container_item[1],
