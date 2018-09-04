@@ -257,9 +257,10 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
     else:
         splunk_status_source_type = "advsim:atr"
     
-    guid = phantom.collect(container, "artifact:*.cef.request")[0]
-
-    #guid = uuid.uuid4().hex
+    try:
+        guid = phantom.collect(container, "artifact:*.cef.request")[0]
+    except:
+        guid = uuid.uuid4().hex
     playbook_info = phantom.get_playbook_info()
     phantom.save_data(guid, playbook_info[0]['id'])
     source = playbook_info[0]['name']
