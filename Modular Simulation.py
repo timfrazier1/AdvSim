@@ -74,82 +74,6 @@ def write_ended_event(action=None, success=None, container=None, results=None, h
 
     return
 
-def decision_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('decision_2() called')
-
-    # check for 'if' condition 1
-    matched_artifacts_1, matched_results_1 = phantom.condition(
-        container=container,
-        action_results=results,
-        conditions=[
-            ["artifact:*.cef.os", "==", "windows"],
-        ])
-
-    # call connected blocks if condition 1 matched
-    if matched_artifacts_1 or matched_results_1:
-        format_1(action=action, success=success, container=container, results=results, handle=handle)
-        return
-
-    # check for 'elif' condition 2
-    matched_artifacts_2, matched_results_2 = phantom.condition(
-        container=container,
-        action_results=results,
-        conditions=[
-            ["artifact:*.cef.os", "==", "linux"],
-        ])
-
-    # call connected blocks if condition 2 matched
-    if matched_artifacts_2 or matched_results_2:
-        return
-
-    # check for 'elif' condition 3
-    matched_artifacts_3, matched_results_3 = phantom.condition(
-        container=container,
-        action_results=results,
-        conditions=[
-            ["artifact:*.cef.os", "==", "macos"],
-        ])
-
-    # call connected blocks if condition 3 matched
-    if matched_artifacts_3 or matched_results_3:
-        return
-
-    return
-
-def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('decision_1() called')
-
-    # check for 'if' condition 1
-    matched_artifacts_1, matched_results_1 = phantom.condition(
-        container=container,
-        action_results=results,
-        conditions=[
-            ["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.name", "==", "powershell"],
-        ])
-
-    # call connected blocks if condition 1 matched
-    if matched_artifacts_1 or matched_results_1:
-        powershell_test(action=action, success=success, container=container, results=results, handle=handle)
-        return
-
-    # check for 'elif' condition 2
-    matched_artifacts_2, matched_results_2 = phantom.condition(
-        container=container,
-        action_results=results,
-        conditions=[
-            ["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.name", "==", "command_prompt"],
-        ])
-
-    # call connected blocks if condition 2 matched
-    if matched_artifacts_2 or matched_results_2:
-        cmd_test(action=action, success=success, container=container, results=results, handle=handle)
-        return
-
-    # call connected blocks for 'else' condition 3
-    run_supplied_command(action=action, success=success, container=container, results=results, handle=handle)
-
-    return
-
 def powershell_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('powershell_test() called')
     
@@ -209,24 +133,6 @@ def cmd_test(action=None, success=None, container=None, results=None, handle=Non
                 })
 
     phantom.act("run command", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=join_format_2, name="cmd_test")
-
-    return
-
-def filter_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('filter_1() called')
-
-    # collect filtered artifact ids for 'if' condition 1
-    matched_artifacts_1, matched_results_1 = phantom.condition(
-        container=container,
-        action_results=results,
-        conditions=[
-            ["Path", "not in", "format_command_1:action_result.data.*.executor.arg_types"],
-        ],
-        name="filter_1:condition_1")
-
-    # call connected blocks if filtered artifacts or results
-    if matched_artifacts_1 or matched_results_1:
-        decision_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
@@ -295,6 +201,40 @@ def post_data_2(action=None, success=None, container=None, results=None, handle=
 
     return
 
+def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('format_4() called')
+    
+    template = """Finished red team test: {0} on machine with IP address: {1}"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "artifact:*.cef.act",
+        "artifact:*.cef.destinationAddress",
+    ]
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_4")
+
+    post_data_2(container=container)
+
+    return
+
+def format_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('format_3() called')
+    
+    template = """Started red team test: {0} on machine with IP address: {1}"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "artifact:*.cef.act",
+        "artifact:*.cef.destinationAddress",
+    ]
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_3")
+
+    post_data_1(container=container)
+
+    return
+
 def post_data_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('post_data_1() called')
     import platform
@@ -342,6 +282,101 @@ def post_data_1(action=None, success=None, container=None, results=None, handle=
 
     return
 
+def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('decision_1() called')
+
+    # check for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        action_results=results,
+        conditions=[
+            ["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.name", "==", "powershell"],
+        ])
+
+    # call connected blocks if condition 1 matched
+    if matched_artifacts_1 or matched_results_1:
+        powershell_test(action=action, success=success, container=container, results=results, handle=handle)
+        return
+
+    # check for 'elif' condition 2
+    matched_artifacts_2, matched_results_2 = phantom.condition(
+        container=container,
+        action_results=results,
+        conditions=[
+            ["filtered-data:filter_1:condition_1:format_command_1:action_result.data.*.executor.name", "==", "command_prompt"],
+        ])
+
+    # call connected blocks if condition 2 matched
+    if matched_artifacts_2 or matched_results_2:
+        cmd_test(action=action, success=success, container=container, results=results, handle=handle)
+        return
+
+    # call connected blocks for 'else' condition 3
+    run_supplied_command(action=action, success=success, container=container, results=results, handle=handle)
+
+    return
+
+def decision_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('decision_2() called')
+
+    # check for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        action_results=results,
+        conditions=[
+            ["artifact:*.cef.os", "==", "windows"],
+        ])
+
+    # call connected blocks if condition 1 matched
+    if matched_artifacts_1 or matched_results_1:
+        format_1(action=action, success=success, container=container, results=results, handle=handle)
+        return
+
+    # check for 'elif' condition 2
+    matched_artifacts_2, matched_results_2 = phantom.condition(
+        container=container,
+        action_results=results,
+        conditions=[
+            ["artifact:*.cef.os", "==", "linux"],
+        ])
+
+    # call connected blocks if condition 2 matched
+    if matched_artifacts_2 or matched_results_2:
+        return
+
+    # check for 'elif' condition 3
+    matched_artifacts_3, matched_results_3 = phantom.condition(
+        container=container,
+        action_results=results,
+        conditions=[
+            ["artifact:*.cef.os", "==", "macos"],
+        ])
+
+    # call connected blocks if condition 3 matched
+    if matched_artifacts_3 or matched_results_3:
+        return
+
+    return
+
+def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('format_1() called')
+    
+    playbook_info = phantom.get_playbook_info()
+    guid = phantom.get_data(playbook_info[0]['id'], clear_data=False)
+    
+    template = "eventcreate /id 999 /D \"started test on {0} guid=%s\" /T INFORMATION /L application" % guid
+
+    # parameter list for template variable replacement
+    parameters = [
+        "artifact:*.cef.destinationAddress"
+    ]
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_1")
+
+    write_started_event(container=container)
+
+    return
+
 def write_started_event(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('write_started_event() called')
     
@@ -372,39 +407,21 @@ def write_started_event(action=None, success=None, container=None, results=None,
 
     return
 
-def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('format_1() called')
-    
-    playbook_info = phantom.get_playbook_info()
-    guid = phantom.get_data(playbook_info[0]['id'], clear_data=False)
-    
-    template = "eventcreate /id 999 /D \"started test on {0} guid=%s\" /T INFORMATION /L application" % guid
+def filter_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('filter_1() called')
 
-    # parameter list for template variable replacement
-    parameters = [
-        "artifact:*.cef.destinationAddress"
-    ]
+    # collect filtered artifact ids for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        action_results=results,
+        conditions=[
+            ["Path", "not in", "format_command_1:action_result.data.*.executor.arg_types"],
+        ],
+        name="filter_1:condition_1")
 
-    phantom.format(container=container, template=template, parameters=parameters, name="format_1")
-
-    write_started_event(container=container)
-
-    return
-
-def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('format_4() called')
-    
-    template = """Finished red team test: {0} on machine with IP address: {1}"""
-
-    # parameter list for template variable replacement
-    parameters = [
-        "artifact:*.cef.act",
-        "artifact:*.cef.destinationAddress",
-    ]
-
-    phantom.format(container=container, template=template, parameters=parameters, name="format_4")
-
-    post_data_2(container=container)
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        decision_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
@@ -431,23 +448,6 @@ def format_command_1(action=None, success=None, container=None, results=None, ha
             })
 
     phantom.act("format command", parameters=parameters, app={ "name": 'Atomic Red Team' }, callback=filter_1, name="format_command_1", parent_action=action)
-
-    return
-
-def format_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
-    phantom.debug('format_3() called')
-    
-    template = """Started red team test: {0} on machine with IP address: {1}"""
-
-    # parameter list for template variable replacement
-    parameters = [
-        "artifact:*.cef.act",
-        "artifact:*.cef.destinationAddress",
-    ]
-
-    phantom.format(container=container, template=template, parameters=parameters, name="format_3")
-
-    post_data_1(container=container)
 
     return
 
