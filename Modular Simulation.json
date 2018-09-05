@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "c605da38c13382ce5e4bde55bc4860b880b6eee2",
+            "hash": "b7ebef4bc730e62828e5246f11b249cb3776e351",
             "joint": {
                 "cells": [
                     {
@@ -201,8 +201,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 484,
-                        "line_start": 471,
+                        "line_end": 488,
+                        "line_start": 475,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -1077,7 +1077,7 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('decision_1() called')\n\n    # check for 'if' condition 1\n    matched_artifacts_1, matched_results_1 = phantom.condition(\n        container=container,\n        action_results=results,\n        conditions=[\n            [\"filtered-data:filter_1:condition_1:Format_ART_Command:action_result.data.*.executor.name\", \"==\", \"powershell\"],\n        ])\n\n    # call connected blocks if condition 1 matched\n    if matched_artifacts_1 or matched_results_1:\n        Run_Powershell_Test(action=action, success=success, container=container, results=results, handle=handle)\n        return\n\n    # check for 'elif' condition 2\n    matched_artifacts_2, matched_results_2 = phantom.condition(\n        container=container,\n        action_results=results,\n        conditions=[\n            [\"filtered-data:filter_1:condition_1:Format_ART_Command:action_result.data.*.executor.name\", \"==\", \"command_prompt\"],\n        ])\n\n    # call connected blocks if condition 2 matched\n    if matched_artifacts_2 or matched_results_2:\n        cmd_test(action=action, success=success, container=container, results=results, handle=handle)\n        return\n\n    # call connected blocks for 'else' condition 3\n    Run_User_Supplied_Cmd(action=action, success=success, container=container, results=results, handle=handle)\n\n    return",
+                        "block_code": "def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('decision_1() called')\n\n    # check for 'if' condition 1\n    matched_artifacts_1, matched_results_1 = phantom.condition(\n        container=container,\n        action_results=results,\n        conditions=[\n            [\"filtered-data:filter_1:condition_1:Format_ART_Command:action_result.data.*.executor.name\", \"==\", \"powershell\"],\n        ])\n\n    # call connected blocks if condition 1 matched\n    if matched_artifacts_1 or matched_results_1:\n        Run_Powershell_Test(action=action, success=success, container=container, results=results, handle=handle)\n        return\n\n    # check for 'elif' condition 2\n    matched_artifacts_2, matched_results_2 = phantom.condition(\n        container=container,\n        action_results=results,\n        conditions=[\n            [\"filtered-data:filter_1:condition_1:Format_ART_Command:action_result.data.*.executor.name\", \"==\", \"command_prompt\"],\n        ])\n\n    # call connected blocks if condition 2 matched\n    if matched_artifacts_2 or matched_results_2:\n        Run_Cmd_Test(action=action, success=success, container=container, results=results, handle=handle)\n        return\n\n    # call connected blocks for 'else' condition 3\n    Run_User_Supplied_Cmd(action=action, success=success, container=container, results=results, handle=handle)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
@@ -1101,8 +1101,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 124,
-                        "line_end": 272,
-                        "line_start": 238,
+                        "line_end": 276,
+                        "line_start": 242,
                         "name": "decision",
                         "notes": "",
                         "number": 1,
@@ -1284,8 +1284,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 383,
-                        "line_start": 365,
+                        "line_end": 387,
+                        "line_start": 369,
                         "name": "filter",
                         "notes": "",
                         "number": 1,
@@ -1625,8 +1625,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 409,
-                        "line_start": 383,
+                        "line_end": 413,
+                        "line_start": 387,
                         "message": "Configuring now",
                         "name": "format command",
                         "notes": "",
@@ -2001,8 +2001,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 365,
-                        "line_start": 335,
+                        "line_end": 369,
+                        "line_start": 339,
                         "message": "Configuring now",
                         "name": "run script",
                         "notes": "",
@@ -2276,8 +2276,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 204,
-                        "line_start": 173,
+                        "line_end": 208,
+                        "line_start": 177,
                         "message": "Configuring now",
                         "name": "post data",
                         "notes": "",
@@ -2433,8 +2433,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 221,
-                        "line_start": 204,
+                        "line_end": 225,
+                        "line_start": 208,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -2798,7 +2798,7 @@
                         "callsback": true,
                         "color": "",
                         "connected_to_start": true,
-                        "connection_name": "Run Powershell Test, cmd test, Run User Supplied Cmd",
+                        "connection_name": "Run Powershell Test, Run Cmd Test, Run User Supplied Cmd",
                         "connection_type": "action",
                         "custom_callback": "",
                         "custom_code": "",
@@ -3035,8 +3035,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 316,
-                        "line_start": 272,
+                        "line_end": 320,
+                        "line_start": 276,
                         "name": "decision",
                         "notes": "",
                         "number": 2,
@@ -3230,8 +3230,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 464,
-                        "line_start": 457,
+                        "line_end": 468,
+                        "line_start": 461,
                         "message": "Configuring now",
                         "name": "set status",
                         "notes": "",
@@ -3424,8 +3424,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 471,
-                        "line_start": 464,
+                        "line_end": 475,
+                        "line_start": 468,
                         "message": "Configuring now",
                         "name": "set status",
                         "notes": "",
@@ -3502,53 +3502,6 @@
                         "type": "coa.API",
                         "warn": false,
                         "z": 309
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#6C7A89",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#6a6c8a",
-                                "stroke": "#6a6c8a"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
-                        "id": "3ecef6ee-86ed-4910-b463-afb9910c23e2",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "d03e9d89-33a7-4962-9248-07388a7629ac",
-                            "port": null,
-                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "24c47fc4-f8f4-485e-bc1f-15be589d7bc4",
-                            "port": null,
-                            "selector": "g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "type": "link",
-                        "vertices": [
-                            {
-                                "x": 1680,
-                                "y": -200
-                            }
-                        ],
-                        "z": 310
                     },
                     {
                         "attrs": {
@@ -3671,8 +3624,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 335,
-                        "line_start": 316,
+                        "line_end": 339,
+                        "line_start": 320,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -3832,8 +3785,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 238,
-                        "line_start": 221,
+                        "line_end": 242,
+                        "line_start": 225,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -4119,8 +4072,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 457,
-                        "line_start": 409,
+                        "line_end": 461,
+                        "line_start": 413,
                         "message": "Configuring now",
                         "name": "post data",
                         "notes": "",
@@ -5158,7 +5111,7 @@
                         ],
                         "attrs": {
                             ".action": {
-                                "text": "cmd test"
+                                "text": "Run Cmd Test"
                             },
                             ".inPorts>.port-in": {
                                 "ref": ".background",
@@ -5215,9 +5168,9 @@
                         "connection_name": "Format ART Command",
                         "connection_type": "action",
                         "custom_callback": "",
-                        "custom_code": "def cmd_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('cmd_test() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'cmd_test' call\n    results_data_1 = phantom.collect2(container=container, datapath=['write_started_event:action_result.parameter.ip_hostname', 'write_started_event:action_result.parameter.context.artifact_id'], action_results=results)\n    filtered_results_data_1 = phantom.collect2(container=container, datapath=[\"filtered-data:filter_1:condition_1:Format_ART_Command:action_result.data.*.executor.command\", \"filtered-data:filter_1:condition_1:Format_ART_Command:action_result.parameter.context.artifact_id\"])\n\n    parameters = []\n    \n    # build parameters list for 'cmd_test' call\n    for results_item_1 in results_data_1:\n        for filtered_results_item_1 in filtered_results_data_1:\n            if results_item_1[0]:\n                parameters.append({\n                    'ip_hostname': results_item_1[0],\n                    'command': filtered_results_item_1[0].split(' ', 1)[0],\n                    'arguments': filtered_results_item_1[0].split(' ', 1)[1],\n                    'parser': \"\",\n                    'async': True,\n                    'command_id': \"\",\n                    'shell_id': \"\",\n                    # context (artifact id) is added to associate results with the artifact\n                    'context': {'artifact_id': results_item_1[1]},\n                })\n\n    phantom.act(\"run command\", parameters=parameters, app={ \"name\": 'Windows Remote Management' }, callback=join_Format_End_Marker, name=\"cmd_test\")\n\n    return",
+                        "custom_code": "def Run_Cmd_Test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('cmd_test() called')\n    \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'cmd_test' call\n    results_data_1 = phantom.collect2(container=container, datapath=['write_started_event:action_result.parameter.ip_hostname', 'write_started_event:action_result.parameter.context.artifact_id'], action_results=results)\n    filtered_results_data_1 = phantom.collect2(container=container, datapath=[\"filtered-data:filter_1:condition_1:Format_ART_Command:action_result.data.*.executor.command\", \"filtered-data:filter_1:condition_1:Format_ART_Command:action_result.parameter.context.artifact_id\"])\n\n    parameters = []\n    \n    # build parameters list for 'cmd_test' call\n    for results_item_1 in results_data_1:\n        for filtered_results_item_1 in filtered_results_data_1:\n            if results_item_1[0]:\n                parameters.append({\n                    'ip_hostname': results_item_1[0],\n                    'command': filtered_results_item_1[0].split(' ', 1)[0],\n                    'arguments': filtered_results_item_1[0].split(' ', 1)[1],\n                    'parser': \"\",\n                    'async': True,\n                    'command_id': \"\",\n                    'shell_id': \"\",\n                    # context (artifact id) is added to associate results with the artifact\n                    'context': {'artifact_id': results_item_1[1]},\n                })\n\n    phantom.act(\"run command\", parameters=parameters, app={ \"name\": 'Windows Remote Management' }, callback=join_Format_End_Marker, name=\"Run_Cmd_Test\")\n\n    return",
                         "custom_join": "",
-                        "custom_name": "cmd test",
+                        "custom_name": "Run Cmd Test",
                         "delay": 0,
                         "description": "",
                         "has_custom": true,
@@ -5297,7 +5250,7 @@
                             "y": 240
                         },
                         "previous_function": "",
-                        "previous_name": "cmd_test",
+                        "previous_name": "Run_Cmd_Test",
                         "required_params": {
                             "ip_hostname": true
                         },
@@ -5312,7 +5265,7 @@
                         "title": "Generic",
                         "type": "coa.Action",
                         "warn": false,
-                        "z": 322
+                        "z": 325
                     },
                     {
                         "active": false,
@@ -5369,7 +5322,7 @@
                         "callback_start": 1,
                         "callsback": false,
                         "connected_to_start": true,
-                        "connection_name": "Run Powershell Test, cmd test, Run User Supplied Cmd",
+                        "connection_name": "Run Powershell Test, Run Cmd Test, Run User Supplied Cmd",
                         "connection_type": "action",
                         "custom_callback": "",
                         "custom_code": "def Format_End_Marker(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('Format_End_Marker() called')\n    \n    playbook_info = phantom.get_playbook_info()\n    guid = phantom.get_data(playbook_info[0]['id'], clear_data=False)\n    phantom.debug(guid)\n        \n    template = \"eventcreate /id 999 /D \\\"ended test for {0} guid=%s\\\" /T INFORMATION /L application\" % guid\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"Run_Start_Marker:action_result.parameter.ip_hostname\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"Format_End_Marker\")\n\n    Run_End_Marker(container=container)\n\n    return",
@@ -5385,14 +5338,14 @@
                         "inPorts": [
                             "in"
                         ],
-                        "join_code": "def join_Format_End_Marker(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('join_Format_End_Marker() called')\n    \n    # if the joined function has already been called, do nothing\n    if phantom.get_run_data(key='join_Format_End_Marker_called'):\n        return\n\n    # no callbacks to check, call connected block \"Format_End_Marker\"\n    phantom.save_run_data(key='join_Format_End_Marker_called', value='Format_End_Marker', auto=True)\n\n    Format_End_Marker(container=container, handle=handle)\n    \n    return",
+                        "join_code": "def join_Format_End_Marker(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('join_Format_End_Marker() called')\n    \n    # if the joined function has already been called, do nothing\n    if phantom.get_run_data(key='join_Format_End_Marker_called'):\n        return\n\n    # check if all connected incoming actions are done i.e. have succeeded or failed\n    if phantom.actions_done([ 'Run_Cmd_Test' ]):\n        \n        # save the state that the joined function has now been called\n        phantom.save_run_data(key='join_Format_End_Marker_called', value='Format_End_Marker')\n        \n        # call connected block \"Format_End_Marker\"\n        Format_End_Marker(container=container, handle=handle)\n    \n    return",
                         "join_optional": [
                             "cmd_test",
                             "Run_Powershell_Test",
                             "Run_User_Supplied_Cmd"
                         ],
                         "join_start": 159,
-                        "line_end": 173,
+                        "line_end": 177,
                         "line_start": 139,
                         "message": "Configuring now",
                         "name": "format",
@@ -5477,7 +5430,54 @@
                         "title": "format",
                         "type": "coa.Format",
                         "warn": false,
-                        "z": 324
+                        "z": 326
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#6C7A89",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#6a6c8a",
+                                "stroke": "#6a6c8a"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "3ecef6ee-86ed-4910-b463-afb9910c23e2",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "d03e9d89-33a7-4962-9248-07388a7629ac",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "24c47fc4-f8f4-485e-bc1f-15be589d7bc4",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "type": "link",
+                        "vertices": [
+                            {
+                                "x": 1680,
+                                "y": -200
+                            }
+                        ],
+                        "z": 327
                     }
                 ]
             },
@@ -5486,7 +5486,7 @@
         "schema": 3,
         "version": "3.5.188"
     },
-    "create_time": "2018-09-05T19:00:50.958925+00:00",
+    "create_time": "2018-09-05T19:01:43.661236+00:00",
     "draft_mode": false,
     "labels": [
         "*"

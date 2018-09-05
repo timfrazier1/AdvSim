@@ -105,7 +105,7 @@ def Run_Powershell_Test(action=None, success=None, container=None, results=None,
 
     return
 
-def cmd_test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+def Run_Cmd_Test(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
     phantom.debug('cmd_test() called')
     
     #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
@@ -132,7 +132,7 @@ def cmd_test(action=None, success=None, container=None, results=None, handle=Non
                     'context': {'artifact_id': results_item_1[1]},
                 })
 
-    phantom.act("run command", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=join_Format_End_Marker, name="cmd_test")
+    phantom.act("run command", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=join_Format_End_Marker, name="Run_Cmd_Test")
 
     return
 
@@ -163,10 +163,14 @@ def join_Format_End_Marker(action=None, success=None, container=None, results=No
     if phantom.get_run_data(key='join_Format_End_Marker_called'):
         return
 
-    # no callbacks to check, call connected block "Format_End_Marker"
-    phantom.save_run_data(key='join_Format_End_Marker_called', value='Format_End_Marker', auto=True)
-
-    Format_End_Marker(container=container, handle=handle)
+    # check if all connected incoming actions are done i.e. have succeeded or failed
+    if phantom.actions_done([ 'Run_Cmd_Test' ]):
+        
+        # save the state that the joined function has now been called
+        phantom.save_run_data(key='join_Format_End_Marker_called', value='Format_End_Marker')
+        
+        # call connected block "Format_End_Marker"
+        Format_End_Marker(container=container, handle=handle)
     
     return
 
@@ -261,7 +265,7 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 2 matched
     if matched_artifacts_2 or matched_results_2:
-        cmd_test(action=action, success=success, container=container, results=results, handle=handle)
+        Run_Cmd_Test(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     # call connected blocks for 'else' condition 3
