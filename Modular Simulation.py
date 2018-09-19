@@ -427,7 +427,7 @@ def Run_Cmd_Test(action=None, success=None, container=None, results=None, handle
                     'command_id': "",
                     'shell_id': "",
                     # context (artifact id) is added to associate results with the artifact
-                    'context': {'artifact_id': results_item_1[1]},
+                    #'context': {'artifact_id': results_item_1[1]},
                 })
 
     phantom.act("run command", parameters=parameters, app={ "name": 'Windows Remote Management' }, callback=join_Format_End_Marker, name="Run_Cmd_Test")
