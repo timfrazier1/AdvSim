@@ -461,14 +461,10 @@ def join_Format_End_Marker(action=None, success=None, container=None, results=No
     if phantom.get_run_data(key='join_Format_End_Marker_called'):
         return
 
-    # check if all connected incoming actions are done i.e. have succeeded or failed
-    if phantom.actions_done([ 'Run_Cmd_Test' ]):
-        
-        # save the state that the joined function has now been called
-        phantom.save_run_data(key='join_Format_End_Marker_called', value='Format_End_Marker')
-        
-        # call connected block "Format_End_Marker"
-        Format_End_Marker(container=container, handle=handle)
+    # no callbacks to check, call connected block "Format_End_Marker"
+    phantom.save_run_data(key='join_Format_End_Marker_called', value='Format_End_Marker', auto=True)
+
+    Format_End_Marker(container=container, handle=handle)
     
     return
 
